@@ -1,2 +1,7 @@
-$font: "Futura New";
+@font-face {
+  font-family: "FuturaNewMedium-Reg";
+  src: url(./fonts/FuturaNewMedium-Reg.ttf);
+}
+
+$font: "FuturaNewMedium-Reg";
 $fontStyle: normal;
