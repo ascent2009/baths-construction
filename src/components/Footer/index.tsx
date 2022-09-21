@@ -13,6 +13,25 @@ const Footer: React.FC = () => {
           <img src={DarkLogo} alt="logo" />
         </div>
         <div className={s.footer_top__center}>
+          <nav className={s.footer_top__center_menu_mobile}>
+            <ul className={s.footer_top__center_submenu_mobile}>
+              <ul className={s.footer_top__center_subsubmenu_mobile}>
+                <li className={s.footer_top__center_submenu_item}>
+                  <A href="#">Главная</A>
+                </li>
+                <li className={s.footer_top__center_submenu_item}>
+                  <A href="#">Каталог</A>
+                </li>
+                <li className={s.footer_top__center_submenu_item}>
+                  <A href="#">Информация</A>
+                </li>
+                <li className={s.footer_top__center_submenu_item}>
+                  <A href="#">Наш блог</A>
+                </li>
+              </ul>
+            </ul>
+          </nav>
+
           <nav className={s.footer_top__center_menu}>
             <ul className={s.footer_top__center_submenu}>
               <ul className={s.footer_top__center_subsubmenu}>
@@ -49,6 +68,7 @@ const Footer: React.FC = () => {
                 </li>
               </ul>
             </ul>
+
             <ul className={s.footer_top__center_submenu}>
               <ul className={s.footer_top__center_subsubmenu}>
                 <A href="#" className={s.footer_top__center_submenu_title}>
@@ -88,7 +108,7 @@ const Footer: React.FC = () => {
             target="_blank"
             className={s.footer_top__right_email}
           >
-            info@novobani.ru
+            <span>E-mail:&nbsp;</span>info@novobani.ru
           </A>
         </div>
       </section>
@@ -119,6 +139,18 @@ const Footer: React.FC = () => {
             Сайт не является публичной офертой и носит информационный характер
           </p>
           <A href="#">Политика конфиденциальности</A>
+        </div>
+        <div className={s.footer_bottom__copyright_mobile}>
+          <p>
+            2021 © «Делодом» Воспроизведение или распространение материалов с
+            сайта в любой форме может производиться только с письменного
+            разрешения правообладателя. При использовании материалов — ссылка на
+            правообладателя и источник заимствования обязательна.
+          </p>
+          <A href="#">Политика конфиденциальности</A>
+          <p>
+            Сайт не является публичной офертой и носит информационный характер.
+          </p>
         </div>
       </section>
     </footer>

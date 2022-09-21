@@ -17,28 +17,82 @@ button {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: $mobileSize) {
+    width: 100vw;
+  }
   &::before {
     position: absolute;
     content: url("https://firebasestorage.googleapis.com/v0/b/baths-construction.appspot.com/o/footer%2Fshavings.png?alt=media&token=84420804-3e95-42c9-b582-efcdb3b5bcbb");
     top: 37%;
+    @media screen and (max-width: $mobileSize) {
+      display: none;
+    }
   }
   .footer_top {
     margin: 90px 131px 69px 91px;
     display: flex;
+    @media screen and (max-width: $mobileSize) {
+      flex-direction: column;
+      margin: 112px auto 60px 40px;
+    }
     .footer_top__left {
       margin-top: 2px;
+      @media screen and (max-width: $mobileSize) {
+        margin: 0 0 59.63px;
+      }
     }
     .footer_top__center {
       width: 425px;
       margin-left: 163.4px;
+      @media screen and (max-width: $mobileSize) {
+        margin-left: 0;
+        width: 145px;
+      }
+      .footer_top__center_menu_mobile {
+        display: none;
+        @media screen and (max-width: $mobileSize) {
+          display: flex;
+          padding: 0;
+          margin: 0 0 32px;
+          .footer_top__center_submenu_mobile {
+            padding: 0;
+            margin: 0;
+            a {
+              color: #4f4f4f;
+              font-size: 24px;
+              line-height: 29px;
+            }
+            .footer_top__center_subsubmenu_mobile {
+              padding: 0;
+              list-style: none;
+              .footer_top__center_submenu_item {
+                @media screen and (max-width: $mobileSize) {
+                  margin-bottom: 28px;
+                  a {
+                    text-decoration-line: none;
+                    &:active {
+                      color: black;
+                      font-size: 25px;
+                      transition: 0.5s;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       .footer_top__center_menu {
         padding: 0;
         margin: 0;
         display: grid;
-        grid-template-columns: repeat(2, 127px);
+        grid-template-columns: 127px repeat(1, 130px);
         column-gap: 171px;
         grid-template-rows: repeat(2, auto);
         row-gap: 7px;
+        @media screen and (max-width: $mobileSize) {
+          display: none;
+        }
         .footer_top__center_submenu {
           padding: 0;
           margin: 0;
@@ -88,6 +142,7 @@ button {
             }
             .footer_top__center_submenu_item {
               margin: 0 0 13px 0;
+
               a {
                 margin: 0;
                 font-weight: 400;
@@ -108,6 +163,9 @@ button {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      @media screen and (max-width: $mobileSize) {
+        margin: 0;
+      }
       .footer_top__right_title {
         margin: 0 0 31px;
         margin-bottom: 31px;
@@ -115,6 +173,11 @@ button {
         font-size: 16px;
         line-height: 20px;
         color: #333333;
+        @media screen and (max-width: $mobileSize) {
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 15px;
+        }
       }
       .footer_top__right_phone {
         margin: 0 0 6px;
@@ -122,6 +185,10 @@ button {
         font-size: 18px;
         line-height: 23px;
         color: #333333;
+        @media screen and (max-width: $mobileSize) {
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
       }
       .footer_top__right_timetable {
         margin: 0 0 45px;
@@ -129,6 +196,11 @@ button {
         font-size: 14px;
         line-height: 17px;
         color: #828282;
+        @media screen and (max-width: $mobileSize) {
+          font-size: 16px;
+          line-height: 19px;
+          margin-bottom: 29px;
+        }
       }
       .footer_top__right_whatsapp {
         margin-bottom: 8px;
@@ -137,6 +209,11 @@ button {
         line-height: 20px;
         text-decoration-line: underline;
         color: #da5c3e;
+        @media screen and (max-width: $mobileSize) {
+          font-size: 18px;
+          line-height: 23px;
+          margin-bottom: 15px;
+        }
       }
       .footer_top__right_email {
         font-weight: 400;
@@ -144,6 +221,18 @@ button {
         line-height: 36px;
         text-decoration-line: underline;
         color: #333333;
+        span {
+          display: none;
+        }
+        @media screen and (max-width: $mobileSize) {
+          font-size: 18px;
+          line-height: 22px;
+          span {
+            display: inline-block;
+            text-decoration-line: none;
+            color: #828282;
+          }
+        }
       }
     }
   }
@@ -151,17 +240,30 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto 9px 390px;
-    height: 208px;
+    margin: 0 40px 9px 390px;
+    height: fit-content;
+    @media screen and (max-width: $mobileSize) {
+      margin: 0 0 150px 40px;
+    }
     .footer_bottom__social {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      @media screen and (max-width: $mobileSize) {
+        flex-wrap: wrap;
+        width: 300px;
+        margin-bottom: 75px;
+      }
       .footer_bottom__social_sign {
         margin: 0 42px 0 0;
         font-weight: 400;
         font-size: 15px;
         line-height: 18px;
         color: #333333;
+        @media screen and (max-width: $mobileSize) {
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 22px;
+        }
       }
       .footer_bottom__social_link {
         display: flex;
@@ -184,6 +286,9 @@ button {
       font-size: 14px;
       line-height: 17px;
       color: #828282;
+      @media screen and (max-width: $mobileSize) {
+        display: none;
+      }
       p {
         margin: 0;
         &:first-child:not(:only-child) {
@@ -193,6 +298,28 @@ button {
       a {
         color: #333333;
         font-size: 14px;
+      }
+    }
+    .footer_bottom__copyright_mobile {
+      display: none;
+      @media screen and (max-width: $mobileSize) {
+        display: block;
+        width: 80vw;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 15px;
+        color: #828282;
+        a {
+          color: #333333;
+          font-size: 13px;
+          text-decoration-line: none;
+        }
+        p {
+          margin: 0;
+          &:first-child:not(:only-child) {
+            margin-bottom: 20px;
+          }
+        }
       }
     }
   }

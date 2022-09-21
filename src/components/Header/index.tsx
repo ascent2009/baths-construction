@@ -11,6 +11,7 @@ import FireSvg from "../../assets/fire.svg";
 import Menu from "../Menu/index";
 import CallSvg from "../../assets/call.svg";
 import ArrowSvg from "../../assets/dropdown-arrow.svg";
+import SandwichSvg from "../../assets/sandwich-mobile.svg";
 
 const Header: React.FC = () => {
   const [dropdown, setDropdown] = useState<boolean>(!false);
@@ -102,6 +103,18 @@ const Header: React.FC = () => {
           <A href="/">
             <img src={LogoSvg} alt="logo" />
           </A>
+          <button
+            type="button"
+            className={s.header_main__sandwich_mobile}
+            onClick={showAboutDropdown}
+          >
+            <img
+              src={SandwichSvg}
+              alt="sandwich"
+              style={!aboutDropdown ? arrowDirection : {}}
+            />
+          </button>
+
           <Menu className={s.header_main__menu}>
             <A href="#main">Главная</A>
             <A href="#catalogue">

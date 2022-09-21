@@ -6,6 +6,9 @@
   font-family: $font;
   font-style: $fontStyle;
   position: relative;
+  @media screen and (max-width: $mobileSize) {
+    display: none;
+  }
   .main_top__link {
     font-weight: 400;
     font-size: 14px;
