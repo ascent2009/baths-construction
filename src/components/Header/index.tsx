@@ -12,11 +12,14 @@ import Menu from "../Menu/index";
 import CallSvg from "../../assets/call.svg";
 import ArrowSvg from "../../assets/dropdown-arrow.svg";
 import SandwichSvg from "../../assets/sandwich-mobile.svg";
+import EmailWhiteSvg from "../../assets/email-white.svg";
+import WhatsappWhiteSvg from "../../assets/whatsapp-white.svg";
 
 const Header: React.FC = () => {
   const [dropdown, setDropdown] = useState<boolean>(!false);
   const [arrowDirection, setArrowDirection] = useState<{}>({});
   const [aboutDropdown, setAboutDropdown] = useState<boolean>(!false);
+  const [mobileDropdown, setMobileDropdown] = useState<boolean>(!false);
   const [email] = useState<string>("info@novobani.ru");
 
   const showDropdown = () => {
@@ -27,6 +30,12 @@ const Header: React.FC = () => {
   const showAboutDropdown = () => {
     setAboutDropdown(!aboutDropdown);
     setArrowDirection({ transform: "rotate(180deg)" });
+  };
+
+  const showMobileDropdown = () => {
+    setMobileDropdown(!mobileDropdown);
+    setArrowDirection({ transform: "rotate(180deg)" });
+    console.log(arrowDirection);
   };
 
   const handleEscape = useCallback(
@@ -106,14 +115,105 @@ const Header: React.FC = () => {
           <button
             type="button"
             className={s.header_main__sandwich_mobile}
-            onClick={showAboutDropdown}
+            onClick={showMobileDropdown}
           >
             <img
               src={SandwichSvg}
               alt="sandwich"
-              style={!aboutDropdown ? arrowDirection : {}}
+              style={!mobileDropdown ? arrowDirection : {}}
             />
           </button>
+          {!mobileDropdown ? (
+            <Dropdown className={s.header_main__dropdown_mobile}>
+              <nav className={s.header_main__dropdown_mobile_menu}>
+                <ul className={s.header_main__dropdown_mobile_submenu}>
+                  <A
+                    href="/"
+                    className={s.header_main__dropdown_mobile_submenu_title}
+                  >
+                    <h4>Главная</h4>
+                  </A>
+                </ul>
+                <ul className={s.header_main__dropdown_mobile_submenu}>
+                  <ul className={s.header_main__dropdown_mobile_subsubmenu}>
+                    <A
+                      href="/catalogue"
+                      className={s.header_main__dropdown_mobile_submenu_title}
+                    >
+                      <h4>Каталог</h4>
+                    </A>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="#">Классические бани-бочки</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="#">Квадро бани-бочки</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="#">Овальные бани-бочки</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="#">Каркассные бани серия Лира</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="#">Каркассные бани серия Флора</A>
+                    </li>
+                  </ul>
+                </ul>
+                <ul className={s.header_main__dropdown_mobile_submenu}>
+                  <ul className={s.header_main__dropdown_mobile_subsubmenu}>
+                    <A
+                      href="/information"
+                      className={s.header_main__dropdown_mobile_submenu_title}
+                    >
+                      <h4>Информация</h4>
+                    </A>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="/about">О нас</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="/vacancies">Вакансии</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="/faq">Вопросы и ответы</A>
+                    </li>
+                    <li className={s.header_main__dropdown_mobile_submenu_item}>
+                      <A href="/contacts">Контакты</A>
+                    </li>
+                  </ul>
+                </ul>
+                <ul className={s.header_main__dropdown_mobile_submenu}>
+                  <A
+                    href="/blog"
+                    className={s.header_main__dropdown_mobile_submenu_title}
+                  >
+                    <h4>Наш блог</h4>
+                  </A>
+                </ul>
+              </nav>
+              <div className={s.header_main__dropdown_mobile_contacts}>
+                <div className={s.header_main__dropdown_mobile_contacts_item}>
+                  <img src={CallSvg} alt="call" />
+                  <A href={"tel: +7(812)467-90-60"} target="_blank">
+                    <b style={{ textDecoration: "none" }}>+7 (812) 467-90-60</b>
+                  </A>
+                </div>
+                <div className={s.header_main__dropdown_mobile_contacts_item}>
+                  <img src={EmailWhiteSvg} alt="email" />
+                  <A href={"mailto:info@novobani.ru"} target="_blank">
+                    info@novobani.ru
+                  </A>
+                </div>
+                <div className={s.header_main__dropdown_mobile_contacts_item}>
+                  <img src={WhatsappWhiteSvg} alt="whatsapp" />
+                  <A href={"https://web.whatsapp.com/"} target="_blank">
+                    Написать в Whatsapp
+                  </A>
+                </div>
+              </div>
+            </Dropdown>
+          ) : (
+            ""
+          )}
 
           <Menu className={s.header_main__menu}>
             <A href="#main">Главная</A>
