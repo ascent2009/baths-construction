@@ -211,16 +211,29 @@ button {
         @media screen and (max-width: $mobileSize) {
           display: block;
           position: absolute;
-          width: 78%;
+          width: fit-content;
           height: fit-content;
           background-color: #da5c3e;
           z-index: 1;
           top: 15%;
           right: 0;
         }
+        .header_main__dropdown_mobile_close {
+          position: absolute;
+          border: none;
+          outline: none;
+          background: transparent;
+          padding: 0;
+          top: 30px;
+          right: 30px;
+          &:active {
+            transform: translateY(2px) scale(0);
+            transition: 0.5s;
+          }
+        }
         .header_main__dropdown_mobile_menu {
           position: relative;
-          margin: 56px auto 102px 60px;
+          margin: 56px 60px 102px 60px;
           // border-bottom: 1px dashed white;
           font-weight: 400;
           // color: #ffffff;
@@ -229,9 +242,9 @@ button {
             position: absolute;
             content: "";
             border-bottom: 1px dashed #ffffff;
-            width: 124%;
+            width: 160%;
             bottom: -10%;
-            right: 0;
+            right: -30%;
           }
           .header_main__dropdown_mobile_submenu {
             margin: 0;
@@ -272,7 +285,7 @@ button {
           }
         }
         .header_main__dropdown_mobile_contacts {
-          margin: 0 auto 56px 60px;
+          margin: 0 60px 56px 60px;
           .header_main__dropdown_mobile_contacts_item {
             margin-bottom: 26px;
             display: flex;
@@ -282,9 +295,9 @@ button {
               font-size: 18px;
               line-height: 23px;
               font-weight: 400;
-              text-decoration: underline;
-              b {
-                text-decoration: none;
+              text-decoration: none;
+              &:focus {
+                text-decoration: underline;
               }
             }
           }

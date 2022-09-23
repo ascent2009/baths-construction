@@ -14,6 +14,7 @@ import ArrowSvg from "../../assets/dropdown-arrow.svg";
 import SandwichSvg from "../../assets/sandwich-mobile.svg";
 import EmailWhiteSvg from "../../assets/email-white.svg";
 import WhatsappWhiteSvg from "../../assets/whatsapp-white.svg";
+import CloseWhiteSvg from "../../assets/close-white.svg";
 
 const Header: React.FC = () => {
   const [dropdown, setDropdown] = useState<boolean>(!false);
@@ -42,6 +43,7 @@ const Header: React.FC = () => {
     (event: React.KeyboardEvent<HTMLButtonElement>) => {
       if (event.key === "Escape") {
         setDropdown(dropdown);
+        setMobileDropdown(!mobileDropdown);
         console.log("dropdown: ", dropdown);
       }
     },
@@ -116,6 +118,7 @@ const Header: React.FC = () => {
             type="button"
             className={s.header_main__sandwich_mobile}
             onClick={showMobileDropdown}
+            onKeyDown={(event) => handleEscape(event)}
           >
             <img
               src={SandwichSvg}
@@ -125,6 +128,13 @@ const Header: React.FC = () => {
           </button>
           {!mobileDropdown ? (
             <Dropdown className={s.header_main__dropdown_mobile}>
+              <button
+                type="button"
+                className={s.header_main__dropdown_mobile_close}
+                onClick={showMobileDropdown}
+              >
+                <img src={CloseWhiteSvg} alt="close" />
+              </button>
               <nav className={s.header_main__dropdown_mobile_menu}>
                 <ul className={s.header_main__dropdown_mobile_submenu}>
                   <A
