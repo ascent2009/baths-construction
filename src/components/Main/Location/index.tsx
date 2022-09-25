@@ -1,13 +1,24 @@
 import React from "react";
 import s from "../style.module.scss";
 import { ListAboutImagesType } from "../../../types";
+import Modal from "../../Modal";
+import CloseSvg from "../../../assets/close.svg";
 
 interface ILocation {
   location: ListAboutImagesType;
   showModal: () => void;
+  closeModal: () => void;
+  modal: boolean;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Location: React.FC<ILocation> = ({ location, showModal }) => {
+const Location: React.FC<ILocation> = ({
+  location,
+  showModal,
+  closeModal,
+  modal,
+  setModal,
+}) => {
   return (
     <article className={s.main_location}>
       {location.map(({ url }) => (
@@ -36,6 +47,18 @@ const Location: React.FC<ILocation> = ({ location, showModal }) => {
           </p>
         </div>
       </div>
+      {!modal ? (
+        <Modal className={s.main_modal}>
+          {location.map(({ url }) => (
+            <img key={url} src={url} alt="map" />
+          ))}
+          <button className={s.main_modal__close} onClick={closeModal}>
+            <img src={CloseSvg} alt="close" />
+          </button>
+        </Modal>
+      ) : (
+        ""
+      )}
     </article>
   );
 };

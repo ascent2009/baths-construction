@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "../style.module.scss";
 import { ListFeaturesType, ListAboutImagesType } from "../../../types";
 import { A } from "hookrouter";
+import Modal from "../../Modal";
+import PaperPlaneSvg from "../../../assets/paper-plane.svg";
 
 interface IAbout {
   prodFeatures: ListFeaturesType;
   aboutImages: ListAboutImagesType;
+  // showModal: () => void;
+  // closeModal: () => void;
+  // modal: boolean;
+  // setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const About: React.FC<IAbout> = ({ prodFeatures, aboutImages }) => {
+const About: React.FC<IAbout> = ({
+  prodFeatures,
+  aboutImages,
+  // showModal,
+  // closeModal,
+  // modal,
+  // setModal,
+}) => {
+  const [modal, setModal] = useState<boolean>(!false);
+
+  const showModal = () => {
+    setModal(!modal);
+  };
+
+  const closeModal = () => {
+    setModal(!modal);
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     <article className={s.main_about} id={"about"}>
       <h2 className={s.main_about__title}>
@@ -50,15 +77,69 @@ const About: React.FC<IAbout> = ({ prodFeatures, aboutImages }) => {
           <h4 className={s.main_about__details_title}>
             Подробнее о нашем производстве
           </h4>
-          <p className={s.main_about__details_text}>
+          <button
+            type="button"
+            onClick={showModal}
+            className={s.main_about__details_text}
+          >
             Ответим на все возникшие вопросы
-          </p>
+          </button>
           <h3 className={s.main_about__details_phone}>+7 (812) 467-90-60</h3>
           <p className={s.main_about__details_timeline}>
             с 09:00 до 20:00 без выходных
           </p>
         </div>
       </ul>
+      {!modal ? (
+        <Modal className={s.main_modal__about}>
+          <div className={s.main_modal__about_block}>
+            <h1 className={s.main_modal__about_title}>
+              Ответим на Ваши вопросы
+            </h1>
+            <p className={s.main_modal__about_text}>
+              Ответим на все возникшие вопросы и рассчитаем стоимость. Заполните
+              форму ниже и мы сами перезвоним в течении 10 минут, звонок
+              бесплатный, и совершенно не к чему Вас не обязывает.
+            </p>
+            <form method="POST" action="" className={s.main_modal__about_form}>
+              <input
+                type="text"
+                placeholder="Ваше имя"
+                className={s.main_modal__about_input}
+              />
+              <input
+                type="phone"
+                placeholder="Ваш телефон"
+                className={s.main_modal__about_input}
+              />
+              <div className={s.main_modal__about_button_block}>
+                <button
+                  type="submit"
+                  className={s.main_modal__about_submit}
+                  onSubmit={handleSubmit}
+                >
+                  <img src={PaperPlaneSvg} alt="paper plane" />
+                  Отправить
+                </button>
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className={s.main_modal__about_close}
+                >
+                  Закрыть
+                </button>
+              </div>
+            </form>
+
+            <p className={s.main_modal__about_personal}>
+              Оставляя заявку Вы даете согласие на обработку своих{" "}
+              <span>персональных данных</span>.
+            </p>
+          </div>
+        </Modal>
+      ) : (
+        ""
+      )}
     </article>
   );
 };

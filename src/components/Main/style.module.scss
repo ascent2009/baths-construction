@@ -184,7 +184,6 @@
         right: -65%;
         .main_about__details_title {
           margin: 0 0 72px;
-
           font-weight: 400;
           font-size: 21px;
           line-height: 25px;
@@ -197,10 +196,18 @@
           line-height: 22px;
           color: #333333;
           margin: 0 0 20px;
+          padding: 0;
           width: 174px;
+          border: none;
+          outline: none;
+          text-decoration: none;
+          text-align: left;
+          background: transparent;
+          cursor: pointer;
           &::before {
             position: absolute;
             content: url("../../assets/telephone.svg");
+            bottom: 41%;
             left: -25%;
           }
         }
@@ -477,6 +484,110 @@
       }
       &:active {
         transform: translateY(2px);
+      }
+    }
+  }
+  .main_modal__about {
+    @extend .main_modal;
+    background: #ffffff;
+    border: none;
+    border-radius: 0;
+    outline: 1px solid gray;
+    width: fit-content;
+    height: fit-content;
+    top: 10%;
+    left: 33%;
+    .main_modal__about_block {
+      margin: 41px 64px 61px 78px;
+      .main_modal__about_title {
+        margin: 0 0 22px 0;
+        width: 310px;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 45px;
+        color: #333333;
+      }
+      .main_modal__about_text {
+        margin: 0 0 23px 0;
+        width: 372px;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 25px;
+        color: #4f4f4f;
+      }
+      .main_modal__about_form {
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        justify-content: space-between;
+        .main_modal__about_input {
+          height: 37px;
+          margin: 0 0 22px 0;
+          border: none;
+          border-bottom: 1px solid #828282;
+          outline: none;
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 21px;
+          color: #4f4f4f;
+          font-family: $font;
+          &::placeholder {
+            color: #828282;
+          }
+        }
+        .main_modal__about_button_block {
+          margin: 24px 0 40px;
+          display: flex;
+          width: 310px;
+          justify-content: space-between;
+          align-items: center;
+
+          .main_modal__about_submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #da5c3e;
+            box-shadow: 0 5px #b44d35;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22px;
+            color: #fff9e2;
+            text-decoration: none;
+            padding: 23px 48px 23px 43px;
+            cursor: pointer;
+            img {
+              margin-right: 15px;
+            }
+            &:active {
+              transform: translateY(2px);
+            }
+          }
+          .main_modal__about_close {
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 21px;
+            text-decoration-line: underline;
+            color: #da5c3e;
+            border: none;
+            outline: none;
+            padding: 0;
+            cursor: pointer;
+          }
+        }
+      }
+      .main_modal__about_personal {
+        margin: 0;
+        width: 300px;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 15px;
+        color: #828282;
+        span {
+          text-decoration-line: underline;
+        }
       }
     }
   }

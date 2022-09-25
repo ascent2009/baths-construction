@@ -9,8 +9,6 @@ import About from "./About";
 import Blog from "./Blog";
 import Examples from "./Examples";
 import Location from "./Location";
-import Modal from "../Modal";
-import CloseSvg from "../../assets/close.svg";
 
 import {
   ListImageType,
@@ -87,7 +85,6 @@ const Main: React.FC = () => {
 
   const showModal = () => {
     setModal(!modal);
-    console.log("modal: ", modal);
   };
 
   const closeModal = () => {
@@ -98,22 +95,23 @@ const Main: React.FC = () => {
     <section className={s.main}>
       <div className={s.main_top__link}>Главная /</div>
       <Production prodImages={prodImages} />
-      <About prodFeatures={prodFeatures} aboutImages={aboutImages} />
+      <About
+        prodFeatures={prodFeatures}
+        aboutImages={aboutImages}
+        // showModal={showModal}
+        // closeModal={closeModal}
+        // modal={modal}
+        // setModal={setModal}
+      />
       <Blog blogImages={blogImages} />
       <Examples examplesImages={examplesImages} />
-      <Location location={location} showModal={showModal} />
-      {!modal ? (
-        <Modal className={s.main_modal}>
-          {location.map(({ url }) => (
-            <img key={url} src={url} alt="map" />
-          ))}
-          <button className={s.main_modal__close} onClick={closeModal}>
-            <img src={CloseSvg} alt="close" />
-          </button>
-        </Modal>
-      ) : (
-        ""
-      )}
+      <Location
+        location={location}
+        showModal={showModal}
+        closeModal={closeModal}
+        modal={modal}
+        setModal={setModal}
+      />
     </section>
   );
 };
