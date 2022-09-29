@@ -6,6 +6,7 @@
   font-family: $font;
   font-style: $fontStyle;
   position: relative;
+
   @media screen and (max-width: $mobileSize) {
     display: none;
   }
@@ -467,7 +468,7 @@
     border-radius: 5px;
     height: 467px;
     outline: 3px solid gray;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     align-items: center;
     .main_modal__close {
@@ -489,6 +490,7 @@
   }
   .main_modal__about {
     @extend .main_modal;
+    // position: relative;
     background: #ffffff;
     border: none;
     border-radius: 0;
@@ -497,6 +499,30 @@
     height: fit-content;
     top: 10%;
     left: 33%;
+    z-index: 2;
+    .main_modal__modal_close {
+      position: absolute;
+      border: none;
+      outline: none;
+      top: -7%;
+      right: -7%;
+      background: transparent;
+      opacity: 0.6;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
     .main_modal__about_block {
       margin: 41px 64px 61px 78px;
       .main_modal__about_title {
