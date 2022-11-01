@@ -3,6 +3,7 @@ import s from "../style.module.scss";
 import { ListFeaturesType, ListAboutImagesType } from "../../../types";
 import { A } from "hookrouter";
 import Modal from "../../Modal";
+import { Overlay } from "../../Overlay";
 import PaperPlaneSvg from "../../../assets/paper-plane.svg";
 import CloseSvg from "../../../assets/close.svg";
 
@@ -125,7 +126,8 @@ const About: React.FC<IAbout> = ({
           </div>
         </ul>
         {!modal ? (
-          <div className="overlay">
+          <div>
+            <Overlay />
             <Modal className={s.main_modal__about}>
               <button
                 className={s.main_modal__modal_close}
@@ -152,21 +154,22 @@ const About: React.FC<IAbout> = ({
                     placeholder="Ваше имя"
                     name="name"
                     className={s.main_modal__about_input}
-                    onChange={(e) => handleChange(e)}
-                    value={input.name}
+                    onChange={handleChange}
+                    // value={input.name}
                   />
                   <input
-                    type="phone"
+                    type="tel"
                     placeholder="Ваш телефон"
                     name="phone"
                     className={s.main_modal__about_input}
-                    onChange={(e) => handleChange(e)}
-                    value={input.phone}
+                    onChange={handleChange}
+                    // value={input.phone}
                   />
                   <div className={s.main_modal__about_button_block}>
                     <button
                       type="submit"
                       className={s.main_modal__about_submit}
+                      disabled={!input.phone.length ? true : false}
                     >
                       <img src={PaperPlaneSvg} alt="paper plane" />
                       Отправить

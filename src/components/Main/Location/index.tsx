@@ -2,6 +2,7 @@ import React from "react";
 import s from "../style.module.scss";
 import { ListAboutImagesType } from "../../../types";
 import Modal from "../../Modal";
+import { Overlay } from "../../Overlay";
 import CloseSvg from "../../../assets/close.svg";
 
 interface ILocation {
@@ -48,14 +49,17 @@ const Location: React.FC<ILocation> = ({
         </div>
       </div>
       {!modal ? (
-        <Modal className={s.main_modal}>
-          {location.map(({ url }) => (
-            <img key={url} src={url} alt="map" />
-          ))}
-          <button className={s.main_modal__close} onClick={closeModal}>
-            <img src={CloseSvg} alt="close" />
-          </button>
-        </Modal>
+        <>
+          <Overlay />
+          <Modal className={s.main_modal}>
+            {location.map(({ url }) => (
+              <img key={url} src={url} alt="map" />
+            ))}
+            <button className={s.main_modal__close} onClick={closeModal}>
+              <img src={CloseSvg} alt="close" />
+            </button>
+          </Modal>
+        </>
       ) : (
         ""
       )}

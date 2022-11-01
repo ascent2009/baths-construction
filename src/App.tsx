@@ -6,17 +6,18 @@ import EnglishVersionPage from "./components/Pages/EnglishVersionPage";
 import NotFound from "./components/Pages/NotFoundPage";
 
 const routes = {
-  "/": () => <MyApp />,
+  "/": () => <Main />,
   "/english": () => <EnglishVersionPage />,
 };
 
-function MyApp() {
-  return <Main />;
-}
+// function MyApp() {
+//   return <Main />;
+// }
 
-function App() {
+const App = () => {
   const routeResult = useRoutes(routes);
+
   return <Layout>{routeResult || <NotFound />}</Layout>;
-}
+};
 
 export default App;

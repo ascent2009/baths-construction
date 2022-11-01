@@ -1,23 +1,18 @@
 import React, { useState, useCallback } from "react";
 import s from "./style.module.scss";
-// import { Link } from "react-router-dom";
-import { A } from "hookrouter";
-import EmailSvg from "../../assets/email.svg";
-import WhatsappSvg from "../../assets/whatsapp.svg";
-import EnvelopeSvg from "../../assets/envelope.svg";
-import HeaderMain from "./HeaderMain";
 import Dropdown from "../Dropdown/index";
-// import LogoSvg from "../../assets/logo.svg";
-// import FireSvg from "../../assets/fire.svg";
-// import Menu from "../Menu/index";
-// import CallSvg from "../../assets/call.svg";
-// import ArrowSvg from "../../assets/dropdown-arrow.svg";
-// import SandwichSvg from "../../assets/sandwich-mobile.svg";
-// import EmailWhiteSvg from "../../assets/email-white.svg";
-// import WhatsappWhiteSvg from "../../assets/whatsapp-white.svg";
-// import CloseWhiteSvg from "../../assets/close-white.svg";
+import { A } from "hookrouter";
+import LogoSvg from "../../assets/logo.svg";
+import FireSvg from "../../assets/fire.svg";
+import Menu from "../Menu/index";
+import CallSvg from "../../assets/call.svg";
+import ArrowSvg from "../../assets/dropdown-arrow.svg";
+import SandwichSvg from "../../assets/sandwich-mobile.svg";
+import EmailWhiteSvg from "../../assets/email-white.svg";
+import WhatsappWhiteSvg from "../../assets/whatsapp-white.svg";
+import CloseWhiteSvg from "../../assets/close-white.svg";
 
-const Header: React.FC = () => {
+const HeaderMain = () => {
   const [dropdown, setDropdown] = useState<boolean>(!false);
   const [arrowDirection, setArrowDirection] = useState<{}>({});
   const [aboutDropdown, setAboutDropdown] = useState<boolean>(!false);
@@ -53,65 +48,8 @@ const Header: React.FC = () => {
   );
 
   return (
-    <header className={s.header}>
-      <section className={s.header_top}>
-        <div className={s.header_top__left}>
-          {/* <p>For English speakers</p> */}
-          {/* <a href="/english">For English speakers</a> */}
-          <A href={"/english"}>For English speakers</A>
-        </div>
-        <div className={s.header_top__right}>
-          {/* <p>For English speakers</p> */}
-          {/* <a href="/english">For English speakers</a> */}
-          <div className={s.header_top__right_email}>
-            <img src={EmailSvg} alt="email" />
-            <button
-              type="button"
-              onClick={showDropdown}
-              onKeyDown={(event) => handleEscape(event)}
-            >
-              info@novobani.ru
-            </button>
-          </div>
-          <div className={s.header_top__right_whatsapp}>
-            <img src={WhatsappSvg} alt="whatsapp" />
-            <A href={"https://web.whatsapp.com/"} target="_blank">
-              Написать в Whatsapp
-            </A>
-          </div>
-        </div>
-      </section>
-      {!dropdown ? (
-        <Dropdown className={s.header_top__dropdown}>
-          <div className={s.header_top__dropdown_email}>
-            <img src={EnvelopeSvg} alt="envelope" />
-            <A href={"mailto:info@novobani.ru"} target="_blank">
-              info@novobani.ru
-            </A>
-          </div>
-          <div className={s.header_top__dropdown_email}>
-            <button
-              type="button"
-              onClick={() => {
-                navigator.clipboard.writeText(email);
-                alert(`Электронная почта ${email} скопирована в буфер обмена`);
-              }}
-            >
-              Copy
-            </button>
-          </div>
-
-          <div className={s.header_top__dropdown_email}>
-            <A href="mailto:" target="_blank">
-              New email
-            </A>
-          </div>
-        </Dropdown>
-      ) : (
-        ""
-      )}
-      <HeaderMain />
-      {/* <section className={s.header_main}>
+    <>
+      <section className={s.header_main}>
         <div className={s.header_main__menu_block}>
           <A href="/">
             <img src={LogoSvg} alt="logo" />
@@ -286,9 +224,9 @@ const Header: React.FC = () => {
         </Dropdown>
       ) : (
         ""
-      )} */}
-    </header>
+      )}
+    </>
   );
 };
 
-export default Header;
+export default HeaderMain;
