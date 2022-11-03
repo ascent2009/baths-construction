@@ -368,6 +368,36 @@ button {
         }
       }
     }
+
+    .header_main__menu_block_404 {
+      @extend .header_main__menu_block;
+      padding-bottom: 43px;
+      background: none;
+      .header_main__menu {
+        a,
+        button {
+          color: #333333;
+          &:focus,
+          &:hover {
+            color: #929292;
+          }
+        }
+      }
+      .header_main__phone {
+        a {
+          color: #333333;
+          &:focus,
+          &:hover {
+            color: #929292;
+          }
+        }
+      }
+    }
+  }
+  .header_main__404 {
+    @extend .header_main;
+    background: none;
+    height: fit-content;
   }
   .header_main__menu_dropdown {
     position: absolute;

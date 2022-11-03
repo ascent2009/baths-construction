@@ -5,7 +5,7 @@ import { A } from "hookrouter";
 import EmailSvg from "../../assets/email.svg";
 import WhatsappSvg from "../../assets/whatsapp.svg";
 import EnvelopeSvg from "../../assets/envelope.svg";
-import HeaderMain from "./HeaderMain";
+// import HeaderMain from "./HeaderMain";
 import Dropdown from "../Dropdown/index";
 // import LogoSvg from "../../assets/logo.svg";
 // import FireSvg from "../../assets/fire.svg";
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
       ) : (
         ""
       )}
-      <HeaderMain />
+      {/* {!isDisplayed ? <HeaderMain /> : ""} */}
       {/* <section className={s.header_main}>
         <div className={s.header_main__menu_block}>
           <A href="/">

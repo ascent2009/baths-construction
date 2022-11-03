@@ -2,5 +2,7 @@ import React from "react";
 import s from "./style.module.scss";
 
 export const Overlay = () => {
-  return <div className={s.overlay}></div>;
+  return (
+    <div className={s.overlay} onClick={() => console.log("Привет")}></div>
+  );
 };

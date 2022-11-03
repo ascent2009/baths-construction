@@ -3,6 +3,9 @@ import s from "./style.module.scss";
 // import { A } from "hookrouter";
 import { db } from "../../firebase";
 import { ref, onValue } from "firebase/database";
+import LogoSvg from "../../assets/logo.svg";
+import HeaderMain from "../Header/HeaderMain";
+// import HeaderChangedContent from "../Header/HeaderChangedContent";
 
 import Production from "./Production";
 import About from "./About";
@@ -28,6 +31,10 @@ const Main: React.FC = () => {
   );
   const [location, setLocation] = useState<ListAboutImagesType>([]);
   const [modal, setModal] = useState<boolean>(!false);
+
+  const SVGCollection = {
+    lightLogo: LogoSvg,
+  };
 
   useEffect(() => {
     const dbRef = ref(db, `main-production`);
@@ -92,27 +99,35 @@ const Main: React.FC = () => {
   };
 
   return (
-    <section className={s.main}>
-      <div className={s.main_top__link}>Главная /</div>
-      <Production prodImages={prodImages} />
-      <About
-        prodFeatures={prodFeatures}
-        aboutImages={aboutImages}
-        // showModal={showModal}
-        // closeModal={closeModal}
-        // modal={modal}
-        // setModal={setModal}
+    <>
+      <HeaderMain
+        className={"header_main__menu_block"}
+        background="header_main"
+        logo={SVGCollection.lightLogo}
       />
-      <Blog blogImages={blogImages} />
-      <Examples examplesImages={examplesImages} />
-      <Location
-        location={location}
-        showModal={showModal}
-        closeModal={closeModal}
-        modal={modal}
-        setModal={setModal}
-      />
-    </section>
+
+      <section className={s.main}>
+        <div className={s.main_top__link}>Главная /</div>
+        <Production prodImages={prodImages} />
+        <About
+          prodFeatures={prodFeatures}
+          aboutImages={aboutImages}
+          // showModal={showModal}
+          // closeModal={closeModal}
+          // modal={modal}
+          // setModal={setModal}
+        />
+        <Blog blogImages={blogImages} />
+        <Examples examplesImages={examplesImages} />
+        <Location
+          location={location}
+          showModal={showModal}
+          closeModal={closeModal}
+          modal={modal}
+          setModal={setModal}
+        />
+      </section>
+    </>
   );
 };
 

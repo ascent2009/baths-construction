@@ -1,18 +1,31 @@
 import React, { useState, useCallback } from "react";
-import s from "./style.module.scss";
-import Dropdown from "../Dropdown/index";
+import s from "../style.module.scss";
+import Dropdown from "../../Dropdown/index";
+import HeaderChangedContent from "../HeaderChangedContent";
 import { A } from "hookrouter";
-import LogoSvg from "../../assets/logo.svg";
-import FireSvg from "../../assets/fire.svg";
-import Menu from "../Menu/index";
-import CallSvg from "../../assets/call.svg";
-import ArrowSvg from "../../assets/dropdown-arrow.svg";
-import SandwichSvg from "../../assets/sandwich-mobile.svg";
-import EmailWhiteSvg from "../../assets/email-white.svg";
-import WhatsappWhiteSvg from "../../assets/whatsapp-white.svg";
-import CloseWhiteSvg from "../../assets/close-white.svg";
+// import LogoSvg from "../../../assets/logo.svg";
+import FireSvg from "../../../assets/fire.svg";
+import Menu from "../../Menu/index";
+import CallSvg from "../../../assets/call.svg";
+import ArrowSvg from "../../../assets/dropdown-arrow.svg";
+import SandwichSvg from "../../../assets/sandwich-mobile.svg";
+import EmailWhiteSvg from "../../../assets/email-white.svg";
+import WhatsappWhiteSvg from "../../../assets/whatsapp-white.svg";
+import CloseWhiteSvg from "../../../assets/close-white.svg";
 
-const HeaderMain = () => {
+export interface IHeaderMain {
+  style?: object;
+  className?: string;
+  background?: string;
+  logo?: string;
+}
+
+const HeaderMain: React.FC<IHeaderMain> = ({
+  style,
+  className,
+  background,
+  logo,
+}) => {
   const [dropdown, setDropdown] = useState<boolean>(!false);
   const [arrowDirection, setArrowDirection] = useState<{}>({});
   const [aboutDropdown, setAboutDropdown] = useState<boolean>(!false);
@@ -47,12 +60,14 @@ const HeaderMain = () => {
     []
   );
 
+  // const menuBlock = "header_main__menu_block";
+
   return (
-    <>
-      <section className={s.header_main}>
-        <div className={s.header_main__menu_block}>
+    <header className={s.header}>
+      <section className={s[`${background}`]}>
+        <div className={s[`${className}`]}>
           <A href="/">
-            <img src={LogoSvg} alt="logo" />
+            <img src={logo} alt="logo" />
           </A>
           <button
             type="button"
@@ -191,7 +206,8 @@ const HeaderMain = () => {
             </A>
           </div>
         </div>
-        <div className={s.header_main__title_block}>
+        <HeaderChangedContent style={style} />
+        {/* <div className={s.header_main__title_block}>
           <h1>Производим мобильные бани на заказ</h1>
           <h3>
             Реальные цены <b>от 142 200 руб.</b> - под ключ, заходи и парься!
@@ -213,7 +229,7 @@ const HeaderMain = () => {
             Получить консультацию
           </A>
           <A href="/production">Посетить производство</A>
-        </div>
+        </div> */}
       </section>
       {!aboutDropdown ? (
         <Dropdown className={s.header_main__menu_dropdown}>
@@ -225,7 +241,7 @@ const HeaderMain = () => {
       ) : (
         ""
       )}
-    </>
+    </header>
   );
 };
 
