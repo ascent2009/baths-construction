@@ -4,6 +4,8 @@ import s from "./style.module.scss";
 import { db } from "../../firebase";
 import { ref, onValue } from "firebase/database";
 import LogoSvg from "../../assets/logo.svg";
+import CallSvg from "../../assets/call.svg";
+import ArrowSvg from "../../assets/dropdown-arrow.svg";
 import HeaderMain from "../Header/HeaderMain";
 // import HeaderChangedContent from "../Header/HeaderChangedContent";
 
@@ -34,6 +36,8 @@ const Main: React.FC = () => {
 
   const SVGCollection = {
     lightLogo: LogoSvg,
+    phoneIcon: CallSvg,
+    arrowIcon: ArrowSvg,
   };
 
   useEffect(() => {
@@ -104,6 +108,8 @@ const Main: React.FC = () => {
         className={"header_main__menu_block"}
         background="header_main"
         logo={SVGCollection.lightLogo}
+        phoneIcon={SVGCollection.phoneIcon}
+        arrowIcon={SVGCollection.arrowIcon}
       />
 
       <section className={s.main}>

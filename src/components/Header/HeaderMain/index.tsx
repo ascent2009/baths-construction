@@ -6,7 +6,6 @@ import { A } from "hookrouter";
 // import LogoSvg from "../../../assets/logo.svg";
 import FireSvg from "../../../assets/fire.svg";
 import Menu from "../../Menu/index";
-import CallSvg from "../../../assets/call.svg";
 import ArrowSvg from "../../../assets/dropdown-arrow.svg";
 import SandwichSvg from "../../../assets/sandwich-mobile.svg";
 import EmailWhiteSvg from "../../../assets/email-white.svg";
@@ -18,6 +17,8 @@ export interface IHeaderMain {
   className?: string;
   background?: string;
   logo?: string;
+  phoneIcon?: string;
+  arrowIcon?: string;
 }
 
 const HeaderMain: React.FC<IHeaderMain> = ({
@@ -25,6 +26,8 @@ const HeaderMain: React.FC<IHeaderMain> = ({
   className,
   background,
   logo,
+  phoneIcon,
+  arrowIcon,
 }) => {
   const [dropdown, setDropdown] = useState<boolean>(!false);
   const [arrowDirection, setArrowDirection] = useState<{}>({});
@@ -157,7 +160,7 @@ const HeaderMain: React.FC<IHeaderMain> = ({
               </nav>
               <div className={s.header_main__dropdown_mobile_contacts}>
                 <div className={s.header_main__dropdown_mobile_contacts_item}>
-                  <img src={CallSvg} alt="call" />
+                  <img src={phoneIcon} alt="call" />
                   <A href={"tel: +7(812)467-90-60"} target="_blank">
                     <b style={{ textDecoration: "none" }}>+7 (812) 467-90-60</b>
                   </A>
@@ -184,12 +187,12 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             <A href="#main">Главная</A>
             <A href="#catalogue">
               Каталог
-              <img src={ArrowSvg} alt="arrow" />
+              <img src={arrowIcon} alt="arrow" />
             </A>
             <button type="button" onClick={showAboutDropdown}>
               Информация
               <img
-                src={ArrowSvg}
+                src={arrowIcon}
                 alt="arrow"
                 style={!aboutDropdown ? arrowDirection : {}}
               />
@@ -200,7 +203,7 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             </A>
           </Menu>
           <div className={s.header_main__phone}>
-            <img src={CallSvg} alt="call" />
+            <img src={phoneIcon} alt="call" />
             <A href={"tel: +7(812)467-90-60"} target="_blank">
               +7 (812) 467-90-60
             </A>

@@ -369,7 +369,7 @@ button {
       }
     }
 
-    .header_main__menu_block_404 {
+    .header_main__menu_block_eng {
       @extend .header_main__menu_block;
       padding-bottom: 43px;
       background: none;
@@ -394,7 +394,7 @@ button {
       }
     }
   }
-  .header_main__404 {
+  .header_main__eng {
     @extend .header_main;
     background: none;
     height: fit-content;
@@ -407,6 +407,7 @@ button {
     box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
+    z-index: 1;
     a {
       font-style: normal;
       font-weight: 400;

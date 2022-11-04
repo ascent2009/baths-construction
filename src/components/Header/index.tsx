@@ -58,7 +58,11 @@ const Header: React.FC = () => {
         <div className={s.header_top__left}>
           {/* <p>For English speakers</p> */}
           {/* <a href="/english">For English speakers</a> */}
-          <A href={"/english"}>For English speakers</A>
+          {window.location.pathname !== "/english" ? (
+            <A href={"/english"}>For English speakers</A>
+          ) : (
+            <A href={"/"}>К русской версии</A>
+          )}
         </div>
         <div className={s.header_top__right}>
           {/* <p>For English speakers</p> */}
