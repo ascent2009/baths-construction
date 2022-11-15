@@ -10,17 +10,17 @@ import ArrowSvg from "../../../assets/dropdown-arrow-black.svg";
 
 console.log(window.location.pathname === "/english");
 
-const EnglishVersionPage: React.FC = () => {
-  const SVGCollection = {
-    darkLogo: DarkLogo,
-    phoneIcon: PhoneRed,
-    arrowIcon: ArrowSvg,
-  };
+export const SVGCollection = {
+  darkLogo: DarkLogo,
+  phoneIcon: PhoneRed,
+  arrowIcon: ArrowSvg,
+};
 
+const EnglishVersionPage: React.FC = () => {
   return (
     <>
       <HeaderMain
-        style={{ display: "none" }}
+        display={{ display: "none" }}
         className="header_main__menu_block_eng"
         background="header_main__eng"
         logo={SVGCollection.darkLogo}

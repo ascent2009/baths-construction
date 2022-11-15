@@ -247,7 +247,8 @@ button {
     }
     .footer_bottom__social {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      margin-bottom: 76px;
       @media screen and (max-width: $mobileSize) {
         flex-wrap: wrap;
         width: 300px;

@@ -4,15 +4,15 @@ import Layout from "./components/Pages/Layout";
 import { useRoutes } from "hookrouter";
 import EnglishVersionPage from "./components/Pages/EnglishVersionPage";
 import NotFound from "./components/Pages/NotFoundPage";
+import PersonalInfoPage from "./components/Pages/PersonalInfoPage/";
+import BarellBathsPage from "./components/Pages/BarrelBathsPage";
 
 const routes = {
   "/": () => <Main />,
   "/english": () => <EnglishVersionPage />,
+  "/personal_info": () => <PersonalInfoPage />,
+  "/barell_baths": () => <BarellBathsPage />,
 };
-
-// function MyApp() {
-//   return <Main />;
-// }
 
 const App = () => {
   const routeResult = useRoutes(routes);

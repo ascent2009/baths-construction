@@ -1,0 +1,98 @@
+.main_location {
+  margin: 0;
+  display: flex;
+
+  .main_location__right {
+    width: 649px;
+    margin: 0;
+    position: relative;
+    background: #f2f2f2;
+    &::before {
+      position: absolute;
+      content: url("../../../assets/location.png");
+    }
+    .main_location__contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 111px auto auto 101px;
+
+      .main_location__contacts_title {
+        margin: 0 0 34px;
+        width: 240px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        color: #333333;
+      }
+      .main_location__contacts_address {
+        font-style: normal;
+        margin: 0 0 17px;
+        width: 360px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #4f4f4f;
+      }
+      .main_location__contacts_modal {
+        position: relative;
+        padding: 0;
+        margin: 0 0 22px;
+        border: none;
+        outline: none;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-decoration-line: underline;
+        text-align: left;
+        color: #333333;
+        cursor: pointer;
+        &::after {
+          position: absolute;
+          content: url("../../../assets/arrow-location.svg");
+          left: 32%;
+        }
+      }
+      .main_location__contacts_invitation {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #da5c3e;
+        margin: 0;
+        width: 400px;
+        span {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+}
+.main_modal {
+  position: relative;
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  transition: 0.5s;
+  border-radius: 5px;
+  height: 467px;
+  outline: 3px solid gray;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  .main_modal__close {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+      transition: 0.5s;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+}

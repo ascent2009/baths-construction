@@ -8,12 +8,13 @@ import CallSvg from "../../assets/call.svg";
 import ArrowSvg from "../../assets/dropdown-arrow.svg";
 import HeaderMain from "../Header/HeaderMain";
 // import HeaderChangedContent from "../Header/HeaderChangedContent";
-
+import { LocationContext } from "../../context";
 import Production from "./Production";
 import About from "./About";
 import Blog from "./Blog";
 import Examples from "./Examples";
 import Location from "./Location";
+import { defaultValues } from "../../context";
 
 import {
   ListImageType,
@@ -23,6 +24,12 @@ import {
   ListExampleImagesType,
 } from "../../types";
 
+export const SVGCollection = {
+  lightLogo: LogoSvg,
+  phoneIcon: CallSvg,
+  arrowIcon: ArrowSvg,
+};
+
 const Main: React.FC = () => {
   const [prodImages, setProdImages] = useState<ListImageType>([]);
   const [prodFeatures, setProdFeatures] = useState<ListFeaturesType>([]);
@@ -31,14 +38,10 @@ const Main: React.FC = () => {
   const [examplesImages, setExamplesImages] = useState<ListExampleImagesType>(
     []
   );
-  const [location, setLocation] = useState<ListAboutImagesType>([]);
-  const [modal, setModal] = useState<boolean>(!false);
-
-  const SVGCollection = {
-    lightLogo: LogoSvg,
-    phoneIcon: CallSvg,
-    arrowIcon: ArrowSvg,
-  };
+  const [location, setLocation] = useState<ListAboutImagesType>(
+    defaultValues.location
+  );
+  const [modal, setModal] = useState<boolean>(defaultValues.modal);
 
   useEffect(() => {
     const dbRef = ref(db, `main-production`);
@@ -125,13 +128,11 @@ const Main: React.FC = () => {
         />
         <Blog blogImages={blogImages} />
         <Examples examplesImages={examplesImages} />
-        <Location
-          location={location}
-          showModal={showModal}
-          closeModal={closeModal}
-          modal={modal}
-          setModal={setModal}
-        />
+        <LocationContext.Provider
+          value={{ location, showModal, closeModal, modal }}
+        >
+          <Location />
+        </LocationContext.Provider>
       </section>
     </>
   );

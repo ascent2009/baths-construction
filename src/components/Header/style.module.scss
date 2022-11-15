@@ -399,6 +399,11 @@ button {
     background: none;
     height: fit-content;
   }
+  .header_main__404 {
+    @extend .header_main;
+    background: #828282;
+    height: fit-content;
+  }
   .header_main__menu_dropdown {
     position: absolute;
     left: 39%;

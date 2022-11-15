@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "../style.module.scss";
 import { ListFeaturesType, ListAboutImagesType } from "../../../types";
-import { A } from "hookrouter";
+import { A, navigate } from "hookrouter";
 import Modal from "../../Modal";
 import { Overlay } from "../../Overlay";
 import PaperPlaneSvg from "../../../assets/paper-plane.svg";
@@ -66,6 +66,7 @@ const About: React.FC<IAbout> = ({
       );
     }
     setInput({ name: "", phone: "" });
+    navigate("/order_page");
     closeModal();
   };
 

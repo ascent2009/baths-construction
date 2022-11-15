@@ -6,14 +6,14 @@ import { A } from "hookrouter";
 // import LogoSvg from "../../../assets/logo.svg";
 import FireSvg from "../../../assets/fire.svg";
 import Menu from "../../Menu/index";
-import ArrowSvg from "../../../assets/dropdown-arrow.svg";
+// import ArrowSvg from "../../../assets/dropdown-arrow.svg";
 import SandwichSvg from "../../../assets/sandwich-mobile.svg";
 import EmailWhiteSvg from "../../../assets/email-white.svg";
 import WhatsappWhiteSvg from "../../../assets/whatsapp-white.svg";
 import CloseWhiteSvg from "../../../assets/close-white.svg";
 
 export interface IHeaderMain {
-  style?: object;
+  display?: object;
   className?: string;
   background?: string;
   logo?: string;
@@ -22,7 +22,7 @@ export interface IHeaderMain {
 }
 
 const HeaderMain: React.FC<IHeaderMain> = ({
-  style,
+  display,
   className,
   background,
   logo,
@@ -184,8 +184,8 @@ const HeaderMain: React.FC<IHeaderMain> = ({
           )}
 
           <Menu className={s.header_main__menu}>
-            <A href="#main">Главная</A>
-            <A href="#catalogue">
+            <A href="/">Главная</A>
+            <A href="/catalogue">
               Каталог
               <img src={arrowIcon} alt="arrow" />
             </A>
@@ -209,7 +209,7 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             </A>
           </div>
         </div>
-        <HeaderChangedContent style={style} />
+        <HeaderChangedContent display={display} />
         {/* <div className={s.header_main__title_block}>
           <h1>Производим мобильные бани на заказ</h1>
           <h3>

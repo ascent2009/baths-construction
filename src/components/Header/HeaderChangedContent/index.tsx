@@ -3,9 +3,9 @@ import s from "../style.module.scss";
 import { A } from "hookrouter";
 import { IHeaderMain } from "../HeaderMain";
 
-const HeaderChangedContent: React.FC<IHeaderMain> = ({ style }) => {
+const HeaderChangedContent: React.FC<IHeaderMain> = ({ display }) => {
   return (
-    <div style={style}>
+    <div style={display}>
       <div className={s.header_main__title_block}>
         <h1>Производим мобильные бани на заказ</h1>
         <h3>

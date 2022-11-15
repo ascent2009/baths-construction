@@ -1,0 +1,64 @@
+@import "../../../vars";
+
+.main_404 {
+  background: #828282;
+  font-family: $font;
+  font-style: $fontStyle;
+  width: 1340px;
+  margin: 0 auto 0 auto;
+  padding-top: 94.5px;
+  //   padding-bottom: 94.5px;
+  //   height: fit-content;
+  .main_404__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 45px;
+    color: #fff9e2;
+    margin: 0 auto 0 90px;
+  }
+  .main_404__subtitle {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 81px;
+    color: #ffffff;
+    margin: 0 0 auto 90px;
+  }
+  .main_404__text_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    width: 660px;
+    height: 110px;
+    margin: 34px auto 31px 90px;
+    .main_404__text {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      color: #ffffff;
+      a {
+        color: #fff9e2;
+        font-size: 18px;
+        text-decoration-line: none;
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+  .main_404__image_block {
+    position: relative;
+    height: 221px;
+    padding-top: 31px;
+    .main_404__tools_image {
+      position: absolute;
+      bottom: 0;
+      left: 137px;
+    }
+    .main_404__worker_image {
+      position: absolute;
+      bottom: 0;
+      right: 93px;
+    }
+  }
+}

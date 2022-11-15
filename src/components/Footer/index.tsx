@@ -35,7 +35,10 @@ const Footer: React.FC = () => {
           <nav className={s.footer_top__center_menu}>
             <ul className={s.footer_top__center_submenu}>
               <ul className={s.footer_top__center_subsubmenu}>
-                <A href="#" className={s.footer_top__center_submenu_title}>
+                <A
+                  href="/barrel_baths"
+                  className={s.footer_top__center_submenu_title}
+                >
                   <h4>Бани-бочки</h4>
                 </A>
                 <li className={s.footer_top__center_submenu_item}>
@@ -138,7 +141,7 @@ const Footer: React.FC = () => {
           <p>
             Сайт не является публичной офертой и носит информационный характер
           </p>
-          <A href="#">Политика конфиденциальности</A>
+          <A href="/personal_info">Политика конфиденциальности</A>
         </div>
         <div className={s.footer_bottom__copyright_mobile}>
           <p>
@@ -147,7 +150,7 @@ const Footer: React.FC = () => {
             разрешения правообладателя. При использовании материалов — ссылка на
             правообладателя и источник заимствования обязательна.
           </p>
-          <A href="#">Политика конфиденциальности</A>
+          <A href="/personal_info">Политика конфиденциальности</A>
           <p>
             Сайт не является публичной офертой и носит информационный характер.
           </p>
