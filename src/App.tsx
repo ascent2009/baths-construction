@@ -9,6 +9,7 @@ import EnglishVersionPage from "./components/Pages/EnglishVersionPage";
 import NotFound from "./components/Pages/NotFoundPage";
 import PersonalInfoPage from "./components/Pages/PersonalInfoPage/";
 import BarrelBathsPage from "./components/Pages/BarrelBathsPage";
+import CarcassBathsPage from "./components/Pages/CarcassBathsPage";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -19,6 +20,7 @@ const routes = {
   "/english": () => <EnglishVersionPage />,
   "/personal_info": () => <PersonalInfoPage />,
   "/barrel_baths": () => <BarrelBathsPage />,
+  "/carcass_baths": () => <CarcassBathsPage />,
 };
 
 const App: React.FC = () => {
@@ -32,6 +34,10 @@ const App: React.FC = () => {
     appValues.examplesImages
   );
   const [barrelImages, setBarrelImages] = useState(appValues.barrelImages);
+  const [carcassImages, setCarcassImages] = useState(appValues.carcassImages);
+  const [carcassParamsImages, setCarcassParamsImages] = useState(
+    appValues.carcassParamsImages
+  );
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
 
@@ -78,6 +84,18 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setBarrelImages([...barrelImages, ...obj]);
     });
+    const dbCarcass = fetchFirebase(db, `carcass-baths`);
+    onValue(dbCarcass, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setCarcassImages([...carcassImages, ...obj]);
+    });
+    const dbCarcassParams = fetchFirebase(db, `carcass-params`);
+    onValue(dbCarcassParams, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setCarcassParamsImages([...carcassParamsImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -98,6 +116,8 @@ const App: React.FC = () => {
         blogImages,
         examplesImages,
         barrelImages,
+        carcassImages,
+        carcassParamsImages,
       }}
     >
       <LocationContext.Provider

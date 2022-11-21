@@ -33,3 +33,11 @@ export type ListExampleImagesType =
       id: number;
       url: string;
     }[];
+
+export type ListCarcassParamsImageType =
+  | {
+      id: number;
+      title: string;
+      url: string;
+      description: string;
+    }[];

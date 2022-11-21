@@ -5,6 +5,7 @@ import {
   ListBlogImagesType,
   ListExampleImagesType,
   ListImageType,
+  ListCarcassParamsImageType,
 } from "./types";
 
 interface ILocation {
@@ -22,6 +23,8 @@ interface IApp {
   examplesImages: ListExampleImagesType;
   prodImages: ListImageType;
   barrelImages: ListExampleImagesType;
+  carcassImages: ListExampleImagesType;
+  carcassParamsImages: ListCarcassParamsImageType;
 }
 
 export const defaultValues: ILocation = {
@@ -36,6 +39,8 @@ export const appValues: IApp = {
   examplesImages: [],
   prodImages: [],
   barrelImages: [],
+  carcassImages: [],
+  carcassParamsImages: [],
 };
 
 export const LocationContext = React.createContext(defaultValues);
