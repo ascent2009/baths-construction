@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./style.module.scss";
-// import { Link } from "react-router-dom";
 import { A } from "hookrouter";
 import HeaderMain from "../../Header/HeaderMain";
 import DarkLogo from "../../../assets/logo-dark.svg";
@@ -33,7 +32,7 @@ const EnglishVersionPage: React.FC = () => {
         <div className={s.main_coming_soon__block}>
           <img src={ComingSoon} alt="Coming Soon" />
         </div>
-        {/* <A href="/">Back to the Russian version</A> */}
+       
       </section>
     </>
   );

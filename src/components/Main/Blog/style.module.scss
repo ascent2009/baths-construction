@@ -1,0 +1,80 @@
+.main_blog {
+  margin: 0 auto 87px 88px;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: url("../../../assets/steam.png");
+    bottom: -16%;
+    right: 0;
+    z-index: -1;
+  }
+  .main_blog__title_block {
+    width: 355px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 65px;
+    .main_blog__title {
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 45px;
+      margin: 0;
+      color: #333333;
+    }
+    a {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      text-decoration-line: underline;
+      color: #da5c3e;
+    }
+  }
+  .main_blog__images {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 360px);
+    column-gap: 40px;
+    .main_blog__images_item {
+      margin: 0;
+      position: relative;
+      &:last-child:not(:only-child) {
+        &::after {
+          position: absolute;
+          content: url("../../../assets/video-play.svg");
+          right: 40%;
+          top: 23%;
+          z-index: 1;
+          cursor: pointer;
+        }
+      }
+
+      .main_blog__images_item_text {
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #828282;
+        margin: 27px 0 15px;
+
+        p {
+          margin: 0;
+          &:last-child:not(:only-child) {
+            text-decoration-line: underline;
+          }
+        }
+      }
+      .main_blog__images_item_title {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        text-decoration-line: underline;
+        margin: 0;
+      }
+    }
+  }
+}

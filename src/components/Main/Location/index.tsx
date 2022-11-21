@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import s from "./style.module.scss";
-import { ListAboutImagesType } from "../../../types";
+// import { ListAboutImagesType } from "../../../types";
 import Modal from "../../Modal";
 import { Overlay } from "../../Overlay";
 import CloseSvg from "../../../assets/close.svg";
@@ -25,8 +25,14 @@ const Location: React.FC = () =>
   {
     const { location, showModal, closeModal, modal } =
       useContext(LocationContext);
+    const [loc, setLoc] = useState<string>("");
+    const buttonID = useRef(null);
+    useEffect(() => {
+      console.log(buttonID.current);
+      setLoc("location");
+    }, []);
 
-    console.log(location);
+    console.log(loc);
 
     return (
       <article className={s.main_location}>
@@ -45,7 +51,9 @@ const Location: React.FC = () =>
             <button
               className={s.main_location__contacts_modal}
               type="button"
-              onClick={showModal}
+              onClick={(e) => (showModal ? showModal(e, "location") : null)}
+              id="location"
+              ref={buttonID}
             >
               Смотреть схему проезда
             </button>
@@ -56,10 +64,10 @@ const Location: React.FC = () =>
             </p>
           </div>
         </div>
-        {!modal ? (
+        {!modal && loc === "location" ? (
           <>
             <Overlay />
-            <Modal className={s.main_modal}>
+            <Modal className={s.main_modal} id="location">
               {location.map(({ url }) => (
                 <img key={url} src={url} alt="map" />
               ))}

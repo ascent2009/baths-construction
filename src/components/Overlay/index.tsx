@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import s from "./style.module.scss";
+import { LocationContext } from "../../context";
 
 export const Overlay = () => {
-  return (
-    <div className={s.overlay} onClick={() => console.log("Привет")}></div>
-  );
+  const { closeModal } = useContext(LocationContext);
+  return <div className={s.overlay} onClick={closeModal}></div>;
 };

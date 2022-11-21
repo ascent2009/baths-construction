@@ -404,6 +404,11 @@ button {
     background: #828282;
     height: fit-content;
   }
+  .header_main__barrel {
+    @extend .header_main;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../assets/header-barrel-background.png");
+  }
   .header_main__menu_dropdown {
     position: absolute;
     left: 39%;
@@ -449,7 +454,8 @@ button {
       line-height: 61px;
       color: #ffffff;
       margin: 0;
-      width: 548px;
+      max-width: 650px;
+      height: 122px;
     }
     h3 {
       font-weight: 400;

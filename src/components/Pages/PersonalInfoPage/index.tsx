@@ -1,39 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import s from "./style.module.scss";
 import { SVGCollection } from "../EnglishVersionPage";
 import HeaderMain from "../../Header/HeaderMain";
 import Location from "../../Main/Location";
-import { db } from "../../../firebase";
-import { ref, onValue } from "firebase/database";
 import { A } from "hookrouter";
-import { LocationContext } from "../../../context";
-import { defaultValues } from "../../../context";
-
-import { ListAboutImagesType } from "../../../types";
 
 const PersonalInfoPage: React.FC = () => {
-  const [location, setLocation] = useState<ListAboutImagesType>(
-    defaultValues.location
-  );
-  const [modal, setModal] = useState<boolean>(defaultValues.modal);
-
-  const showModal = () => {
-    setModal(!modal);
-  };
-
-  const closeModal = () => {
-    setModal(!modal);
-  };
-
-  useEffect(() => {
-    const dbRef = ref(db, `main-location`);
-    onValue(dbRef, (snapshot) => {
-      const snap = snapshot.val();
-      const obj = Object.keys(snap).map((sn) => snap[sn]);
-      setLocation([...location, ...obj]);
-    });
-  }, []);
-
   return (
     <>
       <HeaderMain
@@ -118,11 +90,8 @@ const PersonalInfoPage: React.FC = () => {
             <A href="/production">Посетить производство</A>
           </div>
         </div>
-        <LocationContext.Provider
-          value={{ location, showModal, closeModal, modal }}
-        >
-          <Location />
-        </LocationContext.Provider>
+
+        <Location />
       </section>
     </>
   );

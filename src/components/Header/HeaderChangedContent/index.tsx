@@ -3,11 +3,18 @@ import s from "../style.module.scss";
 import { A } from "hookrouter";
 import { IHeaderMain } from "../HeaderMain";
 
-const HeaderChangedContent: React.FC<IHeaderMain> = ({ display }) => {
+const HeaderChangedContent: React.FC<IHeaderMain> = ({ display, title }) => {
   return (
     <div style={display}>
       <div className={s.header_main__title_block}>
-        <h1>Производим мобильные бани на заказ</h1>
+        <h1
+          style={{
+            width:
+              title === "Производим мобильные бани на заказ" ? "548px" : "auto",
+          }}
+        >
+          {title}
+        </h1>
         <h3>
           Реальные цены <b>от 142 200 руб.</b> - под ключ, заходи и парься!
         </h3>

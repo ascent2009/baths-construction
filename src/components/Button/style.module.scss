@@ -1,0 +1,27 @@
+.button_red__theme {
+  position: relative;
+  padding-left: 25px;
+  width: 300px;
+  height: 68px;
+  color: #fff9e2;
+  font-size: 18px;
+  line-height: 22px;
+  background: #da5c3e;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  box-shadow: 0 5px #b44d35;
+  text-decoration: none;
+  &::before {
+    position: absolute;
+    content: url("../../assets/call.svg");
+    left: 15%;
+    top: 35%;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+}

@@ -1,0 +1,145 @@
+.main_examples {
+  background: #333333;
+
+  .main_examples__title {
+    padding-top: 80px;
+    margin: 0 auto 62px 90px;
+    width: 520px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 45px;
+    color: #ffffff;
+  }
+  .main_examples__images {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 78px 90px;
+    display: grid;
+    grid-template-columns: repeat(4, 255px);
+    grid-template-rows: repeat(4, auto);
+    column-gap: 44px;
+    row-gap: 49px;
+    .main_examples__images_item {
+      height: 256px;
+      &:first-child:not(:only-child) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+      &:nth-child(8):not(:only-child) {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 4;
+        grid-row-end: 4;
+      }
+      &:nth-child(9):not(:only-child) {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 4;
+      }
+      &:last-child:not(:only-child) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        // display: none;
+      }
+    }
+  }
+
+  .main_examples__catalogue {
+    margin: 0 auto 0 189px;
+    padding-bottom: 86px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+    width: 242px;
+    p {
+      margin: 0;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 16px;
+      color: #828282;
+    }
+    a {
+      position: relative;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      text-decoration-line: underline;
+      color: #ffffff;
+      &::before {
+        position: absolute;
+        content: url("../../../assets/catalogue-arrow.svg");
+        left: -99px;
+      }
+    }
+  }
+  .main_examples__bottom_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 87%;
+    .main_examples__button_block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto 0 141px;
+      padding-bottom: 80px;
+      width: 565px;
+      font-family: "Futura New";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      a {
+        text-decoration: none;
+        position: relative;
+        font-size: 18px;
+        line-height: 22px;
+        color: #fff9e2;
+        &::before {
+          position: absolute;
+          content: url("../../../assets/saw.svg");
+          left: -45px;
+          top: -5px;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.main_examples__half_dark_theme {
+  @extend .main_examples;
+  background: none;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 41%;
+    left: 0;
+    bottom: 0;
+    background: #333333;
+    z-index: -1;
+  }
+  .main_examples__title {
+    color: #333333;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 17px;
+      height: 251px;
+      left: -90px;
+      top: 0;
+      background: #da5c3e;
+    }
+  }
+}

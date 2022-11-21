@@ -1,13 +1,19 @@
-import React from "react";
-import s from "../style.module.scss";
-import { ListImageType } from "../../../types";
+import React, { useContext } from "react";
+import s from "./style.module.scss";
+// import { ListImageType } from "../../../types";
+import { AppContext } from "../../../context";
 
 interface IProduction {
-  prodImages: ListImageType;
+  tag: string;
 }
 
-const Production: React.FC<IProduction> = ({ prodImages }) => {
-  const sortedImg = prodImages.sort((a, b) => (a.price > b.price ? 1 : -1));
+const Production: React.FC<IProduction> = ({ tag }) => {
+  const { prodImages } = useContext(AppContext);
+
+  const sortedImg = prodImages
+    .sort((a, b) => (a.price > b.price ? 1 : -1))
+    .filter((a) => a.id.includes(tag));
+
   return (
     <article className={s.main_production}>
       <h2 className={s.main_production__title}>
