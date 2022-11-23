@@ -34,6 +34,7 @@ const HeaderMain: React.FC<IHeaderMain> = ({
   const [dropdown, setDropdown] = useState<boolean>(!false);
   const [arrowDirection, setArrowDirection] = useState<{}>({});
   const [aboutDropdown, setAboutDropdown] = useState<boolean>(!false);
+  const [catalogueDropdown, setCatalogueDropdown] = useState<boolean>(!false);
   const [mobileDropdown, setMobileDropdown] = useState<boolean>(!false);
   const [email] = useState<string>("info@novobani.ru");
 
@@ -45,6 +46,13 @@ const HeaderMain: React.FC<IHeaderMain> = ({
   const showAboutDropdown = () => {
     setAboutDropdown(!aboutDropdown);
     setArrowDirection({ transform: "rotate(180deg)" });
+    setCatalogueDropdown(true);
+  };
+
+  const showCatalogueDropdown = () => {
+    setCatalogueDropdown(!catalogueDropdown);
+    setArrowDirection({ transform: "rotate(180deg)" });
+    setAboutDropdown(true);
   };
 
   const showMobileDropdown = () => {
@@ -187,10 +195,18 @@ const HeaderMain: React.FC<IHeaderMain> = ({
 
           <Menu className={s.header_main__menu}>
             <A href="/">Главная</A>
-            <A href="/catalogue">
+            {/* <A href="/catalogue">
               Каталог
               <img src={arrowIcon} alt="arrow" />
-            </A>
+            </A> */}
+            <button type="button" onClick={showCatalogueDropdown}>
+              Каталог
+              <img
+                src={arrowIcon}
+                alt="arrow"
+                style={!catalogueDropdown ? arrowDirection : {}}
+              />
+            </button>
             <button type="button" onClick={showAboutDropdown}>
               Информация
               <img
@@ -242,6 +258,17 @@ const HeaderMain: React.FC<IHeaderMain> = ({
           <A href="/faq">Вопросы и ответы</A>
           <A href="/vacancies">Вакансии</A>
           <A href={"/contacts"}>Контакты</A>
+        </Dropdown>
+      ) : (
+        ""
+      )}
+      {!catalogueDropdown ? (
+        <Dropdown className={s.header_main__menu_dropdown_catalogue}>
+          <A href={"#"}>Классические бани-бочки</A>
+          <A href="#">Квадро бани-бочки</A>
+          <A href="#">Овальные бани-бочки</A>
+          <A href={"#"}>Каркасные бани серия Лира</A>
+          <A href={"#"}>Каркасные бани серия Флора</A>
         </Dropdown>
       ) : (
         ""

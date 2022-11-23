@@ -442,6 +442,12 @@ button {
       transform: matrix(0.71, 0.47, -1.05, 0.71, 0, 0);
     }
   }
+
+  .header_main__menu_dropdown_catalogue {
+    @extend .header_main__menu_dropdown;
+    left: 25%;
+  }
+
   .header_main__title_block {
     margin: 83px 0 53px 90px;
     font-style: normal;

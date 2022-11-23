@@ -10,6 +10,7 @@ import NotFound from "./components/Pages/NotFoundPage";
 import PersonalInfoPage from "./components/Pages/PersonalInfoPage/";
 import BarrelBathsPage from "./components/Pages/BarrelBathsPage";
 import CarcassBathsPage from "./components/Pages/CarcassBathsPage";
+import Catalogue from "./components/Catalogue";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -21,6 +22,7 @@ const routes = {
   "/personal_info": () => <PersonalInfoPage />,
   "/barrel_baths": () => <BarrelBathsPage />,
   "/carcass_baths": () => <CarcassBathsPage />,
+  "/catalogue": () => <Catalogue />,
 };
 
 const App: React.FC = () => {
