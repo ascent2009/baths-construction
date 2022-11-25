@@ -6,7 +6,7 @@ interface IDropdown {
 }
 
 const Dropdown: React.FC<IDropdown> = ({ children, className }) => {
-  return <section className={className}>{children}</section>;
+  return <div className={className}>{children}</div>;
 };
 
 export default Dropdown;

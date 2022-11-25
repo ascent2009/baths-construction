@@ -25,6 +25,7 @@ interface IApp {
   barrelImages: ListExampleImagesType;
   carcassImages: ListExampleImagesType;
   carcassParamsImages: ListCarcassParamsImageType;
+  classicBarrelImages:ListImageType;
 }
 
 export const defaultValues: ILocation = {
@@ -41,6 +42,7 @@ export const appValues: IApp = {
   barrelImages: [],
   carcassImages: [],
   carcassParamsImages: [],
+  classicBarrelImages: []
 };
 
 export const LocationContext = React.createContext(defaultValues);

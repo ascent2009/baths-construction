@@ -11,6 +11,7 @@ import PersonalInfoPage from "./components/Pages/PersonalInfoPage/";
 import BarrelBathsPage from "./components/Pages/BarrelBathsPage";
 import CarcassBathsPage from "./components/Pages/CarcassBathsPage";
 import Catalogue from "./components/Catalogue";
+import ClassicBarrel from "./components/Catalogue/ClassicBarrel";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -23,6 +24,7 @@ const routes = {
   "/barrel_baths": () => <BarrelBathsPage />,
   "/carcass_baths": () => <CarcassBathsPage />,
   "/catalogue": () => <Catalogue />,
+  "/catalogue/classic_barrel": () => <ClassicBarrel />,
 };
 
 const App: React.FC = () => {
@@ -39,6 +41,9 @@ const App: React.FC = () => {
   const [carcassImages, setCarcassImages] = useState(appValues.carcassImages);
   const [carcassParamsImages, setCarcassParamsImages] = useState(
     appValues.carcassParamsImages
+  );
+  const [classicBarrelImages, setClassicBarrelImages] = useState(
+    appValues.classicBarrelImages
   );
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
@@ -98,6 +103,12 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setCarcassParamsImages([...carcassParamsImages, ...obj]);
     });
+    const dbClassicBarrel = fetchFirebase(db, `classic_barrel`);
+    onValue(dbClassicBarrel, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setClassicBarrelImages([...classicBarrelImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -120,6 +131,7 @@ const App: React.FC = () => {
         barrelImages,
         carcassImages,
         carcassParamsImages,
+        classicBarrelImages,
       }}
     >
       <LocationContext.Provider

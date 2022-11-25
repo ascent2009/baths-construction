@@ -6,6 +6,7 @@ import Location from "../Main/Location";
 import Production from "../Main/Production";
 import Blog from "../Main/Blog";
 import { A } from "hookrouter";
+import { findPath } from "../../app/findPath";
 
 const Catalogue: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Catalogue: React.FC = () => {
         arrowIcon={SVGCollection.arrowIcon}
       />
       <section className={s.main}>
-        <div className={s.main_top__link}>Главная /</div>
+        <div className={s.main_top__link}>Главная / {findPath()} /</div>
         <Production tag="" />
         <Blog />
 

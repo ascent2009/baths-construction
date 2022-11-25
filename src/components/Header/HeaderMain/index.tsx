@@ -115,6 +115,7 @@ const HeaderMain: React.FC<IHeaderMain> = ({
                 <ul className={s.header_main__dropdown_mobile_submenu}>
                   <ul className={s.header_main__dropdown_mobile_subsubmenu}>
                     <A
+                      style={{ marginLeft: "37px" }}
                       href="/catalogue"
                       className={s.header_main__dropdown_mobile_submenu_title}
                     >
@@ -194,7 +195,9 @@ const HeaderMain: React.FC<IHeaderMain> = ({
           )}
 
           <Menu className={s.header_main__menu}>
-            <A href="/">Главная</A>
+            <A className={s.header_main__menu_item} href="/">
+              Главная
+            </A>
             {/* <A href="/catalogue">
               Каталог
               <img src={arrowIcon} alt="arrow" />
@@ -215,10 +218,49 @@ const HeaderMain: React.FC<IHeaderMain> = ({
                 style={!aboutDropdown ? arrowDirection : {}}
               />
             </button>
-            <A href="/blog">
+            <A className={s.header_main__menu_item} href="/blog">
               Наш блог
               <img src={FireSvg} alt="fire" />
             </A>
+            {!aboutDropdown ? (
+              <Dropdown className={s.header_main__menu_dropdown}>
+                <A id="dropdown" href={"#about"}>
+                  О нас
+                </A>
+                <A id="dropdown" href="/faq">
+                  Вопросы и ответы
+                </A>
+                <A id="dropdown" href="/vacancies">
+                  Вакансии
+                </A>
+                <A id="dropdown" href={"/contacts"}>
+                  Контакты
+                </A>
+              </Dropdown>
+            ) : (
+              ""
+            )}
+            {!catalogueDropdown ? (
+              <Dropdown className={s.header_main__menu_dropdown_catalogue}>
+                <A id="dropdown" href={"/catalogue/classic_barrel"}>
+                  Классические бани-бочки
+                </A>
+                <A id="dropdown" href="#">
+                  Квадро бани-бочки
+                </A>
+                <A id="dropdown" href="#">
+                  Овальные бани-бочки
+                </A>
+                <A id="dropdown" href={"#"}>
+                  Каркасные бани серия Лира
+                </A>
+                <A id="dropdown" href={"#"}>
+                  Каркасные бани серия Флора
+                </A>
+              </Dropdown>
+            ) : (
+              ""
+            )}
           </Menu>
           <div className={s.header_main__phone}>
             <img src={phoneIcon} alt="call" />
@@ -252,27 +294,6 @@ const HeaderMain: React.FC<IHeaderMain> = ({
           <A href="/production">Посетить производство</A>
         </div> */}
       </section>
-      {!aboutDropdown ? (
-        <Dropdown className={s.header_main__menu_dropdown}>
-          <A href={"#about"}>О нас</A>
-          <A href="/faq">Вопросы и ответы</A>
-          <A href="/vacancies">Вакансии</A>
-          <A href={"/contacts"}>Контакты</A>
-        </Dropdown>
-      ) : (
-        ""
-      )}
-      {!catalogueDropdown ? (
-        <Dropdown className={s.header_main__menu_dropdown_catalogue}>
-          <A href={"#"}>Классические бани-бочки</A>
-          <A href="#">Квадро бани-бочки</A>
-          <A href="#">Овальные бани-бочки</A>
-          <A href={"#"}>Каркасные бани серия Лира</A>
-          <A href={"#"}>Каркасные бани серия Флора</A>
-        </Dropdown>
-      ) : (
-        ""
-      )}
     </header>
   );
 };
