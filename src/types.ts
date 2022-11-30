@@ -41,3 +41,15 @@ export type ListCarcassParamsImageType =
       url: string;
       description: string;
     }[];
+
+export type ListLayoutType =
+  | {
+      title: string;
+      subtitle: string;
+      url: string;
+      price: string;
+      description: string;
+      turnkey: string;
+      ask: string;
+      getcost: string;
+    }[];

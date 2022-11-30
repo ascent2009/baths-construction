@@ -25,3 +25,14 @@
     transform: translateY(2px);
   }
 }
+
+.button_red__theme_order {
+  @extend .button_red__theme;
+  width: 247px;
+  &::before {
+    // position: absolute;
+    content: url("../../assets/checkmark.svg");
+    // left: 15%;
+    // top: 35%;
+  }
+}

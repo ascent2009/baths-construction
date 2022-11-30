@@ -12,6 +12,7 @@ import BarrelBathsPage from "./components/Pages/BarrelBathsPage";
 import CarcassBathsPage from "./components/Pages/CarcassBathsPage";
 import Catalogue from "./components/Catalogue";
 import ClassicBarrel from "./components/Catalogue/ClassicBarrel";
+import PeakBarrel from "./components/Catalogue/PeakBarrel";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -25,6 +26,7 @@ const routes = {
   "/carcass_baths": () => <CarcassBathsPage />,
   "/catalogue": () => <Catalogue />,
   "/catalogue/classic_barrel": () => <ClassicBarrel />,
+  "/catalogue/classic_barrel/peak_barrel": () => <PeakBarrel />,
 };
 
 const App: React.FC = () => {
@@ -45,6 +47,11 @@ const App: React.FC = () => {
   const [classicBarrelImages, setClassicBarrelImages] = useState(
     appValues.classicBarrelImages
   );
+  const [peakBarrelImages, setPeakBarrelImages] = useState(
+    appValues.peakBarrelImages
+  );
+  const [slides, setSlides] = useState(appValues.slides);
+  const [layoutImages, setLayoutImages] = useState(appValues.layoutImages);
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
 
@@ -109,6 +116,24 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setClassicBarrelImages([...classicBarrelImages, ...obj]);
     });
+    const dbPeakBarrel = fetchFirebase(db, `peak-barrel`);
+    onValue(dbPeakBarrel, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setPeakBarrelImages([...peakBarrelImages, ...obj]);
+    });
+    const dbLayout = fetchFirebase(db, `layout-options`);
+    onValue(dbLayout, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setLayoutImages([...layoutImages, ...obj]);
+    });
+    const dbSlides = fetchFirebase(db, `slides`);
+    onValue(dbSlides, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setSlides([...slides, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -132,6 +157,9 @@ const App: React.FC = () => {
         carcassImages,
         carcassParamsImages,
         classicBarrelImages,
+        peakBarrelImages,
+        layoutImages,
+        slides,
       }}
     >
       <LocationContext.Provider

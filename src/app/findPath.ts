@@ -9,5 +9,9 @@ export const findPath = () => {
     case "classic_barrel":
       newPath[1] = "Классические бани-бочки";
   }
+  switch (newPath[2]) {
+    case "peak_barrel":
+      newPath[2] = "Баня-бочка с козырьком";
+  }
   return newPath.join(" / ");
 };

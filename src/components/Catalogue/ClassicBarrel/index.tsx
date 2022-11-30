@@ -41,7 +41,13 @@ const ClassicBarrel: React.FC = () => {
                     {description}
                   </p>
                   <h4 className={s.main_production__image_price}>
-                    от {price} руб. <span>/ Планировки и цены</span>
+                    от {price} руб.{" "}
+                    <span>
+                      /{" "}
+                      <A href={`/catalogue/classic_barrel/${id}`}>
+                        Планировки и цены
+                      </A>
+                    </span>
                   </h4>{" "}
                 </li>
               );
