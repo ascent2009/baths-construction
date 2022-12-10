@@ -52,6 +52,9 @@ const App: React.FC = () => {
   );
   const [slides, setSlides] = useState(appValues.slides);
   const [layoutImages, setLayoutImages] = useState(appValues.layoutImages);
+  const [extraOptionsImages, setExtraOptionsImages] = useState(
+    appValues.extraOptionsImages
+  );
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
 
@@ -134,6 +137,12 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setSlides([...slides, ...obj]);
     });
+    const dbExtraOptions = fetchFirebase(db, `extra-options`);
+    onValue(dbExtraOptions, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setExtraOptionsImages([...extraOptionsImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -160,6 +169,7 @@ const App: React.FC = () => {
         peakBarrelImages,
         layoutImages,
         slides,
+        extraOptionsImages,
       }}
     >
       <LocationContext.Provider

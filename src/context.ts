@@ -7,6 +7,7 @@ import {
   ListImageType,
   ListCarcassParamsImageType,
   ListLayoutType,
+  ListExtraOptionsImageType,
 } from "./types";
 
 interface ILocation {
@@ -30,6 +31,7 @@ interface IApp {
   peakBarrelImages: ListAboutImagesType;
   layoutImages: ListLayoutType;
   slides: ListAboutImagesType;
+  extraOptionsImages: ListExtraOptionsImageType;
 }
 
 export const defaultValues: ILocation = {
@@ -50,6 +52,7 @@ export const appValues: IApp = {
   peakBarrelImages: [],
   layoutImages: [],
   slides: [],
+  extraOptionsImages: [],
 };
 
 export const LocationContext = React.createContext(defaultValues);

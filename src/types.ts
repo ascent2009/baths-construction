@@ -53,3 +53,12 @@ export type ListLayoutType =
       ask: string;
       getcost: string;
     }[];
+
+export type ListExtraOptionsImageType =
+  | {
+      id: number;
+      title: string;
+      url: string;
+      price: string;
+      description: string;
+    }[];

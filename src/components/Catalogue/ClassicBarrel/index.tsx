@@ -3,16 +3,17 @@ import s from "../style.module.scss";
 import { SVGCollection } from "../../Pages/EnglishVersionPage";
 import HeaderMain from "../../Header/HeaderMain";
 import Location from "../../Main/Location";
-// import Production from "../../Main/Production";
+import Invitation from "../Invitation";
+import OtherBaths from "../OtherBaths";
 import Blog from "../../Main/Blog";
 import { A } from "hookrouter";
 import { findPath } from "../../../app/findPath";
-import { randomImages } from "../../../app/randomImages";
+// import { randomImages } from "../../../app/randomImages";
 import { AppContext } from "../../../context";
 // import { ListImageType } from "../../../types";
 
 const ClassicBarrel: React.FC = () => {
-  const { prodImages, classicBarrelImages } = useContext(AppContext);
+  const { classicBarrelImages } = useContext(AppContext);
   const repeatedImages = new Array(3).fill(classicBarrelImages).flat();
 
   return (
@@ -54,52 +55,15 @@ const ClassicBarrel: React.FC = () => {
             })}
           </ul>
         </article>
-        <article className={s.main_production}>
-          <h2 className={s.main_production__title}>
-            Прочие бани нашего производства
-          </h2>
-          <ul className={s.main_production__image_block}>
-            {
-              new Set(
-                randomImages(prodImages).map(
-                  ({ id, title, url, description, price }) => {
-                    return (
-                      <li key={title}>
-                        <div className={s.main_production__image}>
-                          <img src={url} alt={title} />
-                        </div>
-                        <h4 className={s.main_production__image_title}>
-                          {title}
-                        </h4>
-                        <p className={s.main_production__image_description}>
-                          {description}
-                        </p>
-                        <h4 className={s.main_production__image_price}>
-                          от {price} руб.
-                        </h4>{" "}
-                      </li>
-                    );
-                  }
-                )
-              )
-            }
-          </ul>
-        </article>
-        <div
-          className={s.main_invitation__block}
-          style={{ marginBottom: "80px" }}
-        >
-          <h4 className={s.main_invitation__title}>
-            Изготовим и доставим баню вашей мечты, в короткие сроки и по
-            фиксированной цене
-          </h4>
-          <div className={s.main_invitation__button_block}>
-            <A href={"tel: +7(812)467-90-60"} target="_blank">
-              Обсудить строительство
-            </A>
-            <A href="/production">Посетить производство</A>
-          </div>
-        </div>
+        <OtherBaths className="main_production" />
+        <Invitation
+          title="Изготовим и доставим баню вашей мечты, в короткие сроки и по
+            фиксированной цене"
+          link="Посетить производство"
+          className="main_invitation__block_dark_theme"
+          buttonTitle="Обсудить строительство"
+          buttonClass="button_red__theme"
+        />
         <Blog />
         <Location />
       </section>

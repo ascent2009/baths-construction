@@ -466,6 +466,65 @@
       margin: 66px auto 76px 90px;
       width: 500px;
     }
+    .main_slider__image_block {
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 40px;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      .main_slider__image_item {
+        opacity: 0.3;
+        transition: opacity ease-in-out 0.4s;
+        object-fit: cover;
+      }
+      .main_slider__image_item_active {
+        @extend .main_slider__image_item;
+        opacity: 1;
+      }
+      .main_slider__image_arrow_prev {
+        position: absolute;
+        top: 45%;
+        left: 140px;
+        cursor: pointer;
+        &:active {
+          transform: translateY(2px);
+        }
+      }
+      .main_slider__image_arrow_next {
+        position: absolute;
+        top: 45%;
+        right: 140px;
+        cursor: pointer;
+        transform: rotate(180deg);
+        &:active {
+          transform: translateY(2px);
+        }
+      }
+    }
+    .main__slider_orderedlist {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 580px;
+      width: 601px;
+      margin: 75px 7px 49px 90px;
+      list-style-type: decimal-leading-zero;
+      list-style-position: inside;
+      // margin: 0;
+      padding: 0;
+      &_item {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 20px;
+        margin-right: 83px;
+        color: #4f4f4f;
+        &::marker {
+          font-weight: 600;
+        }
+      }
+    }
   }
 
   .main_invitation__block {
@@ -487,8 +546,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 0 auto 0 141px;
-      width: 565px;
+      margin: 0 auto 0 242px;
+      width: 469px;
       font-family: "Futura New";
       font-style: normal;
       font-weight: 400;
@@ -503,7 +562,7 @@
         color: #fff9e2;
         &::before {
           position: absolute;
-          content: url("../../assets/saw.svg");
+          content: url("../../assets/questionmark.svg");
           left: -45px;
           top: -5px;
         }
@@ -517,7 +576,7 @@
           border-radius: 10px;
           box-shadow: 0 5px #b44d35;
           &::before {
-            content: url("../../assets/call.svg");
+            content: url("../../assets/checkmark.svg");
             left: 15%;
             top: 37%;
           }
@@ -529,6 +588,59 @@
           }
         }
       }
+    }
+  }
+  .main_extra {
+    @extend .main_production;
+    .main_production__title {
+      margin-bottom: 63px;
+      &::before {
+        display: none;
+      }
+    }
+    .main_production__image_block {
+      grid-template-columns: repeat(4, 260px);
+      // grid-template-rows: repeat(3, 370px);
+      column-gap: 42px;
+      row-gap: 63px;
+      margin-right: 90px;
+      margin-bottom: 79px;
+      li {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        // .main_production__image {
+        //   position: relative;
+        // }
+        .main_production__image_title {
+          margin: 25px auto 15px 0;
+          font-size: 16px;
+          line-height: 20px;
+          text-decoration: none;
+        }
+        .main_production__image_description {
+          font-size: 16px;
+          line-height: 19px;
+          margin: 0 0 23px;
+          height: fit-content;
+        }
+        .main_production__image_price {
+          font-size: 16px;
+          line-height: 20px;
+          margin: 0;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    .main_extra__text {
+      font-size: 24px;
+      line-height: 29px;
+      width: 759px;
+      margin: 0 90px;
+      color: #333333;
     }
   }
 }

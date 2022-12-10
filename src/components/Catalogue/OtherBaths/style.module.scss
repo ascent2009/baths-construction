@@ -1,0 +1,77 @@
+.main_production {
+  .main_production__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 45px;
+    color: #333333;
+    margin: 0 auto 57px 90px;
+    width: 438px;
+    position: relative;
+    &::before {
+      position: absolute;
+      left: -90px;
+      bottom: -85%;
+      content: "";
+      width: 23px;
+      height: 251px;
+      background: #da5c3e;
+    }
+  }
+
+  .main_production__image_block {
+    display: grid;
+    grid-template-columns: repeat(3, 360px);
+    column-gap: 40px;
+    margin: auto 121px auto 92px;
+    list-style: none;
+    padding: 0;
+    .main_production__image {
+      position: relative;
+      img {
+        width: 100%;
+      }
+    }
+
+    .main_production__image_title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 23px;
+      text-decoration-line: underline;
+      color: #333333;
+      margin: 32px auto 0;
+    }
+    .main_production__image_description {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #4f4f4f;
+      margin: 11px auto 21px 0;
+      width: 100%;
+      height: 54px;
+    }
+    .main_production__image_price {
+      margin: 0 auto 82px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #333333;
+      position: relative;
+      &::after {
+        position: absolute;
+        content: url("../../../assets/price-arrow.svg");
+        left: 30%;
+        top: 0;
+      }
+    }
+  }
+}
+
+.main_production__peak {
+  @extend .main_production;
+  margin-top: 65px;
+  .main_production__title {
+    &::before {
+      display: none;
+    }
+  }
+}
