@@ -122,7 +122,9 @@ const HeaderMain: React.FC<IHeaderMain> = ({
                       <h4>Каталог</h4>
                     </A>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
-                      <A href="#">Классические бани-бочки</A>
+                      <A href="/catalogue/classic_barrel">
+                        Классические бани-бочки
+                      </A>
                     </li>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
                       <A href="#">Квадро бани-бочки</A>
@@ -131,7 +133,9 @@ const HeaderMain: React.FC<IHeaderMain> = ({
                       <A href="#">Овальные бани-бочки</A>
                     </li>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
-                      <A href="#">Каркассные бани серия Лира</A>
+                      <A href="/catalogue/carcass_baths/carcass_lira">
+                        Каркассные бани серия Лира
+                      </A>
                     </li>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
                       <A href="#">Каркассные бани серия Флора</A>
@@ -251,7 +255,7 @@ const HeaderMain: React.FC<IHeaderMain> = ({
                 <A id="dropdown" href="#">
                   Овальные бани-бочки
                 </A>
-                <A id="dropdown" href={"#"}>
+                <A id="dropdown" href={"/catalogue/carcass_baths/carcass_lira"}>
                   Каркасные бани серия Лира
                 </A>
                 <A id="dropdown" href={"#"}>

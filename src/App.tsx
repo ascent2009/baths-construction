@@ -13,6 +13,8 @@ import CarcassBathsPage from "./components/Pages/CarcassBathsPage";
 import Catalogue from "./components/Catalogue";
 import ClassicBarrel from "./components/Catalogue/ClassicBarrel";
 import PeakBarrel from "./components/Catalogue/PeakBarrel";
+import CarcassLira from "./components/Catalogue/CarcassLira";
+import Blog from "./components/Blog";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -22,11 +24,13 @@ const routes = {
   "/": () => <Main />,
   "/english": () => <EnglishVersionPage />,
   "/personal_info": () => <PersonalInfoPage />,
+  "/catalogue": () => <Catalogue />,
   "/barrel_baths": () => <BarrelBathsPage />,
   "/carcass_baths": () => <CarcassBathsPage />,
-  "/catalogue": () => <Catalogue />,
   "/catalogue/classic_barrel": () => <ClassicBarrel />,
   "/catalogue/classic_barrel/peak_barrel": () => <PeakBarrel />,
+  "/catalogue/carcass_baths/carcass_lira": () => <CarcassLira />,
+  "/blog": () => <Blog />,
 };
 
 const App: React.FC = () => {
@@ -50,11 +54,16 @@ const App: React.FC = () => {
   const [peakBarrelImages, setPeakBarrelImages] = useState(
     appValues.peakBarrelImages
   );
+  const [liraCarcassImages, setLiraCarcassImages] = useState(
+    appValues.liraCarcassImages
+  );
   const [slides, setSlides] = useState(appValues.slides);
   const [layoutImages, setLayoutImages] = useState(appValues.layoutImages);
   const [extraOptionsImages, setExtraOptionsImages] = useState(
     appValues.extraOptionsImages
   );
+  const [sections, setSections] = useState(appValues.sections);
+
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
 
@@ -125,6 +134,12 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setPeakBarrelImages([...peakBarrelImages, ...obj]);
     });
+    const dbLiraCarcass = fetchFirebase(db, `lira-carcass`);
+    onValue(dbLiraCarcass, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setLiraCarcassImages([...liraCarcassImages, ...obj]);
+    });
     const dbLayout = fetchFirebase(db, `layout-options`);
     onValue(dbLayout, (snapshot) => {
       const snap = snapshot.val();
@@ -142,6 +157,12 @@ const App: React.FC = () => {
       const snap = snapshot.val();
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setExtraOptionsImages([...extraOptionsImages, ...obj]);
+    });
+    const dbSections = fetchFirebase(db, `section`);
+    onValue(dbSections, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setSections([...sections, ...obj]);
     });
   }, []);
 
@@ -167,9 +188,11 @@ const App: React.FC = () => {
         carcassParamsImages,
         classicBarrelImages,
         peakBarrelImages,
+        liraCarcassImages,
         layoutImages,
         slides,
         extraOptionsImages,
+        sections,
       }}
     >
       <LocationContext.Provider

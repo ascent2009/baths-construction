@@ -1,52 +1,56 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import s from "../style.module.scss";
 import { SVGCollection } from "../../Pages/EnglishVersionPage";
 import HeaderMain from "../../Header/HeaderMain";
 import Location from "../../Main/Location";
 import Invitation from "../Invitation";
 import OtherBaths from "../OtherBaths";
+import LayoutOptions from "../LayoutOptions";
+import ExtraOptions from "../ExtraOptions";
+import BathType from "../BathType";
+import Slider from "../Slider";
 import Blog from "../../Main/Blog";
 import Examples from "../../Main/Examples";
-import Button from "../../Button";
-import Menu from "../../Menu";
+// import Button from "../../Button";
+// import Menu from "../../Menu";
 import { A } from "hookrouter";
 import { findPath } from "../../../app/findPath";
-import { randomImages } from "../../../app/randomImages";
+// import { randomImages } from "../../../app/randomImages";
 import { AppContext } from "../../../context";
 // import { ListImageType } from "../../../types";
-import ArrowSliderSvg from "../../../assets/arrow-slider.svg";
+// import ArrowSliderSvg from "../../../assets/arrow-slider.svg";
 
 const PeakBarrel: React.FC = () => {
   const {
-    prodImages,
+    // prodImages,
     // classicBarrelImages,
     peakBarrelImages,
-    layoutImages,
-    slides,
-    extraOptionsImages,
+    // layoutImages,
+    // slides,
+    // extraOptionsImages,
   } = useContext(AppContext);
-  const [slideIndex, setSlideIndex] = useState(1);
+  // const [slideIndex, setSlideIndex] = useState(1);
 
-  const prevSlide = () => {
-    if (slideIndex !== slides.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === slides.length) {
-      setSlideIndex(1);
-    }
-    console.log(slideIndex);
-  };
+  // const prevSlide = () => {
+  //   if (slideIndex !== slides.length) {
+  //     setSlideIndex(slideIndex + 1);
+  //   } else if (slideIndex === slides.length) {
+  //     setSlideIndex(1);
+  //   }
+  //   console.log(slideIndex);
+  // };
 
-  const nextSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
-      setSlideIndex(slides.length);
-    }
-    console.log(slideIndex);
-  };
+  // const nextSlide = () => {
+  //   if (slideIndex !== 1) {
+  //     setSlideIndex(slideIndex - 1);
+  //   } else if (slideIndex === 1) {
+  //     setSlideIndex(slides.length);
+  //   }
+  //   console.log(slideIndex);
+  // };
 
-  const sortedImages = extraOptionsImages.sort((a, b) => a.id - b.id);
-  const repeatedImages = new Array(3).fill(sortedImages).flat();
+  // const sortedImages = extraOptionsImages.sort((a, b) => a.id - b.id);
+  // const repeatedImages = new Array(3).fill(sortedImages).flat();
 
   return (
     <>
@@ -60,7 +64,14 @@ const PeakBarrel: React.FC = () => {
       />
       <section className={s.main}>
         <div className={s.main_top__link}>Главная / {findPath()} /</div>
-        <article className={s.main_peak}>
+        <BathType
+          title="Баня-бочка 3+ с козырьком"
+          subtitle="Длина 3,5 или 4 м, диаметр 210-230 см, два помещения - парная и
+          предбанник."
+          className="main_peak"
+          images={peakBarrelImages}
+        />
+        {/* <article className={s.main_peak}>
           <h2 className={s.main_production__title}>
             Баня-бочка 3+ с козырьком
           </h2>
@@ -149,8 +160,8 @@ const PeakBarrel: React.FC = () => {
               </Menu>
             </div>
           </div>
-        </article>
-        <article className={s.main_layout}>
+        </article> */}
+        {/* <article className={s.main_layout}>
           <h2 className={s.main_layout__title}>Варианты планировок</h2>
           <ul className={s.main_layout__image_block}>
             {layoutImages.map(
@@ -237,8 +248,10 @@ const PeakBarrel: React.FC = () => {
             <A href="/catalogue">назад в каталог</A>
             <A href="">Смотреть планировки и цены на другие размеры</A>
           </div>
-        </article>
-        <article className={s.main_slider}>
+        </article> */}
+        <LayoutOptions />
+        <Slider title="В базовую стоимость каждой нашей бани-бочки входит" className="main_slider" />
+        {/* <article className={s.main_slider}>
           <h2 className={s.main_slider__title}>
             В базовую стоимость каждой нашей бани-бочки входит
           </h2>
@@ -342,7 +355,7 @@ const PeakBarrel: React.FC = () => {
               Договор и гарантия на изделие 1 год.
             </li>
           </ol>
-        </article>
+        </article> */}
         <Invitation
           title="Изготовим и доставим баню вашей мечты, в короткие сроки и по фиксированной цене"
           link="Задать вопросы"
@@ -350,7 +363,7 @@ const PeakBarrel: React.FC = () => {
           buttonTitle="Оформить заказ"
           buttonClass="button_red__theme_order"
         />
-        <article className={s.main_extra}>
+        {/* <article className={s.main_extra}>
           <h2 className={s.main_production__title}>Дополнительные опции</h2>
           <ul className={s.main_production__image_block}>
             {repeatedImages.map(({ id, title, url, description, price }) => {
@@ -373,7 +386,8 @@ const PeakBarrel: React.FC = () => {
             вещей в полках, полочки для хранения банных принадлежностей, уличное
             освещение бани, минишкафы с дверцами и прочее.
           </p>
-        </article>
+        </article> */}
+        <ExtraOptions />
         <Examples className="main_examples__half_dark_theme" />
         <OtherBaths className="main_production__peak" />
         <Blog />

@@ -9,6 +9,7 @@ import Location from "../../Main/Location";
 import Production from "../../Main/Production";
 import Introduction from "../../Main/Introduction";
 import { AppContext } from "../../../context";
+import { findPath } from "../../../app/findPath";
 
 const BarrelBathsPage: React.FC = () => {
   const { barrelImages } = useContext(AppContext);
@@ -29,7 +30,7 @@ const BarrelBathsPage: React.FC = () => {
           title="бани-бочки"
           className="main_list__text"
         />
-        <div className={s.main_top__link}>Главная /</div>
+        <div className={s.main_top__link}>Главная / {findPath()} /</div>
         <Production tag="barrel" />
         <About className="main_about__barrel" />
         <Blog />

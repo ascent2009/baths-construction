@@ -9,6 +9,7 @@ interface IInvitation {
   link: string;
   buttonTitle: string;
   buttonClass: string;
+  mb?: string
 }
 
 const Invitation: React.FC<IInvitation> = ({
@@ -17,11 +18,12 @@ const Invitation: React.FC<IInvitation> = ({
   link,
   buttonTitle,
   buttonClass,
+  mb
 }) => {
   return (
     <div
       className={s[`${className}`]}
-      //   style={{ marginBottom: "80px", background: "#FFF9E2" }}
+      style={{marginBottom: mb}}
     >
       <h4 className={s.main_invitation__title}>{title}</h4>
       <div className={s.main_invitation__button_block}>

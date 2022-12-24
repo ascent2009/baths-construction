@@ -9,6 +9,7 @@ import Location from "../../Main/Location";
 import Production from "../../Main/Production";
 import Introduction from "../../Main/Introduction";
 import { AppContext } from "../../../context";
+import { findPath } from "../../../app/findPath";
 
 const CarcassBathsPage: React.FC = () => {
   const { carcassImages, carcassParamsImages } = useContext(AppContext);
@@ -52,7 +53,7 @@ const CarcassBathsPage: React.FC = () => {
             })}
           </ul>
         </article>
-        <div className={s.main_top__link}>Главная /</div>
+        <div className={s.main_top__link}>Главная / {findPath()} /</div>
         <Production tag="carcass" />
         <About className="main_about__barrel" />
         <Blog />

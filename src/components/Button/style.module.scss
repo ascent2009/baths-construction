@@ -36,3 +36,50 @@
     // top: 35%;
   }
 }
+
+.main_blog__pagination_button {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  &:first-child:not(:only-child) {
+    transform: rotate(180deg);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.main_blog__pagination_button_disabled {
+  @extend .main_blog__pagination_button;
+  img {
+    opacity: 0.4;
+  }
+}
+
+.main_blog__pagination_button_loadmore {
+  margin: 91px 0 0 0;
+  background: #f2f2f2;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #da5c3e;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+  padding: 23px 0 22px;
+  position: relative;
+  cursor: pointer;
+  &::before {
+    position: absolute;
+    content: url("../../assets/arrow-loadmore.svg");
+    top: 39%;
+    left: 44%;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}

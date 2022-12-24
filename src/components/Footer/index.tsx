@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                   <A href="#">Информация</A>
                 </li>
                 <li className={s.footer_top__center_submenu_item}>
-                  <A href="#">Наш блог</A>
+                  <A href="/blog">Наш блог</A>
                 </li>
               </ul>
             </ul>
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                   <h4>Каркассные бани</h4>
                 </A>
                 <li className={s.footer_top__center_submenu_item}>
-                  <A href="#">Серия Лира</A>
+                  <A href="/catalogue/carcass_baths/carcass_lira">Серия Лира</A>
                 </li>
                 <li className={s.footer_top__center_submenu_item}>
                   <A href="#">Серия Флора</A>
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
               </ul>
             </ul>
             <ul className={s.footer_top__center_submenu}>
-              <A href="#" className={s.footer_top__center_submenu_title}>
+              <A href="/blog" className={s.footer_top__center_submenu_title}>
                 <h4>Наш блог</h4>
               </A>
               <A href="/english">For English speakers</A>

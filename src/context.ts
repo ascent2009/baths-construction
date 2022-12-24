@@ -29,9 +29,11 @@ interface IApp {
   carcassParamsImages: ListCarcassParamsImageType;
   classicBarrelImages: ListImageType;
   peakBarrelImages: ListAboutImagesType;
+  liraCarcassImages: ListAboutImagesType;
   layoutImages: ListLayoutType;
   slides: ListAboutImagesType;
   extraOptionsImages: ListExtraOptionsImageType;
+  sections: ListCarcassParamsImageType;
 }
 
 export const defaultValues: ILocation = {
@@ -50,9 +52,11 @@ export const appValues: IApp = {
   carcassParamsImages: [],
   classicBarrelImages: [],
   peakBarrelImages: [],
+  liraCarcassImages: [],
   layoutImages: [],
   slides: [],
   extraOptionsImages: [],
+  sections: [],
 };
 
 export const LocationContext = React.createContext(defaultValues);
