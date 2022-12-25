@@ -74,12 +74,12 @@ const BlogPage: React.FC = () => {
           </div>
           <Menu className={s.main_blog__menu}>
             {/* <h4>Быстрая навигация:</h4> */}
-            <A href="">Все разделы</A>
-            <A href="">Наши будни</A>
-            <A href="">Полезные статьи</A>
+            <A href="/blog">Все разделы</A>
+            <A href="/blog/knowhow">Наши будни</A>
+            <A href="/blog/knowhow">Полезные статьи</A>
             <A href="">Отзывы клиентов</A>
-            <A href="">Наши будни</A>
-            <A href="">Полезные статьи</A>
+            <A href="/blog/knowhow">Наши будни</A>
+            <A href="/blog/knowhow">Полезные статьи</A>
             <A href="">Отзывы клиентов</A>
             <A href="">О наболевшем</A>
             <A href="">Наши новости</A>

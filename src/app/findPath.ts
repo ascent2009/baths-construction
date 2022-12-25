@@ -22,6 +22,9 @@ export const findPath = () => {
     case "carcass_baths":
       newPath[1] = "Каркассные бани";
       break;
+      case "knowhow":
+      newPath[1] = "Полезное в блоге";
+      break;
   }
 
   switch (newPath[2]) {

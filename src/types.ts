@@ -62,3 +62,12 @@ export type ListExtraOptionsImageType =
       price: string;
       description: string;
     }[];
+
+    export type ListBlogKnowHowType =
+    | {
+        link: string;
+        date: string;
+        title: string;
+        url: string;
+        description: string
+      }[];
