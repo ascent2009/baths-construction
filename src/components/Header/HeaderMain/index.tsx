@@ -151,16 +151,16 @@ const HeaderMain: React.FC<IHeaderMain> = ({
                       <h4>Информация</h4>
                     </A>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
-                      <A href="/about">О нас</A>
+                      <A href="/information/about">О нас</A>
                     </li>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
-                      <A href="/vacancies">Вакансии</A>
+                      <A href="/information/vacancies">Вакансии</A>
                     </li>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
-                      <A href="/faq">Вопросы и ответы</A>
+                      <A href="/information/faq">Вопросы и ответы</A>
                     </li>
                     <li className={s.header_main__dropdown_mobile_submenu_item}>
-                      <A href="/contacts">Контакты</A>
+                      <A href="/information/contacts">Контакты</A>
                     </li>
                   </ul>
                 </ul>
@@ -228,16 +228,16 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             </A>
             {!aboutDropdown ? (
               <Dropdown className={s.header_main__menu_dropdown}>
-                <A id="dropdown" href={"#about"}>
+                <A id="dropdown" href={"/information/about"}>
                   О нас
                 </A>
-                <A id="dropdown" href="/faq">
+                <A id="dropdown" href="/information/faq">
                   Вопросы и ответы
                 </A>
-                <A id="dropdown" href="/vacancies">
+                <A id="dropdown" href="/information/vacancies">
                   Вакансии
                 </A>
-                <A id="dropdown" href={"/contacts"}>
+                <A id="dropdown" href={"/information/contacts"}>
                   Контакты
                 </A>
               </Dropdown>

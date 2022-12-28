@@ -1,0 +1,75 @@
+@import "../../vars";
+
+.main {
+  width: 1340px;
+  margin: auto;
+  font-family: $font;
+  font-style: $fontStyle;
+  position: relative;
+
+  &_top__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #828282;
+    margin: 15px auto 8px 90px;
+  }
+
+  &_title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 45px;
+    color: #333333;
+    margin: 0 auto 59px 90px;
+    position: relative;
+    &::before {
+      position: absolute;
+      left: -90px;
+      top: 50%;
+      content: "";
+      width: 63px;
+      height: 3px;
+      background: #da5c3e;
+    }
+  }
+
+  &_images__list {
+    padding: 0;
+    margin: 0 auto 69px 90px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 519px);
+    column-gap: 81px;
+    row-gap: 71px;
+    &_item {
+      position: relative;
+      // width: fit-content;
+      // height: fit-content;
+      img {
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        );
+        border-radius: 20px 0px;
+      }
+
+      &_title {
+        position: absolute;
+        font-weight: 100;
+        font-size: 48px;
+        line-height: 56px;
+        color: #ffffff;
+        top: 117px;
+        left: 47px;
+        margin: 0;
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}

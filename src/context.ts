@@ -8,7 +8,8 @@ import {
   ListCarcassParamsImageType,
   ListLayoutType,
   ListExtraOptionsImageType,
-  ListBlogKnowHowType
+  ListBlogKnowHowType,
+  ListInfoType,
 } from "./types";
 
 interface ILocation {
@@ -36,6 +37,7 @@ interface IApp {
   extraOptionsImages: ListExtraOptionsImageType;
   sections: ListCarcassParamsImageType;
   blogKnowHowImages: ListBlogKnowHowType;
+  infoImages: ListInfoType;
 }
 
 export const defaultValues: ILocation = {
@@ -59,7 +61,8 @@ export const appValues: IApp = {
   slides: [],
   extraOptionsImages: [],
   sections: [],
-  blogKnowHowImages: []
+  blogKnowHowImages: [],
+  infoImages: [],
 };
 
 export const LocationContext = React.createContext(defaultValues);

@@ -11,9 +11,12 @@ export const findPath = () => {
     case "carcass_baths":
       newPath[0] = "Каркассные бани";
       break;
-      case "blog":
-        newPath[0] = "Блог";
-        break;
+    case "blog":
+      newPath[0] = "Блог";
+      break;
+    case "information":
+      newPath[0] = "Информация";
+      break;
   }
   switch (newPath[1]) {
     case "classic_barrel":
@@ -22,7 +25,7 @@ export const findPath = () => {
     case "carcass_baths":
       newPath[1] = "Каркассные бани";
       break;
-      case "knowhow":
+    case "knowhow":
       newPath[1] = "Полезное в блоге";
       break;
   }

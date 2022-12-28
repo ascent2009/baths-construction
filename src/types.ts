@@ -6,6 +6,7 @@ export type ListImageType =
       price: string;
       description: string;
       novelty: string;
+      // link: string;
     }[];
 
 export type ListFeaturesType =
@@ -63,11 +64,19 @@ export type ListExtraOptionsImageType =
       description: string;
     }[];
 
-    export type ListBlogKnowHowType =
-    | {
-        link: string;
-        date: string;
-        title: string;
-        url: string;
-        description: string
-      }[];
+export type ListBlogKnowHowType =
+  | {
+      link: string;
+      date: string;
+      title: string;
+      url: string;
+      description: string;
+    }[];
+
+export type ListInfoType =
+  | {
+      link: string;
+      id: number;
+      title: string;
+      url: string;
+    }[];
