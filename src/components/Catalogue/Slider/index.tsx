@@ -4,7 +4,7 @@ import { AppContext } from "../../../context";
 import ArrowSliderSvg from "../../../assets/arrow-slider.svg";
 
 interface ISlider {
-  title: string;
+  title?: string;
   className: string;
 }
 

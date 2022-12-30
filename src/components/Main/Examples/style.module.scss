@@ -143,3 +143,30 @@
     }
   }
 }
+
+.main_examples__light_theme {
+  @extend .main_examples;
+  background: none;
+  // &::after {
+  //   display: none;
+  // }
+  .main_examples__title {
+    color: #333333;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 17px;
+      height: 251px;
+      left: -90px;
+      top: 0;
+      background: #333333;
+    }
+  }
+  .main_examples__images {
+    margin-bottom: 87px;
+  }
+  .main_examples__bottom_block {
+    display: none;
+  }
+}

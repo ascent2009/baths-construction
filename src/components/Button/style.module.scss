@@ -83,3 +83,16 @@
     transform: translateY(1px);
   }
 }
+
+.button_red__theme_visit_production {
+  @extend .button_red__theme;
+  color: #ddd8c1;
+  padding-left: 43px;
+  margin-top: 8px;
+  &::before {
+    // position: absolute;
+    content: url("../../assets/saw.svg");
+    left: 33px;
+    top: 27%;
+  }
+}

@@ -15,8 +15,9 @@ import ClassicBarrel from "./components/Catalogue/ClassicBarrel";
 import PeakBarrel from "./components/Catalogue/PeakBarrel";
 import CarcassLira from "./components/Catalogue/CarcassLira";
 import Blog from "./components/Blog";
-import Information from "./components/Information";
 import KnowHow from "./components/Blog/KnowHow";
+import Information from "./components/Information";
+import AboutUs from "./components/Information/AboutUs";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -35,6 +36,7 @@ const routes = {
   "/blog": () => <Blog />,
   "/blog/knowhow": () => <KnowHow />,
   "/information": () => <Information />,
+  "/information/about": () => <AboutUs />,
 };
 
 const App: React.FC = () => {
@@ -71,6 +73,9 @@ const App: React.FC = () => {
     appValues.blogKnowHowImages
   );
   const [infoImages, setInfoImages] = useState(appValues.infoImages);
+  const [workshopImages, setWorkshopImages] = useState(
+    appValues.workshopImages
+  );
 
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
@@ -184,6 +189,12 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setInfoImages([...infoImages, ...obj]);
     });
+    const dbWorkshop = fetchFirebase(db, `workshop`);
+    onValue(dbWorkshop, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setWorkshopImages([...workshopImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -215,6 +226,7 @@ const App: React.FC = () => {
         sections,
         blogKnowHowImages,
         infoImages,
+        workshopImages,
       }}
     >
       <LocationContext.Provider

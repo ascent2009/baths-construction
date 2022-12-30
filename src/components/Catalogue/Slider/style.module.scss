@@ -86,3 +86,16 @@
     }
   }
 }
+
+.main_slider__notext {
+  @extend .main_slider;
+  // .main_slider__title {
+  //   margin-bottom: 0;
+  // }
+  .main__slider_orderedlist {
+    display: none;
+    &:last-child:not(:only-child) {
+      display: none;
+    }
+  }
+}

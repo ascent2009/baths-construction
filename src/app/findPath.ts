@@ -28,6 +28,9 @@ export const findPath = () => {
     case "knowhow":
       newPath[1] = "Полезное в блоге";
       break;
+    case "about":
+      newPath[1] = "О нас";
+      break;
   }
 
   switch (newPath[2]) {
