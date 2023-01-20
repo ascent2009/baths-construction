@@ -18,6 +18,7 @@ import Blog from "./components/Blog";
 import KnowHow from "./components/Blog/KnowHow";
 import Information from "./components/Information";
 import AboutUs from "./components/Information/AboutUs";
+import Vacancies from "./components/Information/Vacancies";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -37,6 +38,7 @@ const routes = {
   "/blog/knowhow": () => <KnowHow />,
   "/information": () => <Information />,
   "/information/about": () => <AboutUs />,
+  "/information/vacancies": () => <Vacancies />,
 };
 
 const App: React.FC = () => {

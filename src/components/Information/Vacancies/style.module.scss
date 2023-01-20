@@ -1,0 +1,131 @@
+@import "../../../vars";
+
+.main {
+  width: 1340px;
+  margin: auto;
+  font-family: $font;
+  font-style: $fontStyle;
+  // position: relative;
+
+  &_top__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #828282;
+    margin: 15px auto 8px 90px;
+  }
+  &_vacancies {
+    margin: 0;
+    &__title {
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 45px;
+      color: #333333;
+      margin: 0 auto 48px 90px;
+      width: 561px;
+      position: relative;
+      &::before {
+        position: absolute;
+        left: -90px;
+        top: 25%;
+        content: "";
+        width: 63px;
+        height: 3px;
+        background: #da5c3e;
+      }
+    }
+    &__text {
+      margin: 0 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 780px;
+      height: 213px;
+      &_item {
+        h5 {
+          font-size: 16px;
+          line-height: 20px;
+          margin: 0;
+          font-weight: 600;
+          color: #000000;
+        }
+        p {
+          font-size: 16px;
+          line-height: 20px;
+          margin: 0;
+          color: #4f4f4f;
+        }
+      }
+    }
+    &__employment {
+      display: flex;
+      margin: 65px auto 99px 124px;
+      width: 792px;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        left: -33px;
+        top: -25px;
+        width: 3px;
+        height: 107px;
+        background: #333333;
+      }
+      &_contact {
+        h5 {
+          margin: 0 0 10px 0;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+          color: #333333;
+        }
+        div {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          a {
+            margin: 0;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            color: #da5c3e;
+          }
+          p {
+            margin: 0;
+            font-weight: 400;
+            font-size: 16px;
+            // line-height: 19px;
+            color: #4f4f4f;
+          }
+        }
+      }
+      &_location {
+        width: 326px;
+        h5 {
+          font-size: 16px;
+          line-height: 20px;
+          margin: 0;
+          font-weight: 600;
+          color: #000000;
+        }
+        p {
+          font-size: 16px;
+          line-height: 20px;
+          margin: 0;
+          color: #4f4f4f;
+        }
+      }
+    }
+    &__images {
+      margin: 100px 90px;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 40px;
+      list-style: none;
+    }
+  }
+}
