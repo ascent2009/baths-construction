@@ -19,6 +19,7 @@ import KnowHow from "./components/Blog/KnowHow";
 import Information from "./components/Information";
 import AboutUs from "./components/Information/AboutUs";
 import Vacancies from "./components/Information/Vacancies";
+import Questions from "./components/Information/Questions";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -39,6 +40,7 @@ const routes = {
   "/information": () => <Information />,
   "/information/about": () => <AboutUs />,
   "/information/vacancies": () => <Vacancies />,
+  "/information/faq": () => <Questions />,
 };
 
 const App: React.FC = () => {
@@ -78,6 +80,7 @@ const App: React.FC = () => {
   const [workshopImages, setWorkshopImages] = useState(
     appValues.workshopImages
   );
+  const [faqImages, setFaqImages] = useState(appValues.faqImages);
 
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
@@ -197,6 +200,12 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setWorkshopImages([...workshopImages, ...obj]);
     });
+    const dbFaq = fetchFirebase(db, `faq`);
+    onValue(dbFaq, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setFaqImages([...faqImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -229,6 +238,7 @@ const App: React.FC = () => {
         blogKnowHowImages,
         infoImages,
         workshopImages,
+        faqImages
       }}
     >
       <LocationContext.Provider
