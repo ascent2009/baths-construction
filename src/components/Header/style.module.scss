@@ -411,6 +411,11 @@ button {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
       url("../../assets/header-barrel-background.png");
   }
+  .header_main__success {
+    @extend .header_main;
+    background: #219653;
+    height: 1082px;
+  }
   .header_main__menu_dropdown {
     position: absolute;
     left: 203px;

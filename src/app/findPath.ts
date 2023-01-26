@@ -37,6 +37,9 @@ export const findPath = () => {
     case "faq":
       newPath[1] = "Вопросы и ответы";
       break;
+      case "contacts":
+      newPath[1] = "Контакты";
+      break;
   }
 
   switch (newPath[2]) {

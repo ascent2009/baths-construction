@@ -65,6 +65,7 @@ const About: React.FC<IAbout> = ({ className }) =>
         alert(
           `${data}! Ваши контакты получены, ожидайте звонка нашего сотрудника`
         );
+        navigate("/success")
       }
       setInput({ name: "", phone: "" });
       navigate("/order_page");

@@ -20,10 +20,13 @@ import Information from "./components/Information";
 import AboutUs from "./components/Information/AboutUs";
 import Vacancies from "./components/Information/Vacancies";
 import Questions from "./components/Information/Questions";
+import Contacts from "./components/Information/Contacts";
+import SuccessfulOrder from "./components/SuccessfulOrder";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
 import { defaultValues } from "./context";
+
 
 const routes = {
   "/": () => <Main />,
@@ -41,6 +44,8 @@ const routes = {
   "/information/about": () => <AboutUs />,
   "/information/vacancies": () => <Vacancies />,
   "/information/faq": () => <Questions />,
+  "/information/contacts": () => <Contacts />,
+  "/success": () => <SuccessfulOrder />,
 };
 
 const App: React.FC = () => {
