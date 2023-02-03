@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import s from "./style.module.scss";
 import HeaderMain from "../Header/HeaderMain";
 import Location from "../Main/Location";
-// import Blog from "../Main/Blog";
+import Pagination from "../Pagination";
 import Invitation from "../Catalogue/Invitation";
 import Menu from "../Menu";
 import Button from "../Button";
@@ -14,44 +14,44 @@ import { findPath } from "../../app/findPath";
 
 const BlogPage: React.FC = () => {
   const { blogImages } = useContext(AppContext);
-  const repeatedImages = new Array(16).fill(blogImages).flat();
+  // const repeatedImages = new Array(16).fill(blogImages).flat();
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(12);
-  const [disabledButton, setDisabledButton] = useState(false);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [itemsPerPage, setItemsPerPage] = useState(12);
+  // const [disabledButton, setDisabledButton] = useState(false);
 
-  const lastItemIndex = currentPage * itemsPerPage;
-  const firstItemIndex = lastItemIndex - itemsPerPage;
-  const currentItemsPage = repeatedImages.slice(firstItemIndex, lastItemIndex);
+  // const lastItemIndex = currentPage * itemsPerPage;
+  // const firstItemIndex = lastItemIndex - itemsPerPage;
+  // const currentItemsPage = repeatedImages.slice(firstItemIndex, lastItemIndex);
   // console.log("currentItemsPage: ", currentItemsPage);
 
-  const pageNumbers: number[] = [];
-  for (let i = 1; i <= repeatedImages.length / itemsPerPage; i++) {
-    pageNumbers.push(i);
-  }
+  // const pageNumbers: number[] = [];
+  // for (let i = 1; i <= repeatedImages.length / itemsPerPage; i++) {
+  //   pageNumbers.push(i);
+  // }
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  // const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  const prevPage = () => {
-    if (currentPage !== 1) {
-      setCurrentPage((prev) => prev - 1);
-      setDisabledButton(false);
-    } else {
-      setDisabledButton(true);
-    }
-  };
-  const nextPage = () => {
-    if (currentPage !== pageNumbers.length) {
-      setCurrentPage((prev) => prev + 1);
-      setDisabledButton(false);
-    } else {
-      setDisabledButton(true);
-    }
-  };
+  // const prevPage = () => {
+  //   if (currentPage !== 1) {
+  //     setCurrentPage((prev) => prev - 1);
+  //     setDisabledButton(false);
+  //   } else {
+  //     setDisabledButton(true);
+  //   }
+  // };
+  // const nextPage = () => {
+  //   if (currentPage !== pageNumbers.length) {
+  //     setCurrentPage((prev) => prev + 1);
+  //     setDisabledButton(false);
+  //   } else {
+  //     setDisabledButton(true);
+  //   }
+  // };
 
-  const loadMore = () => {
-    if (currentPage <= pageNumbers.length) setItemsPerPage((prev) => prev + 3);
-  };
+  // const loadMore = () => {
+  //   if (currentPage <= pageNumbers.length) setItemsPerPage((prev) => prev + 3);
+  // };
 
   return (
     <>
@@ -84,7 +84,7 @@ const BlogPage: React.FC = () => {
             <A href="">О наболевшем</A>
             <A href="">Наши новости</A>
           </Menu>
-          <ul className={s.main_blog__images}>
+          {/* <ul className={s.main_blog__images}>
             {currentItemsPage.map(({ date, chapter, title, url }) => {
               return (
                 <li className={s.main_blog__images_item} key={title}>
@@ -100,8 +100,8 @@ const BlogPage: React.FC = () => {
                 </li>
               );
             })}
-          </ul>
-          <Button
+          </ul> */}
+          {/* <Button
             onClick={loadMore}
             className="main_blog__pagination_button_loadmore"
             title="Загрузить ещё"
@@ -143,7 +143,13 @@ const BlogPage: React.FC = () => {
             >
               <img src={PaginationArrowSvg} alt="arrow-next" />
             </Button>
-          </div>
+          </div> */}
+          <Pagination
+            images={blogImages}
+            imagesClassName="main_blog__images"
+            paginationClassName="main_blog__pagination"
+            loadmoreClassName="main_blog__pagination_loadmore"
+          />
         </article>
         <Invitation
           title="Изготовим и доставим баню вашей мечты, в короткие сроки и по

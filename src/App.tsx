@@ -22,6 +22,8 @@ import Vacancies from "./components/Information/Vacancies";
 import Questions from "./components/Information/Questions";
 import Contacts from "./components/Information/Contacts";
 import SuccessfulOrder from "./components/SuccessfulOrder";
+import Projects from "./components/Projects";
+import Gorky2 from "./components/Projects/Gorky2";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
@@ -46,6 +48,8 @@ const routes = {
   "/information/faq": () => <Questions />,
   "/information/contacts": () => <Contacts />,
   "/success": () => <SuccessfulOrder />,
+  "/projects": () => <Projects />,
+  "/projects/gorky2": () => <Gorky2 />,
 };
 
 const App: React.FC = () => {
@@ -86,6 +90,8 @@ const App: React.FC = () => {
     appValues.workshopImages
   );
   const [faqImages, setFaqImages] = useState(appValues.faqImages);
+  const [projectImages, setProjectImages] = useState(appValues.projectImages);
+  const [gorkyImages, setGorkyImages] = useState(appValues.gorkyImages);
 
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
@@ -211,6 +217,18 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setFaqImages([...faqImages, ...obj]);
     });
+    const dbProjects = fetchFirebase(db, `baths-built`);
+    onValue(dbProjects, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setProjectImages([...projectImages, ...obj]);
+    });
+    const dbGorky = fetchFirebase(db, `gorky2`);
+    onValue(dbGorky, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setGorkyImages([...gorkyImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -243,7 +261,9 @@ const App: React.FC = () => {
         blogKnowHowImages,
         infoImages,
         workshopImages,
-        faqImages
+        faqImages,
+        projectImages,
+        gorkyImages
       }}
     >
       <LocationContext.Provider

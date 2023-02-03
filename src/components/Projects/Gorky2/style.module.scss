@@ -1,0 +1,170 @@
+@import "../../../vars";
+
+.main {
+  width: 1340px;
+  margin: auto;
+  font-family: $font;
+  font-style: $fontStyle;
+  position: relative;
+
+  &_top__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #828282;
+    margin: 15px auto 8px 90px;
+  }
+  &_gorky2 {
+    margin: 0 90px 66px 88px;
+    &__title_block {
+    //   width: 355px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 38px;
+      .main_gorky2__title {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 45px;
+        margin: 0;
+        color: #333333;
+        position: relative;
+        &::before {
+          position: absolute;
+          left: -90px;
+          top: 50%;
+          content: "";
+          width: 63px;
+          height: 3px;
+          background: #da5c3e;
+        }
+      }
+    }
+    &__menu {
+        // width: 858px;
+        // height: 92px;
+        margin: 0 auto 47px 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 19px;
+            color: #4F4F4F;
+        }
+        &_links {
+            display: flex;
+            justify-content: space-between;
+            width: 376px;
+            margin: 0 0 0 10px;
+            a {
+                margin: 0;
+                font-size: 16px;
+                line-height: 19px;
+                text-decoration-line: underline;
+                color: #DA5C3E;
+            }
+        }   
+    }
+    &__text {
+        margin: 0 0 57px 0;
+        width: 826px;
+        font-size: 16px;
+        line-height: 22px;
+        color: #4F4F4F;
+    }
+    &__images {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 61px 0px;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(2, auto);
+        column-gap: 40px;
+        row-gap: 34px;
+        &_item {
+            height: 219px;
+            &:first-child:not(:only-child) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+            // &:nth-child(8):not(:only-child) {
+            //     grid-column-start: 1;
+            //     grid-column-end: 1;
+            //     grid-row-start: 4;
+            //     grid-row-end: 4;
+            // }
+            // &:nth-child(9):not(:only-child) {
+            //     grid-column-start: 2;
+            //     grid-column-end: 2;
+            //     grid-row-start: 4;
+            //     grid-row-end: 4;
+            // }
+            // &:last-child:not(:only-child) {
+            //     grid-column-start: 4;
+            //     grid-column-end: 4;
+            //     grid-row-start: 3;
+            //     grid-row-end: 2;
+            //     // display: none;
+            // }
+        }
+     }
+     &__subtitle {
+        margin: 0 0 56px 0;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 25px;
+        color: #333333;
+     }
+     &__chale_images {
+        @extend .main_gorky2__images;
+        margin-bottom: 52px;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(1, auto);
+        column-gap: 41px;
+        &_item {
+            height: fit-content;
+            // &:first-child:not(:only-child) {
+            //     grid-column-start: 1;
+            //     grid-column-end: 1;
+            //     grid-row-start: 1;
+            //     grid-row-end: 1;
+            // }
+        }
+    }
+}
+    &_projects {
+        margin: 70px 90px 90px;
+        &__title {
+            margin: 0 0 58px 0;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 45px;
+            color: #333333;
+        }
+        &__images {
+            list-style: none;
+            display: grid;
+            margin: 0;
+            padding: 0;
+            grid-template-columns: repeat(3, auto);
+            column-gap: 40px;
+            img {
+                margin-bottom: 17px;
+            }
+            a {
+                display: block;
+                width: 250px;
+                margin: 0;
+                font-size: 18px;
+                line-height: 22px;
+                text-decoration-line: underline;
+                color: #333333;
+            }
+        }
+    }
+}

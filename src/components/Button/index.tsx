@@ -2,9 +2,9 @@ import React from "react";
 import s from "./style.module.scss";
 
 interface IButton {
-  children?: HTMLElement | JSX.Element;
+  children?: HTMLElement | JSX.Element | string;
   title?: string;
-  className: string;
+  className?: string;
   // onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

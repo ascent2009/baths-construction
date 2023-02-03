@@ -416,6 +416,13 @@ button {
     background: #219653;
     height: 1082px;
   }
+  .header_main__projects {
+    @extend .header_main;
+    background: rgba(255, 255, 255, 0.7);
+    height: fit-content;
+    position: relative;
+    z-index: 1;
+  }
   .header_main__menu_dropdown {
     position: absolute;
     left: 203px;

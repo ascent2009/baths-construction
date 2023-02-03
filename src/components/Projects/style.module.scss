@@ -1,0 +1,159 @@
+@import "../../vars";
+
+.main {
+  width: 1340px;
+  margin: auto;
+  font-family: $font;
+  font-style: $fontStyle;
+  position: relative;
+
+  //   &_top__link {
+  //     font-weight: 400;
+  //     font-size: 14px;
+  //     line-height: 17px;
+  //     text-decoration-line: underline;
+  //     color: #828282;
+  //     margin: 15px auto 8px 90px;
+  //   }
+  &_location {
+    &__map {
+    margin: -112px 0 0 0;
+    position: relative;
+    // z-index: -1;
+    // button {
+    //   position: absolute;
+    //   background: transparent;
+    //   border: none;
+    //   outline: none;
+    //   left: 606px;
+    //   top: 294px;
+    //   cursor: pointer;
+    //   &:nth-child(2):not(:only-child) {
+    //     left: 34%;
+    //     top: 46%;
+    //   }
+    //   &:nth-child(3):not(:only-child) {
+    //     bottom: -10px;
+    //     left: 767px;
+    //   }
+    //   &:last-child:not(:only-child) {
+    //     left: 680px;
+    //     top: 50%;
+    //   }
+    // }
+    &_modal {
+      position: absolute;
+      bottom: 31%;
+      left: 742px;
+      width: 324px;
+      height: 341px;
+      background: #ffffff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 20.44px;
+        height: 13.44px;
+        left: 40px;
+        bottom: -2%;
+        background: #ffffff;
+        transform: matrix(0.71, 0.47, -1.05, 0.71, 0, 0);
+        // transform: rotate(90deg);
+        z-index: 2;
+      }
+      button {
+        position: absolute;
+        top: 10px;
+        left: 90%;
+        opacity: 0.5;
+        padding: 0;
+        border: none;
+        outline: none;
+        &:active {
+          transform: translateY(1px);
+        }
+      }
+      h3 {
+        margin: 28px auto 11px 39px;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 20px;
+        color: #333333;
+      }
+      &_item {
+        margin: 14px 35px 16px 121px;
+        padding-top: 14px;
+        border-top: 1px dashed #e5e5e5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 53px;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: url("https://firebasestorage.googleapis.com/v0/b/baths-construction.appspot.com/o/baths-built%2Fbarrel-gorky2.png?alt=media&token=91f62e56-407b-41ca-ad9e-a43ecb8d0e1f");
+          left: -82px;
+        }
+        p {
+          margin: 0;
+          font-size: 14px;
+          line-height: 17px;
+          text-decoration-line: underline;
+          color: #333333;
+        }
+        a {
+          margin: 0;
+          font-size: 13px;
+          line-height: 16px;
+          color: #ff5416;
+        }
+      }
+    }
+  }
+  &__title {
+    height: 79px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 81px auto 22px 90px;
+    h2 {
+      margin: 0;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 46px;
+      color: #333333;
+    }
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 17px;
+      color: #333333;
+    }
+  }
+  &__menu {
+    width: 505px;
+    margin: 0 auto 67px 90px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      border: 1px solid #F2F2F2;
+      border-radius: 3px;
+      font-size: 12px;
+      line-height: 15px;
+      text-decoration-line: underline;
+      color: #4F4F4F;
+      padding: 7px 13px;
+      margin: 0;
+      &:active,
+      &:hover {
+        padding: 7px 15px;
+        background: #333333;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-decoration: none;
+      }
+    }
+  }
+}
+}

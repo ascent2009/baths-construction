@@ -59,7 +59,7 @@
   }
 }
 
-.main_blog__pagination_button_loadmore {
+.main_blog__pagination_loadmore {
   margin: 91px 0 0 0;
   background: #f2f2f2;
   border-radius: 5px;
@@ -84,6 +84,12 @@
   }
 }
 
+.main_location__pagination_loadmore {
+  @extend .main_blog__pagination_loadmore;
+  margin: 58px 90px 98px;
+  width: 1160px;
+}
+
 .button_red__theme_visit_production {
   @extend .button_red__theme;
   color: #ddd8c1;
@@ -95,4 +101,27 @@
     left: 33px;
     top: 27%;
   }
+}
+
+.main_location__map_button {
+  position: absolute;
+      background: transparent;
+      border: none;
+      outline: none;
+      left: 606px;
+      top: 294px;
+      cursor: pointer;
+      &:nth-child(2):not(:only-child) {
+        left: 34%;
+        top: 46%;
+      }
+      &:nth-child(3):not(:only-child) {
+        bottom: -10%;
+        left: 767px;
+      }
+      &:last-child:not(:only-child) {
+        left: 680px;
+        top: 50%;
+      }
+
 }

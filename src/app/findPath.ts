@@ -17,6 +17,9 @@ export const findPath = () => {
     case "information":
       newPath[0] = "Информация";
       break;
+    case "projects":
+      newPath[0] = "Готовые проекты";
+      break;
   }
   switch (newPath[1]) {
     case "classic_barrel":
@@ -37,8 +40,11 @@ export const findPath = () => {
     case "faq":
       newPath[1] = "Вопросы и ответы";
       break;
-      case "contacts":
+    case "contacts":
       newPath[1] = "Контакты";
+      break;
+    case "gorky2":
+      newPath[1] = "СНТ Горки-2";
       break;
   }
 

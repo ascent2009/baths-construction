@@ -40,6 +40,8 @@ interface IApp {
   infoImages: ListInfoType;
   workshopImages: ListExampleImagesType;
   faqImages: ListExampleImagesType;
+  projectImages: ListCarcassParamsImageType;
+  gorkyImages: ListExampleImagesType;
 }
 
 export const defaultValues: ILocation = {
@@ -67,6 +69,8 @@ export const appValues: IApp = {
   infoImages: [],
   workshopImages: [],
   faqImages: [],
+  projectImages: [],
+  gorkyImages: []
 };
 
 export const LocationContext = React.createContext(defaultValues);
