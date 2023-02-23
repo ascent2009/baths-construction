@@ -139,4 +139,64 @@
       }
     }
   }
+  .main_layout__round_link {
+    display: none;
+  }
+}
+
+.main_layout__round {
+  @extend .main_layout;
+  margin-bottom: 114px;
+  &::before {
+    top: -40%;
+  }
+  .main_layout__discussion {
+    display: none;
+  }
+  .main_layout__extra {
+    display: none;
+  }
+  .main_layout__link_block {
+    display: none;
+  }
+  .main_layout__round_link {
+    display: flex;
+    margin: 24px auto 0 90px;
+    align-items: center;
+    p {
+      width: 456px;
+      font-size: 24px;
+      line-height: 29px;
+      color: #333333;
+    }
+    &_block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 242px;
+      height: 48px;
+      margin-left: 242px;
+      a {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 16px;
+        color: #828282;
+        text-decoration: none;
+        &:last-child:not(:only-child) {
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 22px;
+          text-decoration-line: underline;
+          color: #da5c3e;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: url("../../../assets/arrow-layout.svg");
+            top: 0;
+            left: -100px;
+          }
+        }
+      }
+    }
+  }
 }

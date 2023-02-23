@@ -25,7 +25,7 @@ const PeakBarrel: React.FC = () => {
     // prodImages,
     // classicBarrelImages,
     peakBarrelImages,
-    // layoutImages,
+    layoutImages,
     // slides,
     // extraOptionsImages,
   } = useContext(AppContext);
@@ -249,8 +249,11 @@ const PeakBarrel: React.FC = () => {
             <A href="">Смотреть планировки и цены на другие размеры</A>
           </div>
         </article> */}
-        <LayoutOptions />
-        <Slider title="В базовую стоимость каждой нашей бани-бочки входит" className="main_slider" />
+        <LayoutOptions images={layoutImages} className="main_layout" />
+        <Slider
+          title="В базовую стоимость каждой нашей бани-бочки входит"
+          className="main_slider"
+        />
         {/* <article className={s.main_slider}>
           <h2 className={s.main_slider__title}>
             В базовую стоимость каждой нашей бани-бочки входит

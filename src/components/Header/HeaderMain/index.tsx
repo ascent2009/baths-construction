@@ -15,15 +15,21 @@ import CloseWhiteSvg from "../../../assets/close-white.svg";
 export interface IHeaderMain {
   display?: object;
   title?: string;
+  subtitle?: string;
   className?: string;
   background?: string;
   logo?: string;
   phoneIcon?: string;
   arrowIcon?: string;
+  text1?: string;
+  text2?: string;
 }
 
 const HeaderMain: React.FC<IHeaderMain> = ({
   title,
+  subtitle,
+  text1,
+  text2,
   display,
   className,
   background,
@@ -273,7 +279,13 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             </A>
           </div>
         </div>
-        <HeaderChangedContent display={display} title={title} />
+        <HeaderChangedContent
+          display={display}
+          title={title}
+          subtitle={subtitle}
+          text1={text1}
+          text2={text2}
+        />
         {/* <div className={s.header_main__title_block}>
           <h1>Производим мобильные бани на заказ</h1>
           <h3>

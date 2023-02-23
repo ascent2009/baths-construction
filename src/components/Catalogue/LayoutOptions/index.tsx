@@ -2,15 +2,21 @@ import React, { useContext } from "react";
 import s from "./style.module.scss";
 import { A } from "hookrouter";
 import { AppContext } from "../../../context";
+import { ListLayoutType } from "../../../types";
 
-const LayoutOptions: React.FC = () => {
-  const { layoutImages } = useContext(AppContext);
+interface ILayoutOptions {
+  images: ListLayoutType;
+  className: string;
+}
+
+const LayoutOptions: React.FC<ILayoutOptions> = ({ images, className }) => {
+  // const { layoutImages } = useContext(AppContext);
 
   return (
-    <article className={s.main_layout}>
+    <article className={s[`${className}`]}>
       <h2 className={s.main_layout__title}>Варианты планировок</h2>
       <ul className={s.main_layout__image_block}>
-        {layoutImages.map(
+        {images.map(
           ({
             title,
             subtitle,
@@ -93,6 +99,13 @@ const LayoutOptions: React.FC = () => {
       <div className={s.main_layout__link_block}>
         <A href="/catalogue">назад в каталог</A>
         <A href="">Смотреть планировки и цены на другие размеры</A>
+      </div>
+      <div className={s.main_layout__round_link}>
+        <p>Возможно изготовление купелей по индивидуальным размерам</p>
+        <div className={s.main_layout__round_link_block}>
+          <A href="/catalogue">назад в каталог</A>
+          <A href="">Смотреть прочие размеры</A>
+        </div>
       </div>
     </article>
   );

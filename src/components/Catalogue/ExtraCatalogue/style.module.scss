@@ -1,0 +1,19 @@
+@import "../../../vars";
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  width: 1340px;
+  margin: auto;
+  font-family: $font;
+  font-style: $fontStyle;
+  
+  &_top__link {
+    font-size: 10px;
+    line-height: 12px;
+    color: #4F4F4F;
+    margin: auto auto 8px 90px;
+  }
+}

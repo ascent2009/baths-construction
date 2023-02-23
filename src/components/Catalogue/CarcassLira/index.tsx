@@ -16,7 +16,7 @@ import { AppContext } from "../../../context";
 import { SVGCollection } from "../../Pages/EnglishVersionPage";
 
 const CarcassLira: React.FC = () => {
-  const { liraCarcassImages, sections } = useContext(AppContext);
+  const { liraCarcassImages, sections, layoutImages } = useContext(AppContext);
 
   const sortedImages = sections.sort((a, b) => a.id - b.id);
 
@@ -67,7 +67,7 @@ const CarcassLira: React.FC = () => {
           images={liraCarcassImages}
           className="main_lira"
         />
-        <LayoutOptions />
+        <LayoutOptions images={layoutImages} className="main_layout"/>
         <Slider
           title="В базовую стоимость каждой бани Лира входит"
           className="main_slider__lira"

@@ -20,6 +20,13 @@ const BarrelBathsPage: React.FC = () => {
         title={"Бани-бочки из Вологодского леса от производителя"}
         className={"header_main__menu_block"}
         background="header_main__barrel"
+        subtitle={"Реальные цены от 142 200 руб. - под ключ, заходи и парься!"}
+        text1={
+          "Новинка! Принимаем заказы на бани-бочки из сибирского кедра и лиственницы, цены уточняйте"
+        }
+        text2={
+          "Сроки изготовления до 24 дней. Проведем экскурсию на производстве в поселке Сосново в день обращения"
+        }
         logo={SVGCollection.lightLogo}
         phoneIcon={SVGCollection.phoneIcon}
         arrowIcon={SVGCollection.arrowIcon}

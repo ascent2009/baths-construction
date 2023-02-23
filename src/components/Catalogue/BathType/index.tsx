@@ -109,6 +109,74 @@ const BathType: React.FC<IBathType> = ({
           </Menu>
         </div>
       </div>
+      <div className={s.main_round__params_block}>
+        <div className={s.main_production__params_cost_block}>
+          <div className={s.main_production__params_cost}>
+            <div className={s.main_production__cost}>
+              <h5>Размеры 100x100x110 см,</h5>
+              <p>вместимость 1 чел.</p>
+              <h4>96 500 руб.</h4>
+            </div>
+            <div className={s.main_production__cost}>
+              <h5>Размеры 120x120x110 см,</h5>
+              <p>вместимость 2 чел.</p>
+              <h4>75 000 руб.</h4>
+            </div>
+          </div>
+          <div className={s.main_production__params_price}>
+            <p>
+              Цена указана за базовую комплектации "под ключ" материал - сосна,
+              ель, смотрите{" "}
+              <span>ниже по странице что входит в эту стоимость</span>, а также
+              дополнительные опции и размеры.
+            </p>
+          </div>
+          {/* <div className={s.main_production__params_new}>
+            <p>
+              Новинка! Корпус данной бани можно выполнить{" "}
+              <span>из кедра или лиственницы</span> - премиум исполнение!
+            </p>
+          </div> */}
+          <div className={s.main_production__params_text}>
+            <p>
+            Стоимость доставки по Ленинградской области рассчитывается отдельно. Доставим собственными силами в собранном виде и установим по месту в течении 1 - 2 часов.
+            </p>
+            <p>
+            Так же есть услуга сборки у Вас на участке - привезем в разобранном виде и соберем по месту.
+            </p>
+            <p>Стоимость сборки на участке 15% от стоимости купели.</p>
+          </div>
+          <div className={s.main_production__params_service}>
+            <A href="">Узнать стоимость доставки и установки</A>
+          </div>
+          {/* <p className={s.main_production__params_technology}>
+            Эта баня <span>держит тепло до двух часов</span> в сильные морозы,
+            утепление 10 см в стенах, полу и крыше! Сделано по каркасной
+            технологии.
+          </p> */}
+        </div>
+        <div className={s.main_production__params_nav_block} >
+          <div className={s.main_production__params_nav_button}>
+            <Button
+              title="Оформить заказ"
+              className="button_red__theme_order"
+            />
+            <A href="">Задать вопросы</A>
+          </div>
+          <div className={s.main_production__params_nav_changes}>
+            <p>
+              Всегда есть возможность изготовить баню-бочку с увеличенным
+              диаметром - внутри шире и выше, уточняйте по стоимости.
+            </p>
+          </div>
+          <Menu className={s.main_production__params_nav_menu}>
+            <h4>Быстрая навигация:</h4>
+            <A href="">Размерный ряд</A>
+            <A href="">Комплектация купели</A>
+            <A href="">Дополнительные опции</A>
+          </Menu>
+        </div>
+      </div>
     </article>
   );
 };

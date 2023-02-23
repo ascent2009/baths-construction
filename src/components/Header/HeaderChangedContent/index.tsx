@@ -3,7 +3,7 @@ import s from "../style.module.scss";
 import { A } from "hookrouter";
 import { IHeaderMain } from "../HeaderMain";
 
-const HeaderChangedContent: React.FC<IHeaderMain> = ({ display, title }) => {
+const HeaderChangedContent: React.FC<IHeaderMain> = ({ display, title, subtitle, text1, text2 }) => {
   return (
     <div style={display}>
       <div className={s.header_main__title_block}>
@@ -16,17 +16,20 @@ const HeaderChangedContent: React.FC<IHeaderMain> = ({ display, title }) => {
           {title}
         </h1>
         <h3>
-          Реальные цены <b>от 142 200 руб.</b> - под ключ, заходи и парься!
+          {subtitle}
+          {/* Реальные цены <b>от 142 200 руб.</b> - под ключ, заходи и парься! */}
         </h3>
       </div>
       <div className={s.header_main__adv_block}>
         <p>
-          <b>Новинка!</b> Принимаем заказы на бани-бочки из сибирского кедра и
-          лиственницы, цены уточняйте
+          {/* <b>Новинка!</b> Принимаем заказы на бани-бочки из сибирского кедра и
+          лиственницы, цены уточняйте */}
+          {text1}
         </p>
         <p>
-          Сроки изготовления до 24 дней. Проведем экскурсию на производстве в
-          поселке Сосново в день обращения
+          {/* Сроки изготовления до 24 дней. Проведем экскурсию на производстве в
+          поселке Сосново в день обращения */}
+          {text2}
         </p>
         <p>Приозерский район, работаем без выходных!</p>
       </div>

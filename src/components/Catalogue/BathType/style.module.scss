@@ -123,12 +123,22 @@
     column-gap: 42px;
     margin: auto 0;
   }
+  .main_round__params_block {
+    display: none;
+  }
   .main_production__params_block {
     display: grid;
     grid-template-columns: repeat(2, 559px);
     column-gap: 42px;
     margin: 61px 180px 71px 90px;
     color: #4f4f4f;
+    position: relative;
+    // &::before {
+    //   position: absolute;
+    //   content: url("../../../assets/spruce.png");
+    //   top: -21%;
+    //   right: 0;
+    // }
     .main_production__params_cost_block {
       display: flex;
       flex-direction: column;
@@ -342,6 +352,36 @@
             display: block;
           }
         }
+      }
+    }
+  }
+}
+
+.main_round {
+  @extend .main_lira;
+  .main_production__title {
+    width: fit-content;
+  }
+  .main_production__params_block {
+    display: none;
+  }
+  .main_round__params_block {
+    @extend .main_production__params_block;
+    display: grid;
+    .main_production__params_cost_block {
+      .main_production__params_text {
+        height: 152px;
+        p {
+          &:nth-child(2):not(:only-child),
+          &:last-child:not(:only-child) {
+            display: block;
+          }
+        }  
+      }
+    }
+    .main_production__params_nav_block {
+      .main_production__params_nav_changes {
+        display: block;
       }
     }
   }

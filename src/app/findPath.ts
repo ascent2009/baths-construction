@@ -46,6 +46,12 @@ export const findPath = () => {
     case "gorky2":
       newPath[1] = "СНТ Горки-2";
       break;
+    case "basins":
+      newPath[1] = "Купели и фурако";
+      break;
+    case "extra_catalogue":
+      newPath[1] = "Еще из каталога";
+      break;
   }
 
   switch (newPath[2]) {
@@ -55,7 +61,10 @@ export const findPath = () => {
     case "carcass_lira":
       newPath[2] = "Мобильная баня Лира";
       break;
+    case "roundbasin":
+      newPath[2] = "Купель круглая";
+      break;
   }
 
-  return newPath.join(" / ");
+  return newPath.join(" / ").trim();
 };

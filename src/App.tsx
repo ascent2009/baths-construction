@@ -14,6 +14,7 @@ import Catalogue from "./components/Catalogue";
 import ClassicBarrel from "./components/Catalogue/ClassicBarrel";
 import PeakBarrel from "./components/Catalogue/PeakBarrel";
 import CarcassLira from "./components/Catalogue/CarcassLira";
+import ExtraCatalogue from "./components/Catalogue/ExtraCatalogue";
 import Blog from "./components/Blog";
 import KnowHow from "./components/Blog/KnowHow";
 import Information from "./components/Information";
@@ -22,13 +23,14 @@ import Vacancies from "./components/Information/Vacancies";
 import Questions from "./components/Information/Questions";
 import Contacts from "./components/Information/Contacts";
 import SuccessfulOrder from "./components/SuccessfulOrder";
+import Basins from "./components/Basins";
+import RoundBasin from "./components/Basins/RoundBasin";
 import Projects from "./components/Projects";
 import Gorky2 from "./components/Projects/Gorky2";
 import { AppContext } from "./context";
 import { LocationContext } from "./context";
 import { appValues } from "./context";
 import { defaultValues } from "./context";
-
 
 const routes = {
   "/": () => <Main />,
@@ -40,6 +42,9 @@ const routes = {
   "/catalogue/classic_barrel": () => <ClassicBarrel />,
   "/catalogue/classic_barrel/peak_barrel": () => <PeakBarrel />,
   "/catalogue/carcass_baths/carcass_lira": () => <CarcassLira />,
+  "/catalogue/basins": () => <Basins />,
+  "/catalogue/basins/roundbasin": () => <RoundBasin />,
+  "/catalogue/extra_catalogue": () => <ExtraCatalogue />,
   "/blog": () => <Blog />,
   "/blog/knowhow": () => <KnowHow />,
   "/information": () => <Information />,
@@ -92,6 +97,16 @@ const App: React.FC = () => {
   const [faqImages, setFaqImages] = useState(appValues.faqImages);
   const [projectImages, setProjectImages] = useState(appValues.projectImages);
   const [gorkyImages, setGorkyImages] = useState(appValues.gorkyImages);
+  const [basinImages, setBasinImages] = useState(appValues.basinImages);
+  const [roundBasinImages, setRoundBasinImages] = useState(
+    appValues.roundBasinImages
+  );
+  const [layoutRoundImages, setLayoutRoundImages] = useState(
+    appValues.layoutRoundImages
+  );
+  const [roundPriceImages, setRoundPriceImages] = useState(
+    appValues.roundPriceImages
+  );
 
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
@@ -229,6 +244,30 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setGorkyImages([...gorkyImages, ...obj]);
     });
+    const dbBasins = fetchFirebase(db, `basins`);
+    onValue(dbBasins, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setBasinImages([...basinImages, ...obj]);
+    });
+    const dbRound = fetchFirebase(db, `round-basin`);
+    onValue(dbRound, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setRoundBasinImages([...roundBasinImages, ...obj]);
+    });
+    const dbRoundLayout = fetchFirebase(db, `layout-round-options`);
+    onValue(dbRoundLayout, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setLayoutRoundImages([...layoutRoundImages, ...obj]);
+    });
+    const dbRoundPrice = fetchFirebase(db, `round-price`);
+    onValue(dbRoundPrice, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setRoundPriceImages([...roundPriceImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -263,7 +302,11 @@ const App: React.FC = () => {
         workshopImages,
         faqImages,
         projectImages,
-        gorkyImages
+        gorkyImages,
+        basinImages,
+        roundBasinImages,
+        layoutRoundImages,
+        roundPriceImages,
       }}
     >
       <LocationContext.Provider

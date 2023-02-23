@@ -1,0 +1,57 @@
+@import "../../../vars";
+
+a {
+  text-decoration: none;
+}
+
+.main {
+  width: 1340px;
+  margin: auto;
+  font-family: $font;
+  font-style: $fontStyle;
+  position: relative;
+
+  &_top__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #828282;
+    margin: 15px auto 8px 90px;
+    a {
+      font-size: 16px;
+      line-height: 19px;
+      text-decoration-line: underline;
+      color: #da5c3e;
+    }
+  }
+  &_round__price {
+    margin: 0 90px 126px;
+    &_title {
+      margin: 0 0 63px 0;
+      width: 560px;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 45px;
+      color: #333333;
+    }
+    &_images {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 140px;
+      row-gap: 80px;
+      &_item {
+        p {
+          width: 459px;
+          margin: 44px 0 0 0;
+          font-size: 16px;
+          line-height: 23px;
+          color: #4F4F4F;
+        }
+      }
+    }
+  }
+}

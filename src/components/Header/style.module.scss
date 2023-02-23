@@ -423,6 +423,13 @@ button {
     position: relative;
     z-index: 1;
   }
+  .header_main__basins {
+    @extend .header_main;
+    height: 716px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("https://firebasestorage.googleapis.com/v0/b/baths-construction.appspot.com/o/basins%2Fbasins-background.png?alt=media&token=f691dbe2-679b-4315-a695-3416e8a255fe")
+        no-repeat;
+  }
   .header_main__menu_dropdown {
     position: absolute;
     left: 203px;
