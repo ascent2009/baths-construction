@@ -68,7 +68,7 @@ const Pagination: React.FC<IPagination> = ({ images, imagesClassName, pagination
       <ul className={s[`${imagesClassName}`]}>
         {currentItemsPage.map(({ date, chapter, title, url, description, id }) => {
           return (
-            <li className={s.main_blog__images_item} key={title ? title : id}>
+            <li className={s.main_blog__images_item} key={id}>
               <div className={s.main_blog__image}>
                 <img src={url} alt={title ? title : url} />
               </div>

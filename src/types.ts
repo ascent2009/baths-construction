@@ -71,6 +71,7 @@ export type ListBlogKnowHowType =
       title: string;
       url: string;
       description: string;
+      subtitle: string;
     }[];
 
 export type ListInfoType =

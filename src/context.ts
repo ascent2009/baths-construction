@@ -45,7 +45,11 @@ interface IApp {
   basinImages: ListExtraOptionsImageType;
   roundBasinImages: ListAboutImagesType;
   layoutRoundImages: ListLayoutType;
-  roundPriceImages: ListCarcassParamsImageType
+  roundPriceImages: ListCarcassParamsImageType;
+  extraCatalogueImages: ListInfoType;
+  extraSelectionImages: ListImageType;
+  extraBlogImages: ListBlogKnowHowType;
+  extraGalleryImages: ListAboutImagesType
 }
 
 export const defaultValues: ILocation = {
@@ -78,7 +82,11 @@ export const appValues: IApp = {
   basinImages: [],
   roundBasinImages: [],
   layoutRoundImages: [],
-  roundPriceImages: []
+  roundPriceImages: [],
+  extraCatalogueImages: [],
+  extraSelectionImages: [],
+  extraBlogImages: [],
+  extraGalleryImages: []
 };
 
 export const LocationContext = React.createContext(defaultValues);

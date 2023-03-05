@@ -107,6 +107,18 @@ const App: React.FC = () => {
   const [roundPriceImages, setRoundPriceImages] = useState(
     appValues.roundPriceImages
   );
+  const [extraCatalogueImages, setExtraCatalogueImages] = useState(
+    appValues.extraCatalogueImages
+  );
+  const [extraSelectionImages, setExtraSelectionImages] = useState(
+    appValues.extraSelectionImages
+  );
+  const [extraBlogImages, setExtraBlogImages] = useState(
+    appValues.extraBlogImages
+  );
+  const [extraGalleryImages, setExtraGalleryImages] = useState(
+    appValues.extraGalleryImages
+  );
 
   const [location, setLocation] = useState(defaultValues.location);
   const [modal, setModal] = useState(defaultValues.modal);
@@ -268,6 +280,30 @@ const App: React.FC = () => {
       const obj = Object.keys(snap).map((sn) => snap[sn]);
       setRoundPriceImages([...roundPriceImages, ...obj]);
     });
+    const dbExtraBarrel = fetchFirebase(db, `extra-catalogue`);
+    onValue(dbExtraBarrel, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setExtraCatalogueImages([...extraCatalogueImages, ...obj]);
+    });
+    const dbExtraSelection = fetchFirebase(db, `extra-catalogue-selection`);
+    onValue(dbExtraSelection, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setExtraSelectionImages([...extraSelectionImages, ...obj]);
+    });
+    const dbExtraBlog = fetchFirebase(db, `extra-blog`);
+    onValue(dbExtraBlog, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setExtraBlogImages([...extraBlogImages, ...obj]);
+    });
+    const dbExtraGallery = fetchFirebase(db, `extra-gallery`);
+    onValue(dbExtraGallery, (snapshot) => {
+      const snap = snapshot.val();
+      const obj = Object.keys(snap).map((sn) => snap[sn]);
+      setExtraGalleryImages([...extraGalleryImages, ...obj]);
+    });
   }, []);
 
   const showModal = (e: any, name: string) => {
@@ -307,6 +343,10 @@ const App: React.FC = () => {
         roundBasinImages,
         layoutRoundImages,
         roundPriceImages,
+        extraCatalogueImages,
+        extraSelectionImages,
+        extraBlogImages,
+        extraGalleryImages
       }}
     >
       <LocationContext.Provider
