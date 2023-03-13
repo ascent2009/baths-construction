@@ -1,57 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import s from "./style.module.scss";
 import HeaderMain from "../Header/HeaderMain";
 import Location from "../Main/Location";
 import Pagination from "../Pagination";
 import Invitation from "../Catalogue/Invitation";
 import Menu from "../Menu";
-import Button from "../Button";
 import { A } from "hookrouter";
 import { AppContext } from "../../context";
 import { SVGCollection } from "../Pages/EnglishVersionPage";
-import PaginationArrowSvg from "../../assets/arrow-pagination.svg";
 import { findPath } from "../../app/findPath";
 
 const BlogPage: React.FC = () => {
   const { blogImages } = useContext(AppContext);
-  // const repeatedImages = new Array(16).fill(blogImages).flat();
-
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [itemsPerPage, setItemsPerPage] = useState(12);
-  // const [disabledButton, setDisabledButton] = useState(false);
-
-  // const lastItemIndex = currentPage * itemsPerPage;
-  // const firstItemIndex = lastItemIndex - itemsPerPage;
-  // const currentItemsPage = repeatedImages.slice(firstItemIndex, lastItemIndex);
-  // console.log("currentItemsPage: ", currentItemsPage);
-
-  // const pageNumbers: number[] = [];
-  // for (let i = 1; i <= repeatedImages.length / itemsPerPage; i++) {
-  //   pageNumbers.push(i);
-  // }
-
-  // const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-  // const prevPage = () => {
-  //   if (currentPage !== 1) {
-  //     setCurrentPage((prev) => prev - 1);
-  //     setDisabledButton(false);
-  //   } else {
-  //     setDisabledButton(true);
-  //   }
-  // };
-  // const nextPage = () => {
-  //   if (currentPage !== pageNumbers.length) {
-  //     setCurrentPage((prev) => prev + 1);
-  //     setDisabledButton(false);
-  //   } else {
-  //     setDisabledButton(true);
-  //   }
-  // };
-
-  // const loadMore = () => {
-  //   if (currentPage <= pageNumbers.length) setItemsPerPage((prev) => prev + 3);
-  // };
 
   return (
     <>
@@ -65,15 +25,11 @@ const BlogPage: React.FC = () => {
       />
       <section className={s.main}>
         <div className={s.main_top__link}>Главная / {findPath()} /</div>
-
-        {/* <Blog /> */}
         <article className={s.main_blog}>
           <div className={s.main_blog__title_block}>
             <h2 className={s.main_blog__title}>Наш блог</h2>
-            {/* <A href="/blog">Смотреть все записи</A> */}
           </div>
           <Menu className={s.main_blog__menu}>
-            {/* <h4>Быстрая навигация:</h4> */}
             <A href="/blog">Все разделы</A>
             <A href="/blog/knowhow">Наши будни</A>
             <A href="/blog/knowhow">Полезные статьи</A>
@@ -84,66 +40,6 @@ const BlogPage: React.FC = () => {
             <A href="">О наболевшем</A>
             <A href="">Наши новости</A>
           </Menu>
-          {/* <ul className={s.main_blog__images}>
-            {currentItemsPage.map(({ date, chapter, title, url }) => {
-              return (
-                <li className={s.main_blog__images_item} key={title}>
-                  <div className={s.main_blog__image}>
-                    <img src={url} alt={title} />
-                  </div>
-                  <div className={s.main_blog__images_item_text}>
-                    <p>{date}</p>
-                    <p>{chapter}</p>
-                  </div>
-
-                  <h3 className={s.main_blog__images_item_title}>{title}</h3>
-                </li>
-              );
-            })}
-          </ul> */}
-          {/* <Button
-            onClick={loadMore}
-            className="main_blog__pagination_button_loadmore"
-            title="Загрузить ещё"
-          />
-
-          <div className={s.main_blog__pagination}>
-            <Button
-              onClick={prevPage}
-              className={
-                disabledButton
-                  ? "main_blog__pagination_button_disabled"
-                  : "main_blog__pagination_button"
-              }
-            >
-              <img src={PaginationArrowSvg} alt="arrow-prev" />
-            </Button>
-            <ul className={s.main_blog__pagination_list}>
-              {pageNumbers.map((number) => (
-                <li
-                  key={number}
-                  onClick={() => paginate(number)}
-                  className={
-                    currentPage === number
-                      ? s.main_blog__pagination_list_item_active
-                      : s.main_blog__pagination_list_item
-                  }
-                >
-                  <A href="">{number}</A>
-                </li>
-              ))}
-            </ul>
-            <Button
-              onClick={nextPage}
-              className={
-                disabledButton
-                  ? "main_blog__pagination_button_disabled"
-                  : "main_blog__pagination_button"
-              }
-            >
-              <img src={PaginationArrowSvg} alt="arrow-next" />
-            </Button>
-          </div> */}
           <Pagination
             images={blogImages}
             imagesClassName="main_blog__images"

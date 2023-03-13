@@ -32,7 +32,6 @@ a {
     column-gap: 160px;
     position: relative;
     &::before {
-      // display: none;
       position: absolute;
       left: -90px;
       top: 1.5%;
@@ -58,17 +57,6 @@ a {
             line-height: 45px;
             margin: 0 0 26px 0;
             color: #333333;
-            // position: relative;
-            // &::before {
-            //   // display: none;
-            //   position: absolute;
-            //   left: -90px;
-            //   top: 50%;
-            //   content: "";
-            //   width: 63px;
-            //   height: 3px;
-            //   background: #da5c3e;
-            // }
           }
           .main_knowhow__images_item_date_link {
             font-size: 16px;

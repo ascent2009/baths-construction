@@ -3,7 +3,13 @@ import s from "../style.module.scss";
 import { A } from "hookrouter";
 import { IHeaderMain } from "../HeaderMain";
 
-const HeaderChangedContent: React.FC<IHeaderMain> = ({ display, title, subtitle, text1, text2 }) => {
+const HeaderChangedContent: React.FC<IHeaderMain> = ({
+  display,
+  title,
+  subtitle,
+  text1,
+  text2,
+}) => {
   return (
     <div style={display}>
       <div className={s.header_main__title_block}>
@@ -15,22 +21,11 @@ const HeaderChangedContent: React.FC<IHeaderMain> = ({ display, title, subtitle,
         >
           {title}
         </h1>
-        <h3>
-          {subtitle}
-          {/* Реальные цены <b>от 142 200 руб.</b> - под ключ, заходи и парься! */}
-        </h3>
+        <h3>{subtitle}</h3>
       </div>
       <div className={s.header_main__adv_block}>
-        <p>
-          {/* <b>Новинка!</b> Принимаем заказы на бани-бочки из сибирского кедра и
-          лиственницы, цены уточняйте */}
-          {text1}
-        </p>
-        <p>
-          {/* Сроки изготовления до 24 дней. Проведем экскурсию на производстве в
-          поселке Сосново в день обращения */}
-          {text2}
-        </p>
+        <p>{text1}</p>
+        <p>{text2}</p>
         <p>Приозерский район, работаем без выходных!</p>
       </div>
       <div className={s.header_main__button_block}>

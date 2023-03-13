@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import s from "./style.module.scss";
 import { A } from "hookrouter";
 import HeaderMain from "../../Header/HeaderMain";
-// import Location from "../../Main/Location";
 import Examples from "../../Main/Examples";
-import { AppContext } from "../../../context";
 import { SVGCollection } from "../../Pages/EnglishVersionPage";
 import LocationPng from "../../../assets/location-wide.png";
 import { findPath } from "../../../app/findPath";

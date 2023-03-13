@@ -1,30 +1,19 @@
 import React, { useState, useContext } from "react";
 import s from "./style.module.scss";
-// import { ListFeaturesType, ListAboutImagesType } from "../../../types";
 import { A, navigate } from "hookrouter";
 import Modal from "../../Modal";
 import { Overlay } from "../../Overlay";
 import PaperPlaneSvg from "../../../assets/paper-plane.svg";
 import CloseSvg from "../../../assets/close.svg";
 import { AppContext } from "../../../context";
-import { LocationContext } from "../../../context";
 
 export interface IAbout {
   className: string;
 }
 
 const About: React.FC<IAbout> = ({ className }) =>
-  //   {
-  //   prodFeatures,
-  //   aboutImages,
-  //   // showModal,
-  //   // closeModal,
-  //   // modal,
-  //   // setModal,
-  // }
   {
-    // const [modal, setModal] = useState<boolean>(!false);
-    const { modal, closeModal, showModal } = useContext(LocationContext);
+    const [modal, setModal] = useState<boolean>(!false);
     const [input, setInput] = useState<{ name: string; phone: string }>({
       name: "",
       phone: "",
@@ -32,13 +21,13 @@ const About: React.FC<IAbout> = ({ className }) =>
 
     const { prodFeatures, aboutImages } = useContext(AppContext);
 
-    // const showModal = () => {
-    //   setModal(!modal);
-    // };
+    const showAboutModal = () => {
+      setModal(!modal);
+    };
 
-    // const closeModal = () => {
-    //   setModal(!modal);
-    // };
+    const closeModal = () => {
+      setModal(!modal);
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -65,11 +54,9 @@ const About: React.FC<IAbout> = ({ className }) =>
         alert(
           `${data}! Ваши контакты получены, ожидайте звонка нашего сотрудника`
         );
-        navigate("/success")
+        navigate("/success");
       }
       setInput({ name: "", phone: "" });
-      navigate("/order_page");
-      // closeModal();
     };
 
     return (
@@ -117,7 +104,7 @@ const About: React.FC<IAbout> = ({ className }) =>
               </h4>
               <button
                 type="button"
-                onClick={(e) => (showModal ? showModal(e, "modalAbout") : null)}
+                onClick={showAboutModal}
                 className={s.main_about__details_text}
                 id="modalAbout"
               >
@@ -152,7 +139,6 @@ const About: React.FC<IAbout> = ({ className }) =>
                     обязывает.
                   </p>
                   <form
-                    // method="POST" action=""
                     onSubmit={(e) => handleSubmit(e)}
                     className={s.main_modal__about_form}
                   >
@@ -162,7 +148,6 @@ const About: React.FC<IAbout> = ({ className }) =>
                       name="name"
                       className={s.main_modal__about_input}
                       onChange={handleChange}
-                      // value={input.name}
                     />
                     <input
                       type="tel"
@@ -170,13 +155,13 @@ const About: React.FC<IAbout> = ({ className }) =>
                       name="phone"
                       className={s.main_modal__about_input}
                       onChange={handleChange}
-                      // value={input.phone}
                     />
                     <div className={s.main_modal__about_button_block}>
                       <button
                         type="submit"
                         className={s.main_modal__about_submit}
                         disabled={!input.phone.length ? true : false}
+                        onSubmit={(e) => handleSubmit(e)}
                       >
                         <img src={PaperPlaneSvg} alt="paper plane" />
                         Отправить

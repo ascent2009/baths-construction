@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import s from "./style.module.scss";
 import { A } from "hookrouter";
-import { AppContext } from "../../../context";
 import { ListLayoutType } from "../../../types";
 
 interface ILayoutOptions {
@@ -10,8 +9,7 @@ interface ILayoutOptions {
 }
 
 const LayoutOptions: React.FC<ILayoutOptions> = ({ images, className }) => {
-  // const { layoutImages } = useContext(AppContext);
-
+  
   return (
     <article className={s[`${className}`]}>
       <h2 className={s.main_layout__title}>Варианты планировок</h2>

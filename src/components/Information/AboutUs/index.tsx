@@ -14,7 +14,6 @@ import { findPath } from "../../../app/findPath";
 
 const AboutUs: React.FC = () => {
   const { aboutImages, workshopImages } = useContext(AppContext);
-  //   const sortedImages = infoImages.sort((a, b) => a.id - b.id);
 
   return (
     <>
@@ -100,10 +99,7 @@ const AboutUs: React.FC = () => {
             </div>
           </div>
         </article>
-        <Slider
-          // title="В базовую стоимость каждой бани Лира входит"
-          className="main_slider__notext"
-        />
+        <Slider className="main_slider__notext" />
         <article className={s.main_unique}>
           <h2 className={s.main_unique__title}>Сделаем вашу баню уникальной</h2>
           <p className={s.main_unique__suggest}>

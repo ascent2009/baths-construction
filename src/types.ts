@@ -6,7 +6,6 @@ export type ListImageType =
       price: string;
       description: string;
       novelty: string;
-      // link: string;
     }[];
 
 export type ListFeaturesType =

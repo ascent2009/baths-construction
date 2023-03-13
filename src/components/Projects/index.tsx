@@ -5,7 +5,6 @@ import Location from "../Main/Location";
 import { A } from "hookrouter";
 import { AppContext } from "../../context";
 import { SVGCollection } from "../Pages/EnglishVersionPage";
-import PaginationArrowSvg from "../../assets/arrow-pagination.svg";
 import Button from "../Button";
 import Modal from "../Modal";
 import Menu from "../Menu";

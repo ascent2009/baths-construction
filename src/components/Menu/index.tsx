@@ -1,7 +1,6 @@
 import React from "react";
 
 interface IMenu {
-  // children?: Element | string | JSX.Element[];
   children: any;
   className: string;
 }

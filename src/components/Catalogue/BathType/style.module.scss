@@ -133,12 +133,6 @@
     margin: 61px 180px 71px 90px;
     color: #4f4f4f;
     position: relative;
-    // &::before {
-    //   position: absolute;
-    //   content: url("../../../assets/spruce.png");
-    //   top: -21%;
-    //   right: 0;
-    // }
     .main_production__params_cost_block {
       display: flex;
       flex-direction: column;
@@ -376,7 +370,7 @@
           &:last-child:not(:only-child) {
             display: block;
           }
-        }  
+        }
       }
     }
     .main_production__params_nav_block {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import s from "./style.module.scss";
 import Button from "../../Button";
 import Menu from "../../Menu";
@@ -18,7 +18,6 @@ const BathType: React.FC<IBathType> = ({
   images,
   className,
 }) => {
-  //   const { peakBarrelImages } = useContext(AppContext);
   return (
     <article className={s[`${className}`]}>
       <h2 className={s.main_production__title}>{title}</h2>
@@ -139,10 +138,13 @@ const BathType: React.FC<IBathType> = ({
           </div> */}
           <div className={s.main_production__params_text}>
             <p>
-            Стоимость доставки по Ленинградской области рассчитывается отдельно. Доставим собственными силами в собранном виде и установим по месту в течении 1 - 2 часов.
+              Стоимость доставки по Ленинградской области рассчитывается
+              отдельно. Доставим собственными силами в собранном виде и
+              установим по месту в течении 1 - 2 часов.
             </p>
             <p>
-            Так же есть услуга сборки у Вас на участке - привезем в разобранном виде и соберем по месту.
+              Так же есть услуга сборки у Вас на участке - привезем в
+              разобранном виде и соберем по месту.
             </p>
             <p>Стоимость сборки на участке 15% от стоимости купели.</p>
           </div>
@@ -155,7 +157,7 @@ const BathType: React.FC<IBathType> = ({
             технологии.
           </p> */}
         </div>
-        <div className={s.main_production__params_nav_block} >
+        <div className={s.main_production__params_nav_block}>
           <div className={s.main_production__params_nav_button}>
             <Button
               title="Оформить заказ"

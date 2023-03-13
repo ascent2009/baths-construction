@@ -1,11 +1,9 @@
 import React from "react";
 import s from "./style.module.scss";
-// import { AppContext } from "../../../context";
 import { ListExampleImagesType } from "../../../types";
 
 interface IIntroduction {
   images: ListExampleImagesType;
-  // carcassImages: ListExampleImagesType;
   title: string;
   className: string;
 }
@@ -15,7 +13,6 @@ const Introduction: React.FC<IIntroduction> = ({
   title,
   className,
 }) => {
-  //   const { barrelImages } = useContext(AppContext);
   const sortedImages = images.sort((a, b) => a.id - b.id);
   return (
     <article className={s.main_introduction__block}>

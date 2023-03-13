@@ -1,27 +1,11 @@
 import React, { useContext, useRef, useEffect, useState } from "react";
 import s from "./style.module.scss";
-// import { ListAboutImagesType } from "../../../types";
 import Modal from "../../Modal";
 import { Overlay } from "../../Overlay";
 import CloseSvg from "../../../assets/close.svg";
 import { LocationContext } from "../../../context";
 
-// interface ILocation {
-//   location: ListAboutImagesType;
-//   showModal: () => void;
-//   closeModal: () => void;
-//   modal: boolean;
-//   setModal?: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
 const Location: React.FC = () =>
-  // {
-  // location,
-  // showModal,
-  // closeModal,
-  // modal,
-  // // setModal,
-  // }
   {
     const { location, showModal, closeModal, modal } =
       useContext(LocationContext);

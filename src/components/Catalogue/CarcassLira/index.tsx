@@ -21,22 +21,30 @@ const CarcassLira: React.FC = () => {
   const sortedImages = sections.sort((a, b) => a.id - b.id);
 
   function splitText(str: string) {
-    // let createLink = str.replace('доп. опции', `<A href="#">доп. опции</A>`)
     let splittedString = str.split(".");
     let length = splittedString.length;
     let newArr, slicedOne, slicedTwo, slicedThree;
     if (length === 8) {
       slicedOne = splittedString.slice(0, 2).join(".");
-      slicedTwo = splittedString.slice(2).join(".").replace('Tikkurila.', "Tikkurila");
+      slicedTwo = splittedString
+        .slice(2)
+        .join(".")
+        .replace("Tikkurila.", "Tikkurila");
       newArr = [slicedOne, slicedTwo];
     } else if (length === 5) {
       slicedOne = splittedString.slice(0, 1).join(".");
-      slicedTwo = splittedString.slice(1).join(".").replace('доп. опции.', 'доп. опции');
+      slicedTwo = splittedString
+        .slice(1)
+        .join(".")
+        .replace("доп. опции.", "доп. опции");
       newArr = [slicedOne, slicedTwo];
     } else {
       slicedOne = splittedString.slice(0, 2).join(".");
       slicedTwo = splittedString.slice(2, length - 2).join(".");
-      slicedThree = splittedString.slice(-2).join(".").replace('1900 мм.', "1900 мм");;
+      slicedThree = splittedString
+        .slice(-2)
+        .join(".")
+        .replace("1900 мм.", "1900 мм");
       newArr = [slicedOne, slicedTwo, slicedThree];
     }
 
@@ -44,9 +52,22 @@ const CarcassLira: React.FC = () => {
   }
 
   function insertLink(str: string) {
-    let replaced = <A style={{textDecoration: "underline", color: "#4F4F4F", fontSize: "16px",
-    lineHeight: "22px"}} href="#">доп. опции</A>;
-    return str.includes('доп. опции') ? str.replace('доп. опции.', `${replaced}`) : str;
+    let replaced = (
+      <A
+        style={{
+          textDecoration: "underline",
+          color: "#4F4F4F",
+          fontSize: "16px",
+          lineHeight: "22px",
+        }}
+        href="#"
+      >
+        доп. опции
+      </A>
+    );
+    return str.includes("доп. опции")
+      ? str.replace("доп. опции.", `${replaced}`)
+      : str;
   }
 
   return (
@@ -67,7 +88,7 @@ const CarcassLira: React.FC = () => {
           images={liraCarcassImages}
           className="main_lira"
         />
-        <LayoutOptions images={layoutImages} className="main_layout"/>
+        <LayoutOptions images={layoutImages} className="main_layout" />
         <Slider
           title="В базовую стоимость каждой бани Лира входит"
           className="main_slider__lira"
@@ -77,9 +98,9 @@ const CarcassLira: React.FC = () => {
             Бани Лира - утепленные и держат тепло до двух суток!
           </h2>
           <ul className={s.main_technology__list}>
-            {sortedImages.map(({ id, title, url, description }) => {
+            {sortedImages.map(({ id, title, url, description }, index) => {
               return (
-                <li className={s.main_technology__list_item} key={id}>
+                <li className={s.main_technology__list_item} key={index}>
                   <img src={url} alt={title} />
                   <div className={s.main_technology__list_item_text_block}>
                     <h4 className={s.main_technology__list_item_title}>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import s from "./style.module.scss";
 import PaginationArrowSvg from "../../assets/arrow-pagination.svg";
 import { A } from "hookrouter";
@@ -12,7 +12,12 @@ interface IPagination {
   loadmoreClassName?: string;
 }
 
-const Pagination: React.FC<IPagination> = ({ images, imagesClassName, paginationClassName, loadmoreClassName }) => {
+const Pagination: React.FC<IPagination> = ({
+  images,
+  imagesClassName,
+  paginationClassName,
+  loadmoreClassName,
+}) => {
   const repeatedImages = new Array(16).fill(images).flat();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
@@ -21,7 +26,6 @@ const Pagination: React.FC<IPagination> = ({ images, imagesClassName, pagination
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
   const currentItemsPage = repeatedImages.slice(firstItemIndex, lastItemIndex);
-  // console.log("currentItemsPage: ", currentItemsPage);
 
   const pageNumbers: number[] = [];
   for (let i = 1; i <= repeatedImages.length / itemsPerPage; i++) {
@@ -39,7 +43,7 @@ const Pagination: React.FC<IPagination> = ({ images, imagesClassName, pagination
   };
   const nextPage = () => {
     if (currentPage !== pageNumbers.length) {
-            setCurrentPage((prev) => prev + 1);
+      setCurrentPage((prev) => prev + 1);
       setDisabledButton(false);
       const pageNumbers: number[] = [];
       for (let i = 1; i <= repeatedImages.length / itemsPerPage; i++) {
@@ -66,22 +70,24 @@ const Pagination: React.FC<IPagination> = ({ images, imagesClassName, pagination
   return (
     <>
       <ul className={s[`${imagesClassName}`]}>
-        {currentItemsPage.map(({ date, chapter, title, url, description, id }) => {
-          return (
-            <li className={s.main_blog__images_item} key={id}>
-              <div className={s.main_blog__image}>
-                <img src={url} alt={title ? title : url} />
-              </div>
-              <div className={s.main_blog__images_item_text}>
-                <p>{date ? date : ""}</p>
-                <p>{chapter ? chapter : ""}</p>
-                <p>{description ? description : ""}</p>
-              </div>
+        {currentItemsPage.map(
+          ({ date, chapter, title, url, description, id }, index) => {
+            return (
+              <li className={s.main_blog__images_item} key={index}>
+                <div className={s.main_blog__image}>
+                  <img src={url} alt={title ? title : url} />
+                </div>
+                <div className={s.main_blog__images_item_text}>
+                  <p>{date ? date : ""}</p>
+                  <p>{chapter ? chapter : ""}</p>
+                  <p>{description ? description : ""}</p>
+                </div>
 
-              <h3 className={s.main_blog__images_item_title}>{title}</h3>
-            </li>
-          );
-        })}
+                <h3 className={s.main_blog__images_item_title}>{title}</h3>
+              </li>
+            );
+          }
+        )}
       </ul>
       <Button
         onClick={loadMore}

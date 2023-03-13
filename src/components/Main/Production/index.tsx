@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import s from "./style.module.scss";
-// import { ListImageType } from "../../../types";
 import { AppContext } from "../../../context";
 
 interface IProduction {

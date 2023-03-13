@@ -6,8 +6,6 @@
   margin-top: -950px;
   font-family: $font;
   font-style: $fontStyle;
-  //   position: relative;
-  //   z-index: 1;
   &_success {
     margin: 0 auto 81px 90px;
     h2 {
@@ -113,7 +111,6 @@
           grid-column-end: 4;
           grid-row-start: 3;
           grid-row-end: 4;
-          // display: none;
         }
       }
     }

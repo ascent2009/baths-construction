@@ -8,7 +8,6 @@ a {
 .main {
   width: 1340px;
   margin: auto;
-  // font-family: $font;
   font-family: "Montserrat", sans-serif;
   font-style: $fontStyle;
 
@@ -59,20 +58,13 @@ a {
         &:last-child:not(:only-child) {
           grid-column-start: 2;
           grid-column-end: 4;
-          // grid-row-start: 2;
-          // grid-row-end: 4;
-          // display: none;
           a {
-            // &:last-child:not(:only-child) {
             left: 5%;
-            // }
           }
         }
         &:nth-child(3):not(:only-child) {
           a {
-            // &:nth-child(3):not(:only-child) {
             background: #ff5416;
-            // }
           }
         }
       }
@@ -111,7 +103,6 @@ a {
   }
   &_extra__selection {
     margin: 0 90px 98px;
-    // position: relative;
     &_images {
       margin: 0;
       padding: 0 0 83px 0;
@@ -214,12 +205,6 @@ a {
           &::after {
             content: url("../../../assets/arrow-selection-black.svg");
           }
-          // &::before {
-          //   position: absolute;
-          //   content: url("../../../assets/close.svg");
-          //   top: 0;
-          //   right: 0;
-          // }
         }
         label,
         select {
@@ -235,7 +220,6 @@ a {
           outline: none;
           position: relative;
           background-color: transparent;
-          // position: relative;
           &:hover {
             color: #333333;
           }
@@ -476,11 +460,7 @@ a {
       list-style: none;
       display: flex;
       justify-content: center;
-      // display: grid;
-      // grid-template-columns: repeat(3, auto);
-      // column-gap: 40px;
       &_item {
-        // opacity: 0.3;
         display: none;
         transition: opacity ease-in-out 0.4s;
         object-fit: cover;
@@ -503,7 +483,6 @@ a {
             width: fit-content;
           }
           a {
-            // appearance: none;
             margin: 0;
             font-weight: 400;
             font-size: 10px;
@@ -521,19 +500,16 @@ a {
           line-height: 17px;
           text-decoration-line: underline;
           color: #000000;
-          // width: 295px;
         }
         p {
           margin: 0;
           font-size: 12px;
           line-height: 15px;
           color: #333333;
-          // width: 295px;
         }
       }
       &_item_active {
         @extend .main_extra__blog_images_item;
-        // opacity: 1;
         display: block;
       }
     }

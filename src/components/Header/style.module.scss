@@ -1,9 +1,4 @@
-// @font-face {
-//   font-family: "Futura New";
-//   src: url(/src/fonts/FuturaNewBook-Reg.ttf);
-// }
 @import "../../vars";
-// $font: "Futura New";
 
 a,
 button {
@@ -147,7 +142,6 @@ button {
         border: none;
         outline: none;
         line-height: 0;
-        // font-family: $font;
         font-style: normal;
         font-weight: 400;
         font-size: 17px;
@@ -163,7 +157,6 @@ button {
     justify-content: flex-start;
     @media screen and (max-width: $mobileSize) {
       width: inherit;
-      // margin: auto;
       height: 100px;
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
         url("../../assets/header-background-mobile.png") no-repeat;
@@ -180,7 +173,6 @@ button {
       margin: auto 90px auto 91px;
       padding-top: 43px;
       @media screen and (max-width: $mobileSize) {
-        // min-width: 310px;
         width: 87vw;
         margin: auto;
         padding: 0;
@@ -234,10 +226,7 @@ button {
         .header_main__dropdown_mobile_menu {
           position: relative;
           margin: 56px 60px 102px 60px;
-          // border-bottom: 1px dashed white;
           font-weight: 400;
-          // color: #ffffff;
-
           &::after {
             position: absolute;
             content: "";
@@ -257,7 +246,6 @@ button {
             }
             h4 {
               margin: 0;
-              // font-weight: 400;
               font-size: 24px;
               line-height: 29px;
               margin: 27px 0 27px 0;
@@ -312,7 +300,6 @@ button {
           display: none;
         }
         a {
-          // .header_main__menu_item {
           font-weight: 400;
           line-height: 19px;
           color: #f4e9bf;
@@ -375,7 +362,6 @@ button {
       padding-bottom: 43px;
       background: none;
       .header_main__menu {
-        // .header_main__menu_item,
         a,
         button {
           color: #333333;
@@ -451,7 +437,6 @@ button {
       color: #333333;
       text-decoration: none;
       margin: 15px 54px 15px 0px;
-      // margin-left: 37px;
       &:first-child:not(:only-child) {
         padding-left: 54px;
       }

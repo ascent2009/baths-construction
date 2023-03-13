@@ -44,7 +44,6 @@
         grid-column-end: 4;
         grid-row-start: 3;
         grid-row-end: 4;
-        // display: none;
       }
     }
   }
@@ -147,9 +146,6 @@
 .main_examples__light_theme {
   @extend .main_examples;
   background: none;
-  // &::after {
-  //   display: none;
-  // }
   .main_examples__title {
     color: #333333;
     position: relative;

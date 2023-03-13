@@ -346,11 +346,16 @@ const App: React.FC = () => {
         extraCatalogueImages,
         extraSelectionImages,
         extraBlogImages,
-        extraGalleryImages
+        extraGalleryImages,
       }}
     >
       <LocationContext.Provider
-        value={{ location, showModal, closeModal, modal }}
+        value={{
+          location,
+          showModal,
+          closeModal,
+          modal,
+        }}
       >
         <Layout>{routeResult || <NotFound />}</Layout>
       </LocationContext.Provider>

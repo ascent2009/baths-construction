@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import s from "./style.module.scss";
 import { A } from "hookrouter";
-import LogoSvg from "../../assets/logo.svg";
-import CallSvg from "../../assets/call.svg";
-import ArrowSvg from "../../assets/dropdown-arrow.svg";
 import HeaderMain from "../Header/HeaderMain";
 import About from "../Main/About";
 import Blog from "../Main/Blog";
@@ -13,11 +10,6 @@ import { findPath } from "../../app/findPath";
 import { AppContext } from "../../context";
 import { SVGCollection } from "../Main";
 
-// export const SVGCollection = {
-//   lightLogo: LogoSvg,
-//   phoneIcon: CallSvg,
-//   arrowIcon: ArrowSvg,
-// };
 const Basins: React.FC = () => {
   const { basinImages } = useContext(AppContext);
   const sortedImages = basinImages.sort((a, b) => a.id - b.id);
@@ -26,9 +18,6 @@ const Basins: React.FC = () => {
       <HeaderMain
         title={"Купели и фурако из лиственницы для дома и улицы"}
         subtitle={"Собственное производство - под ключ, с приступком!"}
-        // text1={
-        //   "Новинка! Принимаем заказы на бани-бочки из сибирского кедра и лиственницы, цены уточняйте"
-        // }
         text2={
           "Сроки изготовления до 14 дней. Проведем экскурсию на производстве в поселке Сосново в день обращения"
         }
@@ -58,13 +47,12 @@ const Basins: React.FC = () => {
           </ul>
         </article>
         <About className="main_about__barrel" />
-        <Blog
-        //  blogImages={blogImages}
-        />
+        <Blog />
         <Examples className="main_examples__half_dark_theme" />
         <Location />
       </section>
     </>
   );
 };
+
 export default Basins;

@@ -5,7 +5,6 @@ interface IButton {
   children?: HTMLElement | JSX.Element | string;
   title?: string;
   className?: string;
-  // onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 

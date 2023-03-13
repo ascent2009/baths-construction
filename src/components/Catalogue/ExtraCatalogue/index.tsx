@@ -21,8 +21,8 @@ const ExtraCatalogue = () => {
     extraGalleryImages,
   } = useContext(AppContext);
   const repeatedImages = new Array(3).fill(extraSelectionImages).flat();
-  
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [currentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(9);
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
@@ -50,7 +50,7 @@ const ExtraCatalogue = () => {
       setSlideIndex(extraBlogImages.length);
     }
   };
-  
+
   const [input, setInput] = useState<{ email: string }>({
     email: "",
   });
@@ -61,7 +61,7 @@ const ExtraCatalogue = () => {
         ...input,
         [name]: value,
       });
-  return;
+    return;
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,18 +71,12 @@ const ExtraCatalogue = () => {
       body: JSON.stringify({ input }),
       headers: { "Content-Type": "application/json" },
     });
-    // console.log(response.status)
     if (response.status === 200) {
       let data = await response.json();
-      // console.log("data: ", data);
-      alert(
-        `${data}! Ваши данные получены!`
-      );
-      navigate("/success")
+      alert(`${data}! Ваши данные получены!`);
+      navigate("/success");
     }
-    setInput({ email: ""});
-    // navigate("/order_page");
-    // closeModal();
+    setInput({ email: "" });
   };
 
   return (
@@ -134,52 +128,32 @@ const ExtraCatalogue = () => {
         <article className={s.main_extra__selection}>
           <ul className={s.main_extra__selection_menu}>
             <li className={s.main_extra__selection_menu_item}>
-              <label
-              // forHTML="style"
-              >
-                Стиль:
-              </label>
+              <label>Стиль:</label>
               <select name="style" id="style" defaultValue="Все">
                 <option value="all">Все</option>
               </select>
             </li>
             <li className={s.main_extra__selection_menu_item}>
-              <label
-              // forHTML="options"
-              >
-                Варианты:
-              </label>
+              <label>Варианты:</label>
               <select name="options" id="options" defaultValue="Все">
                 <option value="all">Все</option>
               </select>
             </li>
             <li className={s.main_extra__selection_menu_item}>
-              <label
-              // forHTML="square"
-              >
-                Жил. площадь:
-              </label>
+              <label>Жил. площадь:</label>
               <select name="square" id="square" defaultValue="Все">
                 <option value="all">Все</option>
               </select>
             </li>
             <li className={s.main_extra__selection_menu_item}>
-              <label
-              // forHTML="size"
-              >
-                Размер:
-              </label>
+              <label>Размер:</label>
               <select name="size" id="size" defaultValue="от 20 до 60 м²">
                 <option value="blank">Выберите...</option>
                 <option value="20-60">от 20 до 60 м²</option>
               </select>
             </li>
             <li className={s.main_extra__selection_menu_item}>
-              <label
-              // forHTML="stories"
-              >
-                Этажность:
-              </label>
+              <label>Этажность:</label>
               <select name="stories" id="stories" defaultValue="Все">
                 <option value="all">Все</option>
               </select>
@@ -278,7 +252,7 @@ const ExtraCatalogue = () => {
               ({ url, date, subtitle, link, title, description }, index) => (
                 <li
                   key={subtitle}
-                  /*className={s.main_extra__blog_images_item}*/ className={
+                  className={
                     slideIndex === index + 1
                       ? s.main_extra__blog_images_item_active
                       : s.main_extra__blog_images_item
@@ -339,8 +313,15 @@ const ExtraCatalogue = () => {
             электронной почте.
           </h3>
           <div className={s.main_extra__subscribe_input}>
-            <input type="email" name="email" placeholder="Ваш e-mail..." onChange={handleChange} />
-            <button type="submit" onClick={handleSubmit}><img src={InputBtnSvg} alt="submit" /></button>
+            <input
+              type="email"
+              name="email"
+              placeholder="Ваш e-mail..."
+              onChange={handleChange}
+            />
+            <button type="submit" onClick={handleSubmit}>
+              <img src={InputBtnSvg} alt="submit" />
+            </button>
           </div>
         </article>
       </section>

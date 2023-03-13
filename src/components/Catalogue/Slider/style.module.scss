@@ -53,7 +53,6 @@
     margin: 75px 7px 49px 90px;
     list-style-type: decimal-leading-zero;
     list-style-position: inside;
-    // margin: 0;
     padding: 0;
     &:last-child:not(:only-child) {
       display: flex;
@@ -89,9 +88,6 @@
 
 .main_slider__notext {
   @extend .main_slider;
-  // .main_slider__title {
-  //   margin-bottom: 0;
-  // }
   .main__slider_orderedlist {
     display: none;
     &:last-child:not(:only-child) {

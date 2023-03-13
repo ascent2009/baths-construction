@@ -1,6 +1,5 @@
 .main_invitation__block {
   margin: 0 0 69px 0;
-  //   background: #333333;
   background: #fff9e2;
   height: 238px;
   display: flex;
@@ -12,7 +11,6 @@
     font-size: 21px;
     line-height: 25px;
     width: 360px;
-    // color: #f2f2f2;
     color: #333333;
   }
   .main_invitation__button_block {
@@ -32,7 +30,6 @@
       position: relative;
       font-size: 18px;
       line-height: 22px;
-      //   color: #fff9e2;
       color: #da5c3e;
       &::before {
         position: absolute;
@@ -43,24 +40,6 @@
       &:hover {
         text-decoration: underline;
       }
-      //   &:first-child:not(:only-child) {
-      //     padding: 23px 48px 23px 78px;
-      //     color: #fff9e2;
-      //     background: #da5c3e;
-      //     border-radius: 10px;
-      //     box-shadow: 0 5px #b44d35;
-      //     &::before {
-      //       content: url("../../../assets/checkmark.svg");
-      //       left: 15%;
-      //       top: 37%;
-      //     }
-      //     &:hover {
-      //       text-decoration: none;
-      //     }
-      //     &:active {
-      //       transform: translateY(2px);
-      //     }
-      //   }
     }
   }
 }
@@ -80,13 +59,6 @@
       &::before {
         content: url("../../../assets/saw.svg");
       }
-      //   &:first-child:not(:only-child) {
-      //     &::before {
-      //       content: url("../../../assets/telephone-red.svg");
-      //       left: 0;
-      //       top: 37%;
-      //     }
-      //   }
     }
   }
 }

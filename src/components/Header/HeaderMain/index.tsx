@@ -3,10 +3,8 @@ import s from "../style.module.scss";
 import Dropdown from "../../Dropdown/index";
 import HeaderChangedContent from "../HeaderChangedContent";
 import { A } from "hookrouter";
-// import LogoSvg from "../../../assets/logo.svg";
 import FireSvg from "../../../assets/fire.svg";
 import Menu from "../../Menu/index";
-// import ArrowSvg from "../../../assets/dropdown-arrow.svg";
 import SandwichSvg from "../../../assets/sandwich-mobile.svg";
 import EmailWhiteSvg from "../../../assets/email-white.svg";
 import WhatsappWhiteSvg from "../../../assets/whatsapp-white.svg";
@@ -42,11 +40,12 @@ const HeaderMain: React.FC<IHeaderMain> = ({
   const [aboutDropdown, setAboutDropdown] = useState<boolean>(!false);
   const [catalogueDropdown, setCatalogueDropdown] = useState<boolean>(!false);
   const [mobileDropdown, setMobileDropdown] = useState<boolean>(!false);
-  const [email] = useState<string>("info@novobani.ru");
-
-  const showDropdown = () => {
-    setDropdown(!dropdown);
-    console.log("dropdown: ", dropdown);
+  const aStyle = {
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "16px",
+    lineHeight: "19px",
+    color: "#333333",
   };
 
   const showAboutDropdown = () => {
@@ -78,8 +77,6 @@ const HeaderMain: React.FC<IHeaderMain> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-
-  // const menuBlock = "header_main__menu_block";
 
   return (
     <header className={s.header}>
@@ -208,10 +205,6 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             <A className={s.header_main__menu_item} href="/">
               Главная
             </A>
-            {/* <A href="/catalogue">
-              Каталог
-              <img src={arrowIcon} alt="arrow" />
-            </A> */}
             <button type="button" onClick={showCatalogueDropdown}>
               Каталог
               <img
@@ -234,16 +227,16 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             </A>
             {!aboutDropdown ? (
               <Dropdown className={s.header_main__menu_dropdown}>
-                <A id="dropdown" href={"/information/about"}>
+                <A id="dropdown" href={"/information/about"} style={aStyle}>
                   О нас
                 </A>
-                <A id="dropdown" href="/information/faq">
+                <A id="dropdown" href="/information/faq" style={aStyle}>
                   Вопросы и ответы
                 </A>
-                <A id="dropdown" href="/information/vacancies">
+                <A id="dropdown" href="/information/vacancies" style={aStyle}>
                   Вакансии
                 </A>
-                <A id="dropdown" href={"/information/contacts"}>
+                <A id="dropdown" href={"/information/contacts"} style={aStyle}>
                   Контакты
                 </A>
               </Dropdown>
@@ -252,19 +245,27 @@ const HeaderMain: React.FC<IHeaderMain> = ({
             )}
             {!catalogueDropdown ? (
               <Dropdown className={s.header_main__menu_dropdown_catalogue}>
-                <A id="dropdown" href={"/catalogue/classic_barrel"}>
+                <A
+                  id="dropdown"
+                  href={"/catalogue/classic_barrel"}
+                  style={aStyle}
+                >
                   Классические бани-бочки
                 </A>
-                <A id="dropdown" href="#">
+                <A id="dropdown" href="#" style={aStyle}>
                   Квадро бани-бочки
                 </A>
-                <A id="dropdown" href="#">
+                <A id="dropdown" href="#" style={aStyle}>
                   Овальные бани-бочки
                 </A>
-                <A id="dropdown" href={"/catalogue/carcass_baths/carcass_lira"}>
+                <A
+                  id="dropdown"
+                  href={"/catalogue/carcass_baths/carcass_lira"}
+                  style={aStyle}
+                >
                   Каркасные бани серия Лира
                 </A>
-                <A id="dropdown" href={"#"}>
+                <A id="dropdown" href={"#"} style={aStyle}>
                   Каркасные бани серия Флора
                 </A>
               </Dropdown>
@@ -286,29 +287,6 @@ const HeaderMain: React.FC<IHeaderMain> = ({
           text1={text1}
           text2={text2}
         />
-        {/* <div className={s.header_main__title_block}>
-          <h1>Производим мобильные бани на заказ</h1>
-          <h3>
-            Реальные цены <b>от 142 200 руб.</b> - под ключ, заходи и парься!
-          </h3>
-        </div>
-        <div className={s.header_main__adv_block}>
-          <p>
-            <b>Новинка!</b> Принимаем заказы на бани-бочки из сибирского кедра и
-            лиственницы, цены уточняйте
-          </p>
-          <p>
-            Сроки изготовления до 24 дней. Проведем экскурсию на производстве в
-            поселке Сосново в день обращения
-          </p>
-          <p>Приозерский район, работаем без выходных!</p>
-        </div>
-        <div className={s.header_main__button_block}>
-          <A href={"tel: +7(812)467-90-60"} target="_blank">
-            Получить консультацию
-          </A>
-          <A href="/production">Посетить производство</A>
-        </div> */}
       </section>
     </header>
   );

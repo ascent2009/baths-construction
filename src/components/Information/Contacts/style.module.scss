@@ -39,7 +39,6 @@
       &_left {
         display: flex;
         flex-wrap: wrap;
-        // justify-content: space-between;
         width: 460px;
         height: fit-content;
         &_phone {
@@ -155,13 +154,13 @@
         p {
           font-size: 16px;
           line-height: 19px;
-          color: #4F4F4F;
+          color: #4f4f4f;
           margin: 0 0 30px 0;
           &:last-child:not(:only-child) {
             margin: 0;
             font-size: 16px;
             line-height: 19px;
-            color: #DA5C3E;
+            color: #da5c3e;
             span {
               text-decoration-line: underline;
             }

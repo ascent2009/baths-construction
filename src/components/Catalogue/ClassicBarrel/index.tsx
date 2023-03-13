@@ -8,9 +8,7 @@ import OtherBaths from "../OtherBaths";
 import Blog from "../../Main/Blog";
 import { A } from "hookrouter";
 import { findPath } from "../../../app/findPath";
-// import { randomImages } from "../../../app/randomImages";
 import { AppContext } from "../../../context";
-// import { ListImageType } from "../../../types";
 
 const ClassicBarrel: React.FC = () => {
   const { classicBarrelImages } = useContext(AppContext);
@@ -31,9 +29,9 @@ const ClassicBarrel: React.FC = () => {
         <article className={s.main_classic}>
           <h2 className={s.main_production__title}>Классические бани-бочки</h2>
           <ul className={s.main_production__image_block}>
-            {repeatedImages.map(({ id, title, url, description, price }) => {
+            {repeatedImages.map(({ id, title, url, description, price }, index) => {
               return (
-                <li key={title}>
+                <li key={index}>
                   <div className={s.main_production__image}>
                     <img src={url} alt={title} />
                   </div>

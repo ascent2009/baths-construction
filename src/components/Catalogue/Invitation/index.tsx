@@ -9,7 +9,7 @@ interface IInvitation {
   link: string;
   buttonTitle: string;
   buttonClass: string;
-  mb?: string
+  mb?: string;
 }
 
 const Invitation: React.FC<IInvitation> = ({
@@ -18,18 +18,12 @@ const Invitation: React.FC<IInvitation> = ({
   link,
   buttonTitle,
   buttonClass,
-  mb
+  mb,
 }) => {
   return (
-    <div
-      className={s[`${className}`]}
-      style={{marginBottom: mb}}
-    >
+    <div className={s[`${className}`]} style={{ marginBottom: mb }}>
       <h4 className={s.main_invitation__title}>{title}</h4>
       <div className={s.main_invitation__button_block}>
-        {/* <A href={"tel: +7(812)467-90-60"} target="_blank">
-          Оформить заказ
-        </A> */}
         <Button title={buttonTitle} className={buttonClass} />
         <A href="/production">{link}</A>
       </div>

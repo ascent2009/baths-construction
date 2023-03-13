@@ -30,10 +30,7 @@
   @extend .button_red__theme;
   width: 247px;
   &::before {
-    // position: absolute;
     content: url("../../assets/checkmark.svg");
-    // left: 15%;
-    // top: 35%;
   }
 }
 
@@ -96,7 +93,6 @@
   padding-left: 43px;
   margin-top: 8px;
   &::before {
-    // position: absolute;
     content: url("../../assets/saw.svg");
     left: 33px;
     top: 27%;
@@ -105,23 +101,22 @@
 
 .main_location__map_button {
   position: absolute;
-      background: transparent;
-      border: none;
-      outline: none;
-      left: 606px;
-      top: 294px;
-      cursor: pointer;
-      &:nth-child(2):not(:only-child) {
-        left: 34%;
-        top: 46%;
-      }
-      &:nth-child(3):not(:only-child) {
-        bottom: -10%;
-        left: 767px;
-      }
-      &:last-child:not(:only-child) {
-        left: 680px;
-        top: 50%;
-      }
-
+  background: transparent;
+  border: none;
+  outline: none;
+  left: 606px;
+  top: 294px;
+  cursor: pointer;
+  &:nth-child(2):not(:only-child) {
+    left: 34%;
+    top: 46%;
+  }
+  &:nth-child(3):not(:only-child) {
+    bottom: -10%;
+    left: 767px;
+  }
+  &:last-child:not(:only-child) {
+    left: 680px;
+    top: 50%;
+  }
 }

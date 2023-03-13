@@ -5,7 +5,6 @@ import Location from "../../Main/Location";
 import Blog from "../../Main/Blog";
 import Invitation from "../../Catalogue/Invitation";
 import Menu from "../../Menu";
-// import Button from "../../Button";
 import { A } from "hookrouter";
 import { AppContext } from "../../../context";
 import { SVGCollection } from "../../Pages/EnglishVersionPage";
@@ -31,34 +30,37 @@ const KnowHow: React.FC = () => {
         <div className={s.main_top__link}>Главная / {findPath()} /</div>
         <article className={s.main_knowhow}>
           <ul className={s.main_knowhow__images}>
-            {sortedImages.map(({ title, date, link, url, description }) => (
-              <li key={title} className={s.main_knowhow__images_item}>
-                <A href="">
-                  <h2 className={s.main_knowhow__images_item_title}>{title}</h2>
-                  {date ? (
-                    <div className={s.main_knowhow__images_item_date_link}>
-                      {date} / <span>{link}</span>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {description ? (
-                    <div className={s.main_knowhow__images_item_text}>
-                      {description.split(".").map((d) => (
-                        <p style={{ margin: "0" }}>{d}</p>
-                      ))}
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {url ? <img src={url} alt={title} /> : ""}
-                </A>
-              </li>
-            ))}
+            {sortedImages.map(
+              ({ title, date, link, url, description }, index) => (
+                <li key={index} className={s.main_knowhow__images_item}>
+                  <A href="">
+                    <h2 className={s.main_knowhow__images_item_title}>
+                      {title}
+                    </h2>
+                    {date ? (
+                      <div className={s.main_knowhow__images_item_date_link}>
+                        {date} / <span>{link}</span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {description ? (
+                      <div className={s.main_knowhow__images_item_text}>
+                        {description.split(".").map((d) => (
+                          <p style={{ margin: "0" }}>{d}</p>
+                        ))}
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {url ? <img src={url} alt={title} /> : ""}
+                  </A>
+                </li>
+              )
+            )}
           </ul>
 
           <Menu className={s.main_knowhow__menu}>
-            {/* <h4>Быстрая навигация:</h4> */}
             <A href="/blog">Наш Блог</A>
             <A href="/blog/knowhow">Наши будни</A>
             <A href="/blog/knowhow">Полезные статьи</A>
@@ -78,7 +80,6 @@ const KnowHow: React.FC = () => {
           className="main_invitation__block_dark_theme"
           buttonTitle="Обсудить строительство"
           buttonClass="button_red__theme"
-          //   mb="0"
         />
         <Blog />
         <Location />

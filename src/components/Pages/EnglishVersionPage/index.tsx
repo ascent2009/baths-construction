@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./style.module.scss";
-import { A } from "hookrouter";
 import HeaderMain from "../../Header/HeaderMain";
 import DarkLogo from "../../../assets/logo-dark.svg";
 import PhoneRed from "../../../assets/telephone-red.svg";
